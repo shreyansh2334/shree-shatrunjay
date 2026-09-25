@@ -14,10 +14,6 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #f7f7f7;
@@ -29,20 +25,18 @@
             background: #111;
             color: white;
             text-align: center;
-            padding: 28px 15px;
+            padding: 25px 15px;
         }
 
         .logo {
-            width: 130px;
-            max-width: 45%;
+            width: 120px;
+            max-width: 40%;
             height: auto;
-            display: block;
-            margin: 0 auto 12px;
+            margin-bottom: 10px;
         }
 
         header h1 {
             font-size: 32px;
-            letter-spacing: 1px;
             margin-bottom: 5px;
         }
 
@@ -54,10 +48,7 @@
         nav {
             background: #222;
             text-align: center;
-            padding: 13px 10px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 12px;
         }
 
         nav a {
@@ -65,7 +56,6 @@
             text-decoration: none;
             margin: 0 12px;
             font-size: 15px;
-            font-weight: 600;
         }
 
         nav a:hover {
@@ -75,109 +65,81 @@
         section {
             max-width: 1100px;
             margin: auto;
-            padding: 55px 20px;
+            padding: 50px 20px;
         }
 
         h2 {
             text-align: center;
             margin-bottom: 25px;
-            font-size: 29px;
+            font-size: 28px;
             color: #111;
         }
 
         .hero {
             background: white;
             text-align: center;
-            padding: 70px 20px;
+            padding: 60px 20px;
         }
 
         .hero h2 {
             font-size: 36px;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            max-width: 800px;
+            max-width: 750px;
             margin: auto;
             font-size: 18px;
             color: #555;
         }
 
-        .about-text {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            color: #444;
-            font-size: 17px;
-        }
-
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 22px;
+            gap: 20px;
         }
 
         .service {
             background: white;
-            padding: 28px 22px;
+            padding: 25px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
         }
 
         .service h3 {
             margin-bottom: 10px;
-            font-size: 20px;
-        }
-
-        .service p {
-            color: #555;
-            font-size: 15px;
         }
 
         .catalog {
             background: #111;
             color: white;
             text-align: center;
-            max-width: none;
         }
 
         .catalog h2 {
             color: white;
         }
 
-        .catalog p {
-            color: #ddd;
-        }
-
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 13px 26px;
-            border-radius: 7px;
+            margin-top: 15px;
+            padding: 12px 24px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
             background: #d4af37;
             color: #111;
-            transition: 0.2s;
         }
 
         .btn:hover {
             opacity: 0.85;
-            transform: translateY(-1px);
         }
 
         .whatsapp-btn {
             background: #25D366;
             color: white;
-            margin-right: 8px;
-        }
-
-        .instagram-btn {
-            background: #111;
-            color: white;
-            border: 1px solid #ddd;
-            margin-left: 8px;
+            margin-right: 10px;
         }
 
         .contact {
@@ -186,21 +148,12 @@
         }
 
         .contact p {
-            margin: 9px 0;
-            color: #444;
+            margin: 8px 0;
         }
 
-        .contact strong {
-            color: #111;
-        }
-
-        .contact a:not(.btn) {
+        .contact a {
             color: #111;
             font-weight: bold;
-        }
-
-        .contact-buttons {
-            margin-top: 10px;
         }
 
         footer {
@@ -211,54 +164,22 @@
             font-size: 14px;
         }
 
-        footer p {
-            margin: 4px 0;
-        }
-
         @media (max-width: 600px) {
-
             header h1 {
-                font-size: 26px;
-            }
-
-            header p {
-                font-size: 14px;
-            }
-
-            .logo {
-                width: 110px;
-            }
-
-            nav {
-                position: static;
-            }
-
-            nav a {
-                display: inline-block;
-                margin: 5px 7px;
-                font-size: 14px;
-            }
-
-            .hero {
-                padding: 55px 18px;
+                font-size: 25px;
             }
 
             .hero h2 {
                 font-size: 28px;
             }
 
-            .hero p {
-                font-size: 16px;
+            nav a {
+                display: inline-block;
+                margin: 5px 7px;
             }
 
-            section {
-                padding: 45px 18px;
-            }
-
-            .contact-buttons .btn {
-                display: block;
-                margin: 12px auto;
-                max-width: 280px;
+            .whatsapp-btn {
+                margin-right: 0;
             }
         }
     </style>
@@ -268,16 +189,11 @@
 
     <!-- HEADER -->
     <header>
-        <img
-            src="logo.png"
-            alt="Shree Shatrunjay Logo"
-            class="logo"
-        >
+        <img src="logo.png" alt="Shree Shatrunjay Logo" class="logo">
 
         <h1>SHREE SHATRUNJAY</h1>
         <p>CAR RENTAL SERVICES</p>
     </header>
-
 
     <!-- NAVIGATION -->
     <nav>
@@ -287,41 +203,31 @@
         <a href="#contact">Contact Us</a>
     </nav>
 
-
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
-
         <h2>Reliable • Comfortable • Professional Travel Solutions</h2>
 
         <p>
-            Shree Shatrunjay is a trusted car rental and travel service
-            provider committed to offering comfortable, reliable and
-            professional transportation solutions for every journey.
+            Shree Shatrunjay is a trusted car rental and travel service provider
+            offering comfortable, reliable and professional transportation
+            solutions for local, outstation, corporate and pilgrimage travel.
         </p>
-
     </section>
 
-
-    <!-- ABOUT US -->
+    <!-- ABOUT -->
     <section id="about">
-
         <h2>About Us</h2>
 
-        <p class="about-text">
-            Shree Shatrunjay provides dependable car rental and travel
-            services for individuals, families, businesses and organizations.
-            With a focus on comfort, punctuality and professional service,
-            we offer reliable transportation solutions for local travel,
-            airport transfers, pilgrimage journeys, outstation trips and
-            corporate requirements.
+        <p>
+            Shree Shatrunjay provides dependable car rental services with a
+            focus on comfort, punctuality and professional service. We offer
+            vehicles and travel solutions for individuals, families,
+            businesses and organizations.
         </p>
-
     </section>
-
 
     <!-- SERVICES -->
     <section id="services">
-
         <h2>Our Services</h2>
 
         <div class="services">
@@ -337,8 +243,7 @@
             <div class="service">
                 <h3>Airport Transfer</h3>
                 <p>
-                    Convenient and timely airport pickup and drop services
-                    for a smooth journey.
+                    Convenient and timely airport pickup and drop services.
                 </p>
             </div>
 
@@ -353,8 +258,7 @@
             <div class="service">
                 <h3>Outstation Trips</h3>
                 <p>
-                    Reliable cars for intercity and long-distance travel,
-                    whether for business or leisure.
+                    Reliable cars for intercity and long-distance travel.
                 </p>
             </div>
 
@@ -362,7 +266,7 @@
                 <h3>Corporate Travel</h3>
                 <p>
                     Professional transportation solutions for companies,
-                    offices and business travel requirements.
+                    offices and business travel.
                 </p>
             </div>
 
@@ -370,23 +274,19 @@
                 <h3>Customized Packages</h3>
                 <p>
                     Flexible travel packages designed according to your
-                    specific travel requirements.
+                    requirements.
                 </p>
             </div>
 
         </div>
-
     </section>
-
 
     <!-- CATALOG -->
     <section id="catalog" class="catalog">
-
         <h2>Our Catalog</h2>
 
         <p>
-            Explore our complete Shree Shatrunjay car rental and travel
-            services catalog.
+            Explore our complete car rental and travel services catalog.
         </p>
 
         <a
@@ -395,27 +295,17 @@
             class="btn">
             View Our Catalog
         </a>
-
     </section>
 
-
-    <!-- CONTACT US -->
+    <!-- CONTACT -->
     <section id="contact" class="contact">
 
         <h2>Contact Us</h2>
 
-        <p>
-            <strong>Shree Shatrunjay</strong>
-        </p>
+        <p><strong>Shree Shatrunjay</strong></p>
 
         <p>
-            Car Rental Services
-        </p>
-
-        <p>
-            📞 <strong>9406649446</strong>
-            &nbsp; | &nbsp;
-            <strong>9827077300</strong>
+            📞 9406649446 &nbsp; | &nbsp; 9827077300
         </p>
 
         <p>
@@ -427,42 +317,19 @@
             </a>
         </p>
 
-        <div class="contact-buttons">
-
-            <a
-                href="https://wa.me/919406649446"
-                target="_blank"
-                class="btn whatsapp-btn">
-                Contact us on WhatsApp
-            </a>
-
-            <a
-                href="https://www.instagram.com/shreeshatrunjay_indore/"
-                target="_blank"
-                class="btn instagram-btn">
-                Visit us on Instagram
-            </a>
-
-        </div>
+        <!-- WHATSAPP CONTACT BUTTON -->
+        <a
+            href="https://wa.me/919406649446"
+            target="_blank"
+            class="btn whatsapp-btn">
+            💬 Contact us on WhatsApp
+        </a>
 
     </section>
 
-
     <!-- FOOTER -->
     <footer>
-
-        <p>
-            <strong>SHREE SHATRUNJAY</strong>
-        </p>
-
-        <p>
-            Car Rental Services
-        </p>
-
-        <p>
-            © 2026 Shree Shatrunjay. All Rights Reserved.
-        </p>
-
+        © 2026 Shree Shatrunjay. All Rights Reserved.
     </footer>
 
 </body>
