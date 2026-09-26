@@ -683,57 +683,158 @@ img{
 
 /* ================= REVIEWS ================= */
 
-<section id="reviews" style="padding:60px 20px; text-align:center;">
-  <div style="max-width:1000px; margin:auto;">
+<!-- ================= REVIEWS ================= -->
 
-    <h2 style="margin-bottom:10px;">Customer Reviews</h2>
+<section class="section reviews-section" id="reviews">
 
-    <p style="margin-bottom:30px;">
-      We value the trust and feedback of our customers.
-    </p>
+    <div class="section-inner">
 
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+        <div class="section-heading">
 
-      <div style="max-width:300px; padding:25px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.12);">
-        <div style="font-size:22px;">★★★★★</div>
-        <p>Excellent service, comfortable cars and a smooth travel experience.</p>
-        <strong>Shree Shatrunjay Customer</strong>
-      </div>
+            <div class="small-title">
+                CUSTOMER REVIEWS
+            </div>
 
-      <div style="max-width:300px; padding:25px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.12);">
-        <div style="font-size:22px;">★★★★★</div>
-        <p>Professional service and very comfortable journey. Highly satisfied.</p>
-        <strong>Shree Shatrunjay Customer</strong>
-      </div>
+            <h2>
+                REVIEW US ⭐
+            </h2>
 
-      <div style="max-width:300px; padding:25px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.12);">
-        <div style="font-size:22px;">★★★★★</div>
-        <p>Reliable car rental service with a great overall experience.</p>
-        <strong>Shree Shatrunjay Customer</strong>
-      </div>
+            <p>
+                Share your experience with Shree Shatrunjay.
+            </p>
+
+        </div>
+
+
+        <div class="review-box">
+
+            <form
+                class="review-form"
+                id="reviewForm">
+
+
+                <div class="review-group">
+
+                    <label for="reviewName">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reviewName"
+                        required
+                        maxlength="80"
+                        placeholder="Enter your name">
+
+                </div>
+
+
+                <div class="review-group">
+
+                    <div class="star-label">
+                        Rating
+                    </div>
+
+                    <div class="star-rating">
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            id="star5"
+                            value="5"
+                            required>
+
+                        <label for="star5">★</label>
+
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            id="star4"
+                            value="4">
+
+                        <label for="star4">★</label>
+
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            id="star3"
+                            value="3">
+
+                        <label for="star3">★</label>
+
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            id="star2"
+                            value="2">
+
+                        <label for="star2">★</label>
+
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            id="star1"
+                            value="1">
+
+                        <label for="star1">★</label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-group full">
+
+                    <label for="reviewExperience">
+                        Your Experience
+                    </label>
+
+                    <textarea
+                        id="reviewExperience"
+                        required
+                        maxlength="1000"
+                        placeholder="Write about your experience..."></textarea>
+
+                </div>
+
+
+                <div class="review-submit">
+
+                    <button type="submit">
+
+                        SUBMIT REVIEW →
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                class="review-message"
+                id="reviewMessage">
+            </div>
+
+        </div>
+
+
+        <div
+            class="review-list"
+            id="reviewList">
+
+            <p style="text-align:center;grid-column:1/-1;">
+                Loading reviews...
+            </p>
+
+        </div>
 
     </div>
 
-    <div style="margin-top:35px;">
-      <p style="margin-bottom:15px;">
-        Have you travelled with us? We would love to hear from you.
-      </p>
-
-      <a href="https://g.page/r/CfbCc10RtlHqEBM/review"
-         target="_blank"
-         rel="noopener noreferrer"
-         style="display:inline-block;
-                padding:13px 25px;
-                background:#25D366;
-                color:white;
-                text-decoration:none;
-                border-radius:8px;
-                font-weight:bold;">
-        ⭐ Give Us a Google Review
-      </a>
-    </div>
-
-  </div>
 </section>
 /* ================= CONTACT ================= */
 
