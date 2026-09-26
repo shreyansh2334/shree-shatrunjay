@@ -683,158 +683,189 @@ img{
 
 /* ================= REVIEWS ================= */
 
-<section class="section reviews-section" id="reviews">
+.reviews-section{
+    background:var(--cream);
+}
 
-    <div class="section-inner">
+.review-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    border:1px solid rgba(214,170,74,.28);
+    box-shadow:0 15px 40px rgba(23,38,58,.08);
+}
 
-        <div class="section-heading">
+.review-form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
 
-            <div class="small-title">
-                CUSTOMER REVIEWS
-            </div>
+.review-group{
+    display:flex;
+    flex-direction:column;
+}
 
-            <h2>
- REVIEW US ⭐
-            </h2>
+.review-group.full{
+    grid-column:1/-1;
+}
 
-            <p>
-                Share your experience with Shree Shatrunjay.
-            </p>
+.review-group label{
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+    color:var(--navy);
+}
 
-        </div>
+.review-group input,
+.review-group textarea{
+    border:1px solid #ddd5c7;
+    background:#faf8f3;
+    border-radius:8px;
+    padding:13px;
+    font-family:'Montserrat',sans-serif;
+    outline:none;
+    color:var(--navy);
+    transition:.2s ease;
+}
 
+.review-group input:focus,
+.review-group textarea:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(214,170,74,.10);
+    background:#fffdf9;
+}
 
-        <div class="review-box">
+.review-group textarea{
+    min-height:120px;
+    resize:vertical;
+}
 
-            <form
-                class="review-form"
-                id="reviewForm">
+.star-label{
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+    color:var(--navy);
+}
 
+.star-rating{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+    gap:4px;
+    align-items:center;
+}
 
-                <div class="review-group">
+.star-rating input{
+    display:none;
+}
 
-                    <label for="reviewName">
-                        Your Name
-                    </label>
+.star-rating label{
+    font-size:32px;
+    color:#d5d5d5;
+    cursor:pointer;
+    transition:all .18s ease;
+    line-height:1;
+    text-shadow:0 0 0 transparent;
+}
 
-                    <input
-                        type="text"
-                        id="reviewName"
-                        required
-                        maxlength="80"
-                        placeholder="Enter your name">
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label{
+    color:var(--gold);
+    text-shadow:0 2px 8px rgba(214,170,74,.35);
+    transform:scale(1.06);
+}
 
-                </div>
+.review-submit{
+    grid-column:1/-1;
+    text-align:center;
+    margin-top:3px;
+}
 
+.review-submit button{
+    border:none;
+    background:var(--navy);
+    color:white;
+    padding:14px 32px;
+    border-radius:30px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .2s ease;
+    box-shadow:0 8px 20px rgba(23,38,58,.14);
+}
 
-                <div class="review-group">
+.review-submit button:hover{
+    background:var(--gold);
+    color:var(--dark);
+    box-shadow:0 8px 22px rgba(214,170,74,.28);
+    transform:translateY(-1px);
+}
 
-                    <div class="star-label">
-                        Rating
-                    </div>
+.review-message{
+    text-align:center;
+    margin-top:15px;
+    font-size:13px;
+    font-weight:600;
+}
 
-                    <div class="star-rating">
+.review-list{
+    max-width:1000px;
+    margin:45px auto 0;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
 
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="star5"
-                            value="5"
-                            required>
+.review-card{
+    background:white;
+    border-radius:15px;
+    padding:24px;
+    border:1px solid rgba(214,170,74,.22);
+    box-shadow:0 10px 30px rgba(23,38,58,.06);
+    transition:all .2s ease;
+}
 
-                        <label for="star5">★</label>
+.review-card:hover{
+    border-color:rgba(214,170,74,.40);
+    box-shadow:0 14px 35px rgba(23,38,58,.09);
+    transform:translateY(-2px);
+}
 
+.review-card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+}
 
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="star4"
-                            value="4">
+.review-name{
+    font-weight:700;
+    color:var(--navy);
+}
 
-                        <label for="star4">★</label>
+.review-stars{
+    color:var(--gold);
+    font-size:18px;
+    letter-spacing:1px;
+    white-space:nowrap;
+    text-shadow:0 1px 5px rgba(214,170,74,.22);
+}
 
+.review-date{
+    font-size:10px;
+    color:#888;
+    margin-top:3px;
+}
 
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="star3"
-                            value="3">
-
-                        <label for="star3">★</label>
-
-
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="star2"
-                            value="2">
-
-                        <label for="star2">★</label>
-
-
-                        <input
-                            type="radio"
-                            name="rating"
-                            id="star1"
-                            value="1">
-
-                        <label for="star1">★</label>
-
-                    </div>
-
-                </div>
-
-
-                <div class="review-group full">
-
-                    <label for="reviewExperience">
-                        Your Experience
-                    </label>
-
-                    <textarea
-                        id="reviewExperience"
-                        required
-                        maxlength="1000"
-                        placeholder="Write about your experience..."></textarea>
-
-                </div>
-
-
-                <div class="review-submit">
-
-                    <button type="submit">
-
-                        SUBMIT REVIEW →
-
-                    </button>
-
-                </div>
-
-            </form>
-
-
-            <div
-                class="review-message"
-                id="reviewMessage">
-            </div>
-
-        </div>
-
-
-        <div
-            class="review-list"
-            id="reviewList">
-
-            <p style="text-align:center;grid-column:1/-1;">
-                Loading reviews...
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
+.review-text{
+    margin-top:15px;
+    font-size:13px;
+    color:#59616b;
+    line-height:1.7;
+}
 
 /* ================= CONTACT ================= */
 
