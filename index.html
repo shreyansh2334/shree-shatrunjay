@@ -2,16 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shri Shatrunjay Travels | Car Rental Services in Indore</title>
+<title>Shree Shatrunjay | Car Rental Services in Indore</title>
 
-<meta name="description" content="Shri Shatrunjay Travels offers premium car rental services, local city rides, airport transfers, outstation trips, pilgrimage tours, corporate travel and customized travel solutions.">
-
-<meta name="keywords" content="Shri Shatrunjay Travels, Shree Shatrunjay, car rental Indore, car rental services Indore, Innova Crysta rental, Innova Hycross rental, XUV 700 rental, XUV 7XO rental">
-
-<meta name="theme-color" content="#17263a">
+<meta name="description" content="Shree Shatrunjay - Premium car rental services in Indore for local rides, airport transfers, outstation trips, pilgrimage tours, corporate travel and customized travel requirements.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,1226 +15,743 @@
 
 <style>
 
-/* ==============================
-   ORIGINAL COLOUR PALETTE
-   ============================== */
-
-:root {
-    --cream: #f4efe4;
-    --navy: #17263a;
-    --deep-navy: #10263e;
-    --gold: #d6aa4a;
-    --bright-gold: #f7d47c;
-    --light-cream: #f7f1e5;
-    --soft-cream: #eee6d7;
-    --dark: #091522;
-    --white: #ffffff;
+:root{
+    --cream:#f4efe4;
+    --cream-light:#f8f2e5;
+    --cream-dark:#eee6d7;
+    --navy:#17263a;
+    --deep:#10263e;
+    --gold:#d6aa4a;
+    --bright-gold:#f7d47c;
+    --white:#ffffff;
+    --dark:#091522;
 }
 
-/* ==============================
-   BASIC RESET
-   ============================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-html {
-    scroll-behavior: smooth;
+body{
+    background:var(--cream);
+    color:var(--navy);
+    font-family:'Montserrat',sans-serif;
+    line-height:1.6;
 }
 
-body {
-    background: var(--cream);
-    color: var(--navy);
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.6;
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+img{
+    max-width:100%;
+    display:block;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(244,239,228,0.96);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(214,170,74,0.25);
 }
 
-button,
-input,
-select,
-textarea {
-    font-family: inherit;
+.nav-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-/* ==============================
-   NAVIGATION
-   ============================== */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    background: rgba(244, 239, 228, 0.97);
-    border-bottom: 1px solid rgba(214, 170, 74, 0.35);
-
-    backdrop-filter: blur(10px);
+.nav-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: auto;
-
-    min-height: 72px;
-    padding: 10px 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+.nav-logo img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
 }
 
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.nav-logo-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:1px;
 }
 
-.nav-brand img {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.8px;
 }
 
-.nav-brand-text {
-    line-height: 1.05;
+.nav-links a:hover{
+    color:var(--gold);
 }
 
-.nav-brand-text strong {
-    display: block;
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 25px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
+.nav-button{
+    background:var(--navy);
+    color:white;
+    padding:11px 18px;
+    border-radius:30px;
 }
 
-.nav-brand-text span {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
+/* ================= HERO ================= */
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-.nav-links a {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.7px;
-    transition: 0.25s ease;
-}
-
-.nav-links a:hover {
-    color: var(--gold);
-}
-
-.nav-whatsapp {
-    background: var(--gold);
-    color: var(--dark) !important;
-
-    padding: 10px 16px;
-    border-radius: 4px;
-
-    font-weight: 700 !important;
-}
-
-/* ==============================
-   HERO
-   ============================== */
-
-.hero {
-    min-height: 650px;
-
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
+.hero{
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
     background:
-        linear-gradient(
-            rgba(9, 21, 34, 0.48),
-            rgba(9, 21, 34, 0.72)
-        ),
-        url("rajwada.webp") center/cover no-repeat;
+        linear-gradient(rgba(9,21,34,.60),rgba(9,21,34,.70)),
+        url('rajwada.webp') center/cover no-repeat;
 }
 
-.hero-content {
-    width: 100%;
-    max-width: 900px;
-
-    padding: 80px 20px;
-    color: var(--white);
+.hero-content{
+    max-width:900px;
+    padding:60px 25px;
+    color:white;
 }
 
-.hero-logo {
-    width: 125px;
-    height: 125px;
-    object-fit: contain;
-
-    margin: 0 auto 22px;
-
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.35));
+.hero-logo{
+    width:125px;
+    height:125px;
+    object-fit:contain;
+    margin:0 auto 25px;
 }
 
-.hero h1 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(48px, 8vw, 82px);
-    line-height: 0.95;
-
-    letter-spacing: 2px;
-
-    color: var(--bright-gold);
-
-    margin-bottom: 10px;
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:72px;
+    letter-spacing:4px;
+    color:var(--bright-gold);
+    line-height:1;
 }
 
-.hero-subtitle {
-    font-size: clamp(14px, 2vw, 19px);
-
-    font-weight: 600;
-    letter-spacing: 4px;
-
-    color: var(--light-cream);
-
-    margin-bottom: 18px;
+.hero h2{
+    font-size:19px;
+    letter-spacing:4px;
+    margin-top:15px;
+    font-weight:600;
 }
 
-.hero-tagline {
-    font-size: 14px;
-    letter-spacing: 1px;
-
-    max-width: 650px;
-    margin: auto;
-
-    color: var(--light-cream);
+.hero p{
+    margin:22px auto;
+    max-width:650px;
+    font-size:16px;
+    color:#f7f1e5;
 }
 
-/* ==============================
-   HERO CTA
-   ============================== */
-
-.hero-buttons {
-    margin-top: 32px;
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 12px;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:13px;
+    margin-top:30px;
 }
 
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    min-height: 46px;
-
-    padding: 12px 24px;
-
-    border: 1px solid var(--gold);
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    transition: 0.25s ease;
-
-    cursor: pointer;
+.btn{
+    padding:14px 25px;
+    border-radius:30px;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.7px;
+    transition:.3s;
 }
 
-.btn-primary {
-    background: var(--gold);
-    color: var(--dark);
+.btn-gold{
+    background:var(--gold);
+    color:var(--dark);
 }
 
-.btn-primary:hover {
-    background: var(--bright-gold);
+.btn-outline{
+    border:1px solid var(--bright-gold);
+    color:white;
 }
 
-.btn-outline {
-    background: transparent;
-    color: var(--white);
+.btn:hover{
+    transform:translateY(-2px);
 }
 
-.btn-outline:hover {
-    background: var(--gold);
-    color: var(--dark);
+/* ================= QUICK INFO ================= */
+
+.quick-info{
+    background:var(--deep);
+    color:white;
 }
 
-/* ==============================
-   QUICK INFO
-   ============================== */
-
-.quick-info {
-    background: var(--navy);
-    color: var(--light-cream);
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    border-bottom: 1px solid rgba(214,170,74,0.4);
+.quick-inner{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
 }
 
-.quick-item {
-    padding: 18px 12px;
-
-    text-align: center;
-
-    border-right: 1px solid rgba(214,170,74,0.25);
+.quick-box{
+    text-align:center;
+    padding:22px;
+    border-right:1px solid rgba(255,255,255,.12);
 }
 
-.quick-item:last-child {
-    border-right: none;
+.quick-box:last-child{
+    border-right:none;
 }
 
-.quick-item strong {
-    display: block;
-
-    color: var(--bright-gold);
-
-    font-family: "Cormorant Garamond", serif;
-    font-size: 21px;
+.quick-box strong{
+    display:block;
+    color:var(--bright-gold);
+    font-size:18px;
 }
 
-.quick-item span {
-    display: block;
-
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.quick-box span{
+    font-size:12px;
+    opacity:.85;
 }
 
-/* ==============================
-   COMMON SECTION
-   ============================== */
+/* ================= GENERAL SECTIONS ================= */
 
-.section {
-    padding: 75px 20px;
+.section{
+    padding:85px 25px;
 }
 
-.section-inner {
-    max-width: 1200px;
-    margin: auto;
+.section-inner{
+    max-width:1150px;
+    margin:auto;
 }
 
-.section-heading {
-    text-align: center;
-    margin-bottom: 42px;
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
 }
 
-.section-heading .small-title {
-    font-size: 11px;
-
-    letter-spacing: 3px;
-    font-weight: 700;
-
-    color: var(--gold);
-
-    text-transform: uppercase;
-
-    margin-bottom: 7px;
+.small-title{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:8px;
 }
 
-.section-heading h2 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(38px, 5vw, 54px);
-
-    line-height: 1;
-
-    color: var(--navy);
+.section-heading h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    color:var(--navy);
 }
 
-.section-heading p {
-    max-width: 650px;
-
-    margin: 13px auto 0;
-
-    font-size: 13px;
-
-    color: #5d6470;
+.section-heading p{
+    max-width:700px;
+    margin:10px auto 0;
+    font-size:14px;
+    color:#59616b;
 }
 
-/* ==============================
-   BOOK YOUR RIDE
-   ============================== */
+/* ================= BOOKING ================= */
 
-.booking-section {
-    background: var(--light-cream);
+.booking-section{
+    background:var(--cream-light);
 }
 
-.booking-box {
-    max-width: 1050px;
-    margin: auto;
-
-    background: var(--white);
-
-    padding: 32px;
-
-    border: 1px solid rgba(214,170,74,0.35);
-
-    box-shadow: 0 12px 35px rgba(23,38,58,0.08);
+.booking-box{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(23,38,58,.08);
+    border:1px solid rgba(214,170,74,.20);
 }
 
-.booking-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 18px;
+.booking-form{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
-.form-group label {
-    display: block;
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
 
-    margin-bottom: 6px;
+.form-group.full{
+    grid-column:1/-1;
+}
 
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    text-transform: uppercase;
+.form-group label{
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+    color:var(--navy);
 }
 
 .form-group input,
 .form-group select,
-.form-group textarea {
-    width: 100%;
+.form-group textarea{
+    width:100%;
+    border:1px solid #ddd5c7;
+    background:#faf8f3;
+    border-radius:8px;
+    padding:13px;
+    font-family:'Montserrat',sans-serif;
+    outline:none;
+}
 
-    padding: 13px 14px;
-
-    border: 1px solid #d9d1c2;
-
-    background: #fffdf9;
-
-    color: var(--navy);
-
-    outline: none;
-
-    font-size: 13px;
+.form-group textarea{
+    min-height:90px;
+    resize:vertical;
 }
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus {
-    border-color: var(--gold);
+.form-group textarea:focus{
+    border-color:var(--gold);
 }
 
-.form-full {
-    grid-column: 1 / -1;
+.booking-submit{
+    grid-column:1/-1;
+    text-align:center;
+    margin-top:8px;
 }
 
-.form-group textarea {
-    min-height: 90px;
-    resize: vertical;
+.booking-submit button{
+    border:none;
+    cursor:pointer;
+    padding:15px 35px;
+    border-radius:30px;
+    background:var(--navy);
+    color:white;
+    font-weight:700;
+    letter-spacing:.7px;
 }
 
-.booking-submit {
-    grid-column: 1 / -1;
-
-    border: none;
-
-    background: var(--gold);
-    color: var(--dark);
-
-    padding: 15px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
-    cursor: pointer;
-
-    transition: 0.25s ease;
-}
-
-.booking-submit:hover {
-    background: var(--bright-gold);
-}
-
-/* ==============================
-   SERVICES
-   ============================== */
-
-.services-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
-}
-
-.service-card {
-    background: var(--white);
-
-    padding: 28px 24px;
-
-    border-top: 3px solid var(--gold);
-
-    box-shadow: 0 7px 22px rgba(23,38,58,0.06);
-
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow: 0 12px 30px rgba(23,38,58,0.11);
-}
-
-.service-number {
-    color: var(--gold);
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 24px;
-
-    margin-bottom: 8px;
-}
-
-.service-card h3 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 26px;
-
-    margin-bottom: 7px;
-}
-
-.service-card p {
-    font-size: 12px;
-
-    color: #606875;
-}
-
-/* ==============================
-   FLEET
-   ============================== */
-
-.fleet-section {
-    background: var(--deep-navy);
-
-    color: var(--light-cream);
-}
-
-.fleet-section .section-heading h2 {
-    color: var(--light-cream);
-}
-
-.fleet-section .section-heading p {
-    color: #d4d5d6;
-}
-
-/* Premium label */
-
-.fleet-label {
-    text-align: center;
-
-    color: var(--bright-gold);
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-
-    font-weight: 700;
-
-    margin-bottom: 8px;
-
-    text-transform: uppercase;
-}
-
-/* Fleet grid */
-
-.fleet-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
-}
-
-/* Vehicle card */
-
-.vehicle-card {
-    background: var(--white);
-
-    color: var(--navy);
-
-    border: 1px solid rgba(214,170,74,0.25);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.vehicle-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow: 0 15px 30px rgba(0,0,0,0.18);
-}
-
-.vehicle-image {
-    height: 190px;
-
-    background: var(--soft-cream);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.vehicle-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition: transform 0.4s ease;
+.booking-submit button:hover{
+    background:var(--gold);
+    color:var(--dark);
 }
 
-.vehicle-card:hover .vehicle-image img {
-    transform: scale(1.04);
-}
+/* ================= SERVICES ================= */
 
-.vehicle-info {
-    padding: 19px;
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
-
-.vehicle-category {
-    color: var(--gold);
-
-    font-size: 9px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
 
-    margin-bottom: 4px;
+.service-card{
+    background:var(--cream-light);
+    padding:28px 24px;
+    border-radius:14px;
+    border:1px solid rgba(214,170,74,.18);
+    transition:.3s;
 }
 
-.vehicle-info h3 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 28px;
-
-    line-height: 1;
-
-    margin-bottom: 10px;
+.service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(23,38,58,.08);
 }
 
-.vehicle-points {
-    list-style: none;
-
-    margin-bottom: 16px;
+.service-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:27px;
+    margin-bottom:8px;
 }
-
-.vehicle-points li {
-    font-size: 11px;
-
-    color: #59616b;
-
-    margin-bottom: 5px;
 
-    padding-left: 14px;
-
-    position: relative;
+.service-card p{
+    font-size:13px;
+    color:#626872;
 }
-
-.vehicle-points li::before {
-    content: "•";
-
-    position: absolute;
 
-    left: 0;
+/* ================= WHY CHOOSE US ================= */
 
-    color: var(--gold);
-
-    font-weight: 700;
+.why-section{
+    background:var(--deep);
+    color:white;
 }
-
-.vehicle-button {
-    width: 100%;
-
-    display: block;
-
-    text-align: center;
-
-    padding: 11px;
-
-    background: var(--navy);
-
-    color: var(--white);
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 1px;
 
-    transition: 0.25s ease;
+.why-section .section-heading h2{
+    color:white;
 }
 
-.vehicle-button:hover {
-    background: var(--gold);
-
-    color: var(--dark);
+.why-section .section-heading p{
+    color:#d9d9d9;
 }
 
-/* ==============================
-   WHY CHOOSE US
-   ============================== */
-
-.why-section {
-    background: var(--cream);
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
 }
-
-.why-grid {
-    display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 18px;
+.why-card{
+    text-align:center;
+    padding:28px 18px;
+    border:1px solid rgba(247,212,124,.18);
+    border-radius:14px;
 }
-
-.why-card {
-    text-align: center;
-
-    padding: 25px 16px;
 
-    background: var(--light-cream);
-
-    border: 1px solid rgba(214,170,74,0.25);
+.why-card .number{
+    font-family:'Cormorant Garamond',serif;
+    font-size:40px;
+    color:var(--bright-gold);
 }
-
-.why-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 0 auto 12px;
-
-    border-radius: 50%;
-
-    background: var(--gold);
-
-    color: var(--dark);
 
-    font-weight: 700;
+.why-card h3{
+    font-size:15px;
+    margin:8px 0;
 }
 
-.why-card h3 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 23px;
-
-    margin-bottom: 5px;
+.why-card p{
+    font-size:12px;
+    color:#d2d5d8;
 }
 
-.why-card p {
-    font-size: 11px;
+/* ================= CLIENTS ================= */
 
-    color: #626975;
+.clients-section{
+    background:var(--cream);
 }
-
-/* ==============================
-   TRAVEL REQUIREMENTS
-   ============================== */
 
-.travel-section {
-    background: var(--light-cream);
+.clients-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
 }
 
-.travel-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 16px;
+.client-card{
+    background:#fff;
+    min-height:245px;
+    border-radius:16px;
+    border:1px solid rgba(214,170,74,.22);
+    box-shadow:0 10px 30px rgba(23,38,58,.07);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
 }
-
-.travel-card {
-    background: var(--white);
 
-    padding: 20px;
-
-    border-left: 3px solid var(--gold);
-
-    box-shadow: 0 5px 18px rgba(23,38,58,0.05);
+.client-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 16px 35px rgba(23,38,58,.11);
 }
-
-.travel-card h3 {
-    font-family: "Cormorant Garamond", serif;
 
-    font-size: 24px;
-
-    margin-bottom: 5px;
+.client-image{
+    width:150px;
+    height:125px;
+    object-fit:contain;
+    margin-bottom:20px;
 }
-
-.travel-card p {
-    font-size: 11px;
 
-    color: #646b75;
+.client-card.person .client-image{
+    width:130px;
+    height:145px;
+    object-fit:cover;
+    border-radius:12px;
 }
 
-/* ==============================
-   ABOUT
-   ============================== */
-
-.about-section {
-    background: var(--cream);
+.client-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    color:var(--navy);
+    line-height:1.1;
 }
-
-.about-grid {
-    display: grid;
 
-    grid-template-columns: 1fr 1fr;
-
-    gap: 55px;
-
-    align-items: center;
+.client-card p{
+    margin-top:6px;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#777;
 }
-
-.about-text .eyebrow {
-    color: var(--gold);
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 3px;
 
-    text-transform: uppercase;
+/* ================= TRAVEL REQUIREMENTS ================= */
 
-    margin-bottom: 7px;
+.travel-section{
+    background:var(--cream-dark);
 }
 
-.about-text h2 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(38px, 5vw, 55px);
-
-    line-height: 1;
-
-    margin-bottom: 18px;
+.travel-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-.about-text p {
-    font-size: 13px;
-
-    color: #59616b;
-
-    margin-bottom: 12px;
+.travel-card{
+    background:var(--cream-light);
+    padding:24px;
+    border-radius:13px;
+    border-left:4px solid var(--gold);
 }
-
-.about-highlights {
-    margin-top: 20px;
-
-    display: grid;
 
-    grid-template-columns: 1fr 1fr;
-
-    gap: 10px;
+.travel-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
 }
-
-.about-highlight {
-    padding: 12px;
-
-    background: var(--light-cream);
 
-    border-left: 2px solid var(--gold);
-
-    font-size: 11px;
-
-    font-weight: 600;
+.travel-card p{
+    font-size:12px;
+    color:#656b73;
+    margin-top:5px;
 }
-
-.about-panel {
-    background: var(--navy);
 
-    color: var(--light-cream);
+/* ================= ABOUT ================= */
 
-    padding: 45px 35px;
-
-    border: 1px solid var(--gold);
+.about-section{
+    background:var(--cream-light);
 }
-
-.about-panel h3 {
-    font-family: "Cormorant Garamond", serif;
-
-    color: var(--bright-gold);
 
-    font-size: 34px;
-
-    margin-bottom: 10px;
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:55px;
+    align-items:center;
 }
-
-.about-panel p {
-    font-size: 12px;
 
-    color: #e1e0dc;
+.about-content h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    margin-bottom:15px;
 }
-
-/* ==============================
-   CATALOG
-   ============================== */
-
-.catalog-section {
-    background: var(--deep-navy);
 
-    text-align: center;
-
-    color: var(--white);
+.about-content p{
+    font-size:14px;
+    color:#555e68;
+    margin-bottom:14px;
 }
-
-.catalog-section h2 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: clamp(40px, 5vw, 58px);
 
-    color: var(--bright-gold);
-
-    margin-bottom: 10px;
+.about-highlight{
+    margin-top:20px;
+    padding:20px;
+    background:white;
+    border-left:4px solid var(--gold);
+    font-weight:600;
+    font-size:13px;
 }
-
-.catalog-section p {
-    max-width: 600px;
-
-    margin: 0 auto 25px;
 
-    font-size: 13px;
+/* ================= CATALOG ================= */
 
-    color: #e1e1df;
+.catalog-section{
+    background:var(--deep);
+    color:white;
+    text-align:center;
 }
 
-/* ==============================
-   CONTACT
-   ============================== */
-
-.contact-section {
-    background: var(--light-cream);
+.catalog-section h2{
+    color:var(--bright-gold);
+    font-family:'Cormorant Garamond',serif;
+    font-size:50px;
 }
-
-.contact-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
 
-    gap: 20px;
+.catalog-section p{
+    max-width:650px;
+    margin:12px auto 25px;
+    color:#e0e0e0;
+    font-size:14px;
 }
 
-.contact-card {
-    background: var(--white);
+/* ================= CONTACT ================= */
 
-    padding: 27px 22px;
-
-    text-align: center;
-
-    border-top: 3px solid var(--gold);
+.contact-section{
+    background:var(--cream);
 }
-
-.contact-card .label {
-    display: block;
-
-    color: var(--gold);
 
-    font-size: 10px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 7px;
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
 
-.contact-card h3 {
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 25px;
+.contact-card{
+    background:var(--cream-light);
+    padding:32px;
+    border-radius:15px;
+    border:1px solid rgba(214,170,74,.20);
 }
-
-.contact-card p {
-    font-size: 12px;
 
-    color: #626975;
-
-    margin-top: 4px;
+.contact-card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    margin-bottom:15px;
 }
-
-.contact-buttons {
-    margin-top: 30px;
-
-    display: flex;
 
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
+.contact-item{
+    margin-bottom:14px;
+    font-size:14px;
 }
-
-/* ==============================
-   FOOTER
-   ============================== */
-
-footer {
-    background: var(--dark);
 
-    color: #d9d9d7;
-
-    padding: 32px 20px;
-
-    text-align: center;
+.contact-item strong{
+    display:block;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--gold);
 }
 
-.footer-logo {
-    width: 70px;
+/* ================= FOOTER ================= */
 
-    margin: 0 auto 10px;
+footer{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:30px 20px;
 }
-
-footer h3 {
-    font-family: "Cormorant Garamond", serif;
 
-    color: var(--bright-gold);
-
-    font-size: 27px;
-
-    margin-bottom: 3px;
+footer .footer-logo{
+    width:65px;
+    margin:0 auto 10px;
 }
-
-footer p {
-    font-size: 10px;
 
-    color: #bfc0bf;
-
-    margin: 3px 0;
+footer h3{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--bright-gold);
+    font-size:25px;
 }
-
-.footer-social {
-    margin-top: 13px;
-
-    display: flex;
 
-    justify-content: center;
-
-    gap: 18px;
+footer p{
+    font-size:11px;
+    color:#c4c8cc;
+    margin-top:5px;
 }
-
-.footer-social a {
-    color: var(--bright-gold);
 
-    font-size: 11px;
-
-    font-weight: 600;
+.footer-social{
+    margin-top:14px;
+    font-size:13px;
 }
-
-.copyright {
-    margin-top: 20px;
 
-    padding-top: 15px;
-
-    border-top: 1px solid rgba(255,255,255,0.12);
-
-    font-size: 9px;
+.footer-social a{
+    color:var(--bright-gold);
 }
-
-/* ==============================
-   FLOATING WHATSAPP
-   ============================== */
-
-.whatsapp-float {
-    position: fixed;
-
-    right: 18px;
-    bottom: 18px;
-
-    width: 55px;
-    height: 55px;
-
-    border-radius: 50%;
 
-    background: #25D366;
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
-
-    box-shadow: 0 7px 20px rgba(0,0,0,0.25);
-
-    z-index: 2000;
-}
+/* ================= FLOATING WHATSAPP ================= */
 
-.whatsapp-float:hover {
-    transform: scale(1.06);
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    z-index:999;
 }
 
-/* ==============================
-   MOBILE
-   ============================== */
+/* ================= MOBILE ================= */
 
-@media (max-width: 900px) {
+@media(max-width:850px){
 
-    .nav-links {
-        display: none;
+    .nav-links{
+        display:none;
     }
 
-    .nav-container {
-        justify-content: center;
+    .hero{
+        min-height:80vh;
     }
 
-    .quick-info {
-        grid-template-columns: repeat(2, 1fr);
+    .hero h1{
+        font-size:48px;
     }
 
-    .quick-item:nth-child(2) {
-        border-right: none;
+    .hero h2{
+        font-size:14px;
+        letter-spacing:2px;
+    }
+
+    .hero-logo{
+        width:100px;
+        height:100px;
+    }
+
+    .quick-inner{
+        grid-template-columns:1fr;
+    }
+
+    .quick-box{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,.12);
+    }
+
+    .booking-form{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
     }
 
     .services-grid,
-    .fleet-grid,
-    .travel-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .clients-grid,
+    .travel-grid{
+        grid-template-columns:1fr;
     }
 
-    .why-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .why-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
+    .section-heading h2,
+    .catalog-section h2{
+        font-size:40px;
+    }
 
-        gap: 30px;
+    .booking-box{
+        padding:25px 18px;
     }
 }
 
-@media (max-width: 650px) {
+@media(max-width:500px){
 
-    .hero {
-        min-height: 600px;
+    .hero h1{
+        font-size:39px;
+        letter-spacing:2px;
     }
 
-    .hero-logo {
-        width: 100px;
-        height: 100px;
+    .hero-buttons{
+        flex-direction:column;
     }
 
-    .hero h1 {
-        font-size: 50px;
+    .btn{
+        width:100%;
     }
 
-    .hero-subtitle {
-        font-size: 12px;
-        letter-spacing: 2px;
+    .why-grid{
+        grid-template-columns:1fr;
     }
 
-    .section {
-        padding: 55px 15px;
+    .section{
+        padding:65px 18px;
     }
 
-    .booking-box {
-        padding: 20px 15px;
-    }
-
-    .booking-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-full {
-        grid-column: auto;
-    }
-
-    .booking-submit {
-        grid-column: auto;
-    }
-
-    .services-grid,
-    .fleet-grid,
-    .travel-grid,
-    .why-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .vehicle-image {
-        height: 210px;
-    }
-
-    .about-highlights {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        max-width: 280px;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .quick-item {
-        padding: 14px 8px;
-    }
-
-    .quick-item strong {
-        font-size: 18px;
-    }
-
-    .nav-brand-text strong {
-        font-size: 22px;
-    }
 }
 
 </style>
@@ -1247,40 +759,25 @@ footer p {
 
 <body>
 
-<!-- ==============================
-     NAVIGATION
-     ============================== -->
+<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar">
 
-    <div class="nav-container">
+    <div class="nav-inner">
 
-        <a href="#top" class="nav-brand">
-
-            <img src="logo.png" alt="Shri Shatrunjay Travels Logo">
-
-            <div class="nav-brand-text">
-                <strong>SHRI SHATRUNJAY</strong>
-                <span>CAR RENTAL SERVICES</span>
-            </div>
-
+        <a href="#home" class="nav-logo">
+            <img src="logo.png" alt="Shree Shatrunjay Logo">
+            <div class="nav-logo-text">SHREE SHATRUNJAY</div>
         </a>
 
         <div class="nav-links">
-
+            <a href="#home">Home</a>
+            <a href="#booking">Book</a>
             <a href="#services">Services</a>
-            <a href="#fleet">Our Cars</a>
+            <a href="#clients">Clients</a>
             <a href="#about">About</a>
             <a href="#catalog">Catalog</a>
-            <a href="#contact">Contact</a>
-
-            <a
-                href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20would%20like%20to%20enquire%20about%20car%20rental."
-                target="_blank"
-                class="nav-whatsapp">
-                WhatsApp
-            </a>
-
+            <a href="#contact" class="nav-button">Contact</a>
         </div>
 
     </div>
@@ -1288,41 +785,40 @@ footer p {
 </nav>
 
 
-<!-- ==============================
-     HERO
-     ============================== -->
+<!-- ================= HERO ================= -->
 
-<section class="hero" id="top">
+<section class="hero" id="home">
 
     <div class="hero-content">
 
-        <img
-            src="logo.png"
-            alt="Shri Shatrunjay Travels"
-            class="hero-logo"
-        >
+        <img src="logo.png"
+             alt="Shree Shatrunjay"
+             class="hero-logo">
 
-        <h1>SHRI SHATRUNJAY</h1>
+        <h1>SHREE SHATRUNJAY</h1>
 
-        <div class="hero-subtitle">
-            CAR RENTAL SERVICES
-        </div>
+        <h2>CAR RENTAL SERVICES</h2>
 
-        <p class="hero-tagline">
+        <p>
             Reliable • Comfortable • Professional Travel Solutions
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#booking" class="btn btn-primary">
+            <a href="#booking" class="btn btn-gold">
                 BOOK YOUR RIDE
             </a>
 
-            <a
-                href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20want%20to%20book%20a%20car."
-                target="_blank"
-                class="btn btn-outline">
+            <a href="https://wa.me/919406649446"
+               target="_blank"
+               class="btn btn-outline">
                 WHATSAPP ENQUIRY
+            </a>
+
+            <a href="Shree%20Shatrunjay%20catalogue%201.pdf"
+               target="_blank"
+               class="btn btn-outline">
+                VIEW COMPLETE CATALOG →
             </a>
 
         </div>
@@ -1332,38 +828,33 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     QUICK INFO
-     ============================== -->
+<!-- ================= QUICK INFO ================= -->
 
 <section class="quick-info">
 
-    <div class="quick-item">
-        <strong>Premium</strong>
-        <span>Vehicle Options</span>
-    </div>
+    <div class="quick-inner">
 
-    <div class="quick-item">
-        <strong>Local</strong>
-        <span>City Travel</span>
-    </div>
+        <div class="quick-box">
+            <strong>Reliable Service</strong>
+            <span>Professional travel support</span>
+        </div>
 
-    <div class="quick-item">
-        <strong>All India</strong>
-        <span>Outstation Travel</span>
-    </div>
+        <div class="quick-box">
+            <strong>Comfortable Travel</strong>
+            <span>Vehicles for every requirement</span>
+        </div>
 
-    <div class="quick-item">
-        <strong>24/7</strong>
-        <span>Travel Assistance</span>
+        <div class="quick-box">
+            <strong>Indore Based</strong>
+            <span>Local & nationwide travel solutions</span>
+        </div>
+
     </div>
 
 </section>
 
 
-<!-- ==============================
-     BOOK YOUR RIDE
-     ============================== -->
+<!-- ================= BOOKING ================= -->
 
 <section class="section booking-section" id="booking">
 
@@ -1378,25 +869,25 @@ footer p {
             <h2>Book Your Ride</h2>
 
             <p>
-                Share your travel requirements and send your enquiry directly on WhatsApp.
+                Share your travel requirements and connect with us directly on WhatsApp.
             </p>
 
         </div>
 
+
         <div class="booking-box">
 
-            <div class="booking-grid">
+            <form class="booking-form" onsubmit="sendBooking(); return false;">
 
                 <div class="form-group">
 
-                    <label for="pickup">
-                        Pickup Location
-                    </label>
+                    <label>Your Name</label>
 
                     <input
                         type="text"
-                        id="pickup"
-                        placeholder="Enter pickup location"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
                     >
 
                 </div>
@@ -1404,59 +895,49 @@ footer p {
 
                 <div class="form-group">
 
-                    <label for="drop">
-                        Drop / Destination
-                    </label>
+                    <label>Vehicle</label>
 
-                    <input
-                        type="text"
-                        id="drop"
-                        placeholder="Enter destination"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="date">
-                        Travel Date
-                    </label>
-
-                    <input
-                        type="date"
-                        id="date"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="vehicle">
-                        Preferred Vehicle
-                    </label>
-
-                    <select id="vehicle">
+                    <select id="vehicle" required>
 
                         <option value="">
                             Select Vehicle
                         </option>
 
+                        <option>Dzire</option>
+
+                        <option>Amaze</option>
+
+                        <option>Ertiga</option>
+
+                        <option>Brezza</option>
+
                         <option>Toyota Innova Hycross</option>
+
                         <option>Mahindra XUV 7XO</option>
+
                         <option>Toyota Innova Crysta</option>
+
                         <option>Mahindra XUV700</option>
+
                         <option>Kia Carens</option>
+
                         <option>Kia Carens EV</option>
+
                         <option>Toyota Rumion</option>
+
                         <option>Mahindra Scorpio</option>
+
                         <option>Mahindra Bolero Neo</option>
+
                         <option>Mahindra Bolero</option>
+
                         <option>Force Urbania</option>
+
                         <option>Toofan</option>
+
                         <option>TUV</option>
-                        <option>Any Available Vehicle</option>
+
+                        <option>Any Other Vehicle</option>
 
                     </select>
 
@@ -1465,15 +946,13 @@ footer p {
 
                 <div class="form-group">
 
-                    <label for="passengers">
-                        Number of Passengers
-                    </label>
+                    <label>Pickup Location</label>
 
                     <input
-                        type="number"
-                        id="passengers"
-                        min="1"
-                        placeholder="e.g. 4"
+                        type="text"
+                        id="pickup"
+                        placeholder="Pickup location"
+                        required
                     >
 
                 </div>
@@ -1481,43 +960,67 @@ footer p {
 
                 <div class="form-group">
 
-                    <label for="name">
-                        Your Name
-                    </label>
+                    <label>Destination</label>
 
                     <input
                         type="text"
-                        id="name"
-                        placeholder="Enter your name"
+                        id="destination"
+                        placeholder="Destination"
+                        required
                     >
 
                 </div>
 
 
-                <div class="form-group form-full">
+                <div class="form-group">
 
-                    <label for="requirement">
-                        Additional Requirement
-                    </label>
+                    <label>Travel Date</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Passengers</label>
+
+                    <input
+                        type="number"
+                        id="passengers"
+                        min="1"
+                        placeholder="Number of passengers"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>Additional Requirement</label>
 
                     <textarea
                         id="requirement"
-                        placeholder="Tell us anything else about your travel requirement..."
+                        placeholder="Tell us anything else about your trip..."
                     ></textarea>
 
                 </div>
 
 
-                <button
-                    type="button"
-                    class="booking-submit"
-                    onclick="sendBooking()">
+                <div class="booking-submit">
 
-                    SEND ENQUIRY ON WHATSAPP →
+                    <button type="submit">
+                        SEND BOOKING ENQUIRY ON WHATSAPP
+                    </button>
 
-                </button>
+                </div>
 
-            </div>
+            </form>
 
         </div>
 
@@ -1526,9 +1029,7 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     SERVICES
-     ============================== -->
+<!-- ================= SERVICES ================= -->
 
 <section class="section" id="services">
 
@@ -1537,14 +1038,14 @@ footer p {
         <div class="section-heading">
 
             <div class="small-title">
-                Our Services
+                What We Offer
             </div>
 
-            <h2>Travel Made Simple</h2>
+            <h2>Our Services</h2>
 
             <p>
-                Comfortable and dependable travel solutions for personal,
-                family and professional requirements.
+                Travel solutions designed for individuals, families,
+                businesses and groups.
             </p>
 
         </div>
@@ -1553,86 +1054,56 @@ footer p {
         <div class="services-grid">
 
             <div class="service-card">
-
-                <div class="service-number">01</div>
-
                 <h3>Local City Rides</h3>
-
                 <p>
-                    Convenient cars for local travel, meetings,
-                    shopping and daily city requirements.
+                    Comfortable and convenient cars for local travel,
+                    meetings, shopping and daily requirements.
                 </p>
-
             </div>
 
 
             <div class="service-card">
-
-                <div class="service-number">02</div>
-
                 <h3>Airport Transfers</h3>
-
                 <p>
-                    Comfortable pickup and drop services
-                    for smooth airport travel.
+                    Reliable pickup and drop services for airport travel
+                    with convenient scheduling.
                 </p>
-
             </div>
 
 
             <div class="service-card">
-
-                <div class="service-number">03</div>
-
                 <h3>Outstation Trips</h3>
-
                 <p>
-                    Comfortable vehicles for one-way and
-                    round-trip journeys.
+                    Comfortable vehicles for intercity and long-distance
+                    journeys.
                 </p>
-
             </div>
 
 
             <div class="service-card">
-
-                <div class="service-number">04</div>
-
                 <h3>Pilgrimage Tours</h3>
-
                 <p>
-                    Convenient travel arrangements for
-                    religious and pilgrimage journeys.
+                    Comfortable travel arrangements for religious and
+                    pilgrimage journeys.
                 </p>
-
             </div>
 
 
             <div class="service-card">
-
-                <div class="service-number">05</div>
-
                 <h3>Corporate Travel</h3>
-
                 <p>
-                    Professional transportation solutions
-                    for business travel and official requirements.
+                    Professional transportation solutions for meetings,
+                    events and business travel.
                 </p>
-
             </div>
 
 
             <div class="service-card">
-
-                <div class="service-number">06</div>
-
                 <h3>Customized Packages</h3>
-
                 <p>
-                    Flexible travel solutions designed around
-                    your destination and schedule.
+                    Travel plans customized according to your destination,
+                    duration and requirements.
                 </p>
-
             </div>
 
         </div>
@@ -1642,674 +1113,7 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     PREMIUM VEHICLE FLEET
-     ============================== -->
-
-<section class="section fleet-section" id="fleet">
-
-    <div class="section-inner">
-
-        <div class="section-heading">
-
-            <div class="fleet-label">
-                Premium Vehicle Fleet
-            </div>
-
-            <h2>Our Cars</h2>
-
-            <p>
-                Choose from our range of premium, comfortable
-                and practical vehicles for different travel requirements.
-            </p>
-
-        </div>
-
-
-        <div class="fleet-grid">
-
-
-            <!-- 01 INNOVA HYCROSS -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="innova-hycross.webp"
-                        alt="Toyota Innova Hycross"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Premium Family Travel
-                    </div>
-
-                    <h3>Innova Hycross</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>7 Seater</li>
-                        <li>Premium & Spacious</li>
-                        <li>Ideal for Family & Corporate Travel</li>
-                        <li>Comfortable Long Journeys</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Toyota%20Innova%20Hycross."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 02 XUV 7XO -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="xuv-7xo.webp"
-                        alt="Mahindra XUV 7XO"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Premium SUV
-                    </div>
-
-                    <h3>XUV 7XO</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Premium SUV</li>
-                        <li>Spacious & Comfortable</li>
-                        <li>Ideal for Family Travel</li>
-                        <li>Suitable for Outstation Trips</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Mahindra%20XUV%207XO."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 03 INNOVA CRYSTA -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="innova-crysta.webp"
-                        alt="Toyota Innova Crysta"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Premium Travel
-                    </div>
-
-                    <h3>Innova Crysta</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>7 / 8 Seater</li>
-                        <li>Premium Comfort</li>
-                        <li>Spacious Interiors</li>
-                        <li>Ideal for Long Journeys</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Toyota%20Innova%20Crysta."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 04 XUV 700 -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="xuv-700.webp"
-                        alt="Mahindra XUV700"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Premium SUV
-                    </div>
-
-                    <h3>XUV 700</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>5 / 7 Seater</li>
-                        <li>Premium SUV Experience</li>
-                        <li>Comfortable Interiors</li>
-                        <li>Ideal for Family & Business Travel</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Mahindra%20XUV700."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 05 KIA CARENS -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="kia-carens.webp"
-                        alt="Kia Carens"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Family Travel
-                    </div>
-
-                    <h3>Kia Carens</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Spacious MPV</li>
-                        <li>Comfortable Family Travel</li>
-                        <li>Modern Interiors</li>
-                        <li>Ideal for City & Outstation</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Kia%20Carens."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 06 KIA CARENS EV -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="kia-carens-ev.webp"
-                        alt="Kia Carens EV"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Electric • Premium
-                    </div>
-
-                    <h3>Kia Carens EV</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Electric MPV</li>
-                        <li>Modern & Comfortable</li>
-                        <li>Family Friendly</li>
-                        <li>Premium Travel Experience</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Kia%20Carens%20EV."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 07 RUMION -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="rumion.webp"
-                        alt="Toyota Rumion"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Family & Group Travel
-                    </div>
-
-                    <h3>Toyota Rumion</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>7 Seater</li>
-                        <li>Spacious Cabin</li>
-                        <li>Family Friendly</li>
-                        <li>Comfortable Outstation Travel</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Toyota%20Rumion."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 08 SCORPIO -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="scorpio.webp"
-                        alt="Mahindra Scorpio"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        SUV
-                    </div>
-
-                    <h3>Scorpio</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Strong & Spacious SUV</li>
-                        <li>Suitable for Group Travel</li>
-                        <li>Comfortable Seating</li>
-                        <li>City & Outstation Use</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Mahindra%20Scorpio."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 09 BOLERO NEO -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="bolero-neo.webp"
-                        alt="Mahindra Bolero Neo"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        SUV
-                    </div>
-
-                    <h3>Bolero Neo</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Spacious SUV</li>
-                        <li>Practical Travel Option</li>
-                        <li>Comfortable for Groups</li>
-                        <li>City & Outstation Travel</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Mahindra%20Bolero%20Neo."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 10 BOLERO -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="bolero.webp"
-                        alt="Mahindra Bolero"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Utility & Travel
-                    </div>
-
-                    <h3>Bolero</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Reliable Utility Vehicle</li>
-                        <li>Practical for Group Travel</li>
-                        <li>Strong & Comfortable</li>
-                        <li>City & Outstation Use</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Mahindra%20Bolero."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 11 URBANIA -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="urbania.webp"
-                        alt="Force Urbania"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Group Travel
-                    </div>
-
-                    <h3>Urbania</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Premium Group Vehicle</li>
-                        <li>Spacious Passenger Area</li>
-                        <li>Ideal for Large Groups</li>
-                        <li>Tour & Outstation Travel</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Force%20Urbania."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 12 TOOFAN -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="toofan.webp"
-                        alt="Toofan Vehicle"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Group Travel
-                    </div>
-
-                    <h3>Toofan</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Group Travel</li>
-                        <li>Practical Seating</li>
-                        <li>Suitable for Tours</li>
-                        <li>Outstation Travel</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20Toofan."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 13 TUV -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="tuv.webp"
-                        alt="TUV Vehicle"
-                        loading="lazy"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        Travel Vehicle
-                    </div>
-
-                    <h3>TUV</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Comfortable Travel</li>
-                        <li>Practical & Spacious</li>
-                        <li>Suitable for Small Groups</li>
-                        <li>City & Outstation Use</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20am%20interested%20in%20booking%20a%20TUV."
-                        target="_blank">
-
-                        ENQUIRE FOR THIS VEHICLE →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- 14 MORE -->
-
-            <div class="vehicle-card">
-
-                <div class="vehicle-image">
-
-                    <img
-                        src="logo.png"
-                        alt="More Vehicles"
-                        loading="lazy"
-                        style="object-fit: contain; padding: 35px;"
-                    >
-
-                </div>
-
-                <div class="vehicle-info">
-
-                    <div class="vehicle-category">
-                        More Options
-                    </div>
-
-                    <h3>And More</h3>
-
-                    <ul class="vehicle-points">
-
-                        <li>Multiple Vehicle Options</li>
-                        <li>Different Seating Capacities</li>
-                        <li>Personal & Group Travel</li>
-                        <li>Ask for Availability</li>
-
-                    </ul>
-
-                    <a
-                        class="vehicle-button"
-                        href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20please%20share%20available%20vehicle%20options."
-                        target="_blank">
-
-                        ASK FOR VEHICLE OPTIONS →
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ==============================
-     WHY CHOOSE US
-     ============================== -->
+<!-- ================= WHY CHOOSE US ================= -->
 
 <section class="section why-section">
 
@@ -2318,10 +1122,15 @@ footer p {
         <div class="section-heading">
 
             <div class="small-title">
-                Why Choose Us
+                The Shree Shatrunjay Difference
             </div>
 
-            <h2>Travel With Confidence</h2>
+            <h2>Why Choose Us</h2>
+
+            <p>
+                Professional service with comfort, convenience and
+                dependable travel support.
+            </p>
 
         </div>
 
@@ -2330,12 +1139,12 @@ footer p {
 
             <div class="why-card">
 
-                <div class="why-icon">01</div>
+                <div class="number">01</div>
 
-                <h3>Comfort</h3>
+                <h3>Professional Service</h3>
 
                 <p>
-                    Comfortable vehicle options for different travel needs.
+                    Focused on providing smooth and comfortable travel.
                 </p>
 
             </div>
@@ -2343,12 +1152,12 @@ footer p {
 
             <div class="why-card">
 
-                <div class="why-icon">02</div>
+                <div class="number">02</div>
 
-                <h3>Professional</h3>
+                <h3>Multiple Vehicle Options</h3>
 
                 <p>
-                    Professional approach for personal and business travel.
+                    Vehicles available for different travel requirements.
                 </p>
 
             </div>
@@ -2356,12 +1165,12 @@ footer p {
 
             <div class="why-card">
 
-                <div class="why-icon">03</div>
+                <div class="number">03</div>
 
-                <h3>Flexible</h3>
+                <h3>Flexible Travel</h3>
 
                 <p>
-                    Travel solutions that can be customized around your requirements.
+                    Local, outstation, airport and customized journeys.
                 </p>
 
             </div>
@@ -2369,12 +1178,12 @@ footer p {
 
             <div class="why-card">
 
-                <div class="why-icon">04</div>
+                <div class="number">04</div>
 
-                <h3>Convenient</h3>
+                <h3>Easy Booking</h3>
 
                 <p>
-                    Easy enquiry and booking directly through WhatsApp.
+                    Quick enquiry and booking directly through WhatsApp.
                 </p>
 
             </div>
@@ -2386,9 +1195,171 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     TRAVEL REQUIREMENTS
-     ============================== -->
+<!-- ================= CLIENTS ================= -->
+
+<section class="section clients-section" id="clients">
+
+    <div class="section-inner">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Trusted By
+            </div>
+
+            <h2>Our Clients</h2>
+
+            <p>
+                Proud to have served organizations and distinguished
+                personalities with professional travel solutions.
+            </p>
+
+        </div>
+
+
+        <div class="clients-grid">
+
+
+            <!-- AIRPORTS AUTHORITY OF INDIA -->
+
+            <div class="client-card">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Airports_authority_of_India_Logo.png"
+                    alt="Airports Authority of India Logo"
+                    class="client-image"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Airports Authority of India
+                </h3>
+
+                <p>
+                    Government Organization
+                </p>
+
+            </div>
+
+
+            <!-- INCOME TAX DEPARTMENT -->
+
+            <div class="client-card">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Logo_of_Income_Tax_Department_India.png"
+                    alt="Income Tax Department Logo"
+                    class="client-image"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Income Tax Department
+                </h3>
+
+                <p>
+                    Government Department
+                </p>
+
+            </div>
+
+
+            <!-- WESTERN RAILWAY -->
+
+            <div class="client-card">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Western_Railway_Zone.svg"
+                    alt="Western Railway Logo"
+                    class="client-image"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Western Railway
+                </h3>
+
+                <p>
+                    Indian Railways
+                </p>
+
+            </div>
+
+
+            <!-- NAYANTHARA -->
+
+            <div class="client-card person">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nayanthara_in_2023.jpg"
+                    alt="Nayanthara"
+                    class="client-image"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Nayanthara
+                </h3>
+
+                <p>
+                    Actress & Producer
+                </p>
+
+            </div>
+
+
+            <!-- SREELEELA -->
+
+            <div class="client-card person">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sree_Leela_2021.png"
+                    alt="Sreeleela"
+                    class="client-image"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Sreeleela
+                </h3>
+
+                <p>
+                    Actress
+                </p>
+
+            </div>
+
+
+            <!-- SHATRUGHAN SINHA -->
+
+            <div class="client-card person">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shatrughan_Sinha.jpg"
+                    alt="Shatrughan Sinha"
+                    class="client-image"
+                    loading="lazy"
+                >
+
+                <h3>
+                    Shatrughan Sinha
+                </h3>
+
+                <p>
+                    Actor & Public Figure
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TRAVEL REQUIREMENTS ================= -->
 
 <section class="section travel-section">
 
@@ -2397,10 +1368,14 @@ footer p {
         <div class="section-heading">
 
             <div class="small-title">
-                Travel For Every Occasion
+                Travel Made Easy
             </div>
 
-            <h2>Your Journey, Your Way</h2>
+            <h2>Popular Travel Requirements</h2>
+
+            <p>
+                Choose the travel arrangement that suits your journey.
+            </p>
 
         </div>
 
@@ -2409,54 +1384,43 @@ footer p {
 
             <div class="travel-card">
 
+                <h3>One-Way Car Rental</h3>
+
+                <p>
+                    Convenient one-way travel between cities.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card">
+
+                <h3>Round-Trip Rental</h3>
+
+                <p>
+                    Comfortable return journeys with flexible planning.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card">
+
+                <h3>Car Rental With Driver</h3>
+
+                <p>
+                    Professional chauffeur-driven travel solutions.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card">
+
                 <h3>Family Travel</h3>
 
                 <p>
-                    Comfortable cars for family outings and holidays.
-                </p>
-
-            </div>
-
-
-            <div class="travel-card">
-
-                <h3>Business Travel</h3>
-
-                <p>
-                    Professional transportation for meetings and official travel.
-                </p>
-
-            </div>
-
-
-            <div class="travel-card">
-
-                <h3>Pilgrimage</h3>
-
-                <p>
-                    Convenient travel for religious and pilgrimage destinations.
-                </p>
-
-            </div>
-
-
-            <div class="travel-card">
-
-                <h3>Airport Travel</h3>
-
-                <p>
-                    Smooth airport pickup and drop arrangements.
-                </p>
-
-            </div>
-
-
-            <div class="travel-card">
-
-                <h3>Outstation</h3>
-
-                <p>
-                    One-way and round-trip travel for destinations across India.
+                    Comfortable vehicles for family journeys.
                 </p>
 
             </div>
@@ -2467,7 +1431,18 @@ footer p {
                 <h3>Group Travel</h3>
 
                 <p>
-                    Spacious vehicle options for families and larger groups.
+                    Suitable transportation for larger groups.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card">
+
+                <h3>Customized Travel</h3>
+
+                <p>
+                    Travel solutions designed around your requirements.
                 </p>
 
             </div>
@@ -2479,9 +1454,7 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     ABOUT US
-     ============================== -->
+<!-- ================= ABOUT ================= -->
 
 <section class="section about-section" id="about">
 
@@ -2489,69 +1462,37 @@ footer p {
 
         <div class="about-grid">
 
-            <div class="about-text">
+            <div class="about-content">
 
-                <div class="eyebrow">
+                <div class="small-title">
                     About Us
                 </div>
 
                 <h2>
-                    Comfortable Travel. Professional Service.
+                    Travel With Confidence
                 </h2>
 
                 <p>
-                    Shri Shatrunjay Travels provides car rental and travel
-                    solutions for local, airport, outstation, pilgrimage,
-                    corporate and customized travel requirements.
+                    Shree Shatrunjay is a trusted car rental and travel
+                    service provider committed to offering comfortable,
+                    reliable and professional travel solutions.
                 </p>
 
                 <p>
-                    Our focus is on providing convenient vehicle options
-                    and a smooth travel experience for individuals,
-                    families, groups and businesses.
+                    From local city travel and airport transfers to
+                    outstation journeys, pilgrimage tours and corporate
+                    requirements, we provide vehicles suited to different
+                    travel needs.
                 </p>
 
+                <p>
+                    Our focus is on making every journey convenient,
+                    comfortable and well-organized.
+                </p>
 
-                <div class="about-highlights">
-
-                    <div class="about-highlight">
-                        Local & Outstation
-                    </div>
-
-                    <div class="about-highlight">
-                        Family & Group Travel
-                    </div>
-
-                    <div class="about-highlight">
-                        Corporate Requirements
-                    </div>
-
-                    <div class="about-highlight">
-                        Customized Travel
-                    </div>
-
+                <div class="about-highlight">
+                    Reliable • Comfortable • Professional Travel Solutions
                 </div>
-
-            </div>
-
-
-            <div class="about-panel">
-
-                <h3>
-                    Shri Shatrunjay Travels
-                </h3>
-
-                <p>
-                    Car Rental Services
-                </p>
-
-                <br>
-
-                <p>
-                    From everyday city travel to long-distance journeys,
-                    choose a vehicle according to your requirement and
-                    enquire directly with our team.
-                </p>
 
             </div>
 
@@ -2562,30 +1503,31 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     CATALOG
-     ============================== -->
+<!-- ================= CATALOG ================= -->
 
 <section class="section catalog-section" id="catalog">
 
     <div class="section-inner">
 
+        <div class="small-title">
+            Explore Our Vehicles
+        </div>
+
         <h2>
-            Explore Our Complete Catalog
+            Complete Car Rental Catalog
         </h2>
 
         <p>
-            View our complete vehicle and travel service catalog
-            for more information.
+            Explore our complete vehicle catalogue and choose the vehicle
+            that best suits your travel requirement.
         </p>
 
         <a
             href="Shree%20Shatrunjay%20catalogue%201.pdf"
             target="_blank"
-            class="btn btn-primary">
-
+            class="btn btn-gold"
+        >
             VIEW COMPLETE CATALOG →
-
         </a>
 
     </div>
@@ -2593,9 +1535,7 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     CONTACT
-     ============================== -->
+<!-- ================= CONTACT ================= -->
 
 <section class="section contact-section" id="contact">
 
@@ -2610,8 +1550,8 @@ footer p {
             <h2>Contact Us</h2>
 
             <p>
-                Tell us your travel requirement and we will help you
-                choose the right vehicle.
+                Tell us about your travel requirement and our team will
+                assist you.
             </p>
 
         </div>
@@ -2621,88 +1561,77 @@ footer p {
 
             <div class="contact-card">
 
-                <span class="label">
-                    Call Us
-                </span>
-
                 <h3>
-                    9406649446
+                    Shree Shatrunjay
                 </h3>
 
-                <p>
-                    For bookings & enquiries
-                </p>
+                <div class="contact-item">
+
+                    <strong>Phone</strong>
+
+                    <a href="tel:9406649446">
+                        9406649446
+                    </a>
+
+                    <br>
+
+                    <a href="tel:9827077300">
+                        9827077300
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Instagram</strong>
+
+                    <a
+                        href="https://www.instagram.com/shreeshatrunjay_indore/"
+                        target="_blank"
+                    >
+                        @shreeshatrunjay_indore
+                    </a>
+
+                </div>
 
             </div>
 
 
             <div class="contact-card">
 
-                <span class="label">
-                    Call Us
-                </span>
-
                 <h3>
-                    9827077300
+                    Quick Contact
                 </h3>
 
-                <p>
-                    For bookings & enquiries
-                </p>
+                <div class="contact-item">
+
+                    <strong>WhatsApp</strong>
+
+                    <a
+                        href="https://wa.me/919406649446"
+                        target="_blank"
+                    >
+                        Chat With Us
+                    </a>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <strong>Website</strong>
+
+                    <a
+                        href="https://www.shreeshatrunjay.com/"
+                        target="_blank"
+                    >
+                        www.shreeshatrunjay.com
+                    </a>
+
+                </div>
 
             </div>
-
-
-            <div class="contact-card">
-
-                <span class="label">
-                    Instagram
-                </span>
-
-                <h3>
-                    @shreeshatrunjay_indore
-                </h3>
-
-                <p>
-                    Follow us for updates
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="contact-buttons">
-
-            <a
-                href="tel:+919406649446"
-                class="btn btn-primary">
-
-                CALL NOW
-
-            </a>
-
-
-            <a
-                href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20would%20like%20to%20make%20a%20car%20rental%20enquiry."
-                target="_blank"
-                class="btn"
-                style="background:#17263a;color:#fff;">
-
-                WHATSAPP
-
-            </a>
-
-
-            <a
-                href="https://www.instagram.com/shreeshatrunjay_indore/"
-                target="_blank"
-                class="btn"
-                style="background:transparent;color:#17263a;">
-
-                INSTAGRAM
-
-            </a>
 
         </div>
 
@@ -2711,138 +1640,117 @@ footer p {
 </section>
 
 
-<!-- ==============================
-     FOOTER
-     ============================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     <img
         src="logo.png"
-        alt="Shri Shatrunjay Travels"
+        alt="Shree Shatrunjay Logo"
         class="footer-logo"
     >
 
     <h3>
-        SHRI SHATRUNJAY
+        SHREE SHATRUNJAY
     </h3>
 
     <p>
         CAR RENTAL SERVICES
     </p>
 
-    <p>
-        Reliable • Comfortable • Professional Travel Solutions
-    </p>
-
-
     <div class="footer-social">
-
-        <a href="tel:+919406649446">
-            9406649446
-        </a>
-
-        <a href="tel:+919827077300">
-            9827077300
-        </a>
 
         <a
             href="https://www.instagram.com/shreeshatrunjay_indore/"
-            target="_blank">
-            Instagram
+            target="_blank"
+        >
+            Instagram @shreeshatrunjay_indore
         </a>
 
     </div>
 
-
-    <div class="copyright">
-
-        © 2026 Shri Shatrunjay Travels. All Rights Reserved.
-
-    </div>
+    <p style="margin-top:18px;">
+        © 2026 Shree Shatrunjay. All Rights Reserved.
+    </p>
 
 </footer>
 
 
-<!-- ==============================
-     FLOATING WHATSAPP
-     ============================== -->
+<!-- ================= FLOATING WHATSAPP ================= -->
 
 <a
-    href="https://wa.me/919406649446?text=Hello%20Shri%20Shatrunjay%20Travels,%20I%20would%20like%20to%20make%20a%20car%20rental%20enquiry."
+    href="https://wa.me/919406649446"
     target="_blank"
     class="whatsapp-float"
-    aria-label="WhatsApp">
-
+    aria-label="WhatsApp"
+>
     ☎
-
 </a>
 
 
-<!-- ==============================
-     WHATSAPP BOOKING SCRIPT
-     ============================== -->
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-function sendBooking() {
+function sendBooking(){
 
-    const pickup =
-        document.getElementById("pickup").value.trim();
-
-    const drop =
-        document.getElementById("drop").value.trim();
-
-    const date =
-        document.getElementById("date").value;
+    const name =
+        document.getElementById("name").value.trim();
 
     const vehicle =
         document.getElementById("vehicle").value;
 
+    const pickup =
+        document.getElementById("pickup").value.trim();
+
+    const destination =
+        document.getElementById("destination").value.trim();
+
+    const date =
+        document.getElementById("date").value;
+
     const passengers =
         document.getElementById("passengers").value;
-
-    const name =
-        document.getElementById("name").value.trim();
 
     const requirement =
         document.getElementById("requirement").value.trim();
 
 
-    if (!pickup || !drop || !date || !vehicle || !name) {
+    let vehicleMessage;
 
-        alert(
-            "Please fill in your name, pickup, destination, travel date and preferred vehicle."
-        );
 
-        return;
+    if(vehicle === "Any Other Vehicle"){
+
+        vehicleMessage =
+            "Hello, I am interested in booking of a vehicle.";
+
+    }else{
+
+        vehicleMessage =
+            `Hello, I am interested in booking of a ${vehicle}.`;
 
     }
 
 
     const message =
-`Hello Shri Shatrunjay Travels,
 
-I would like to make a car rental enquiry.
+`${vehicleMessage}
 
 Name: ${name}
 
+Vehicle: ${vehicle}
+
 Pickup Location: ${pickup}
 
-Destination: ${drop}
+Destination: ${destination}
 
 Travel Date: ${date}
 
-Preferred Vehicle: ${vehicle}
+Passengers: ${passengers}
 
-Passengers: ${passengers || "Not specified"}
+Additional Requirement: ${requirement || "None"}
 
-Additional Requirement:
-${requirement || "Not specified"}
-
-Please share the availability and quotation.
-
-Thank you.`;
+Please share the availability and quotation.`;
 
 
     const whatsappURL =
@@ -2850,12 +1758,14 @@ Thank you.`;
         encodeURIComponent(message);
 
 
-    window.open(whatsappURL, "_blank");
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
 
 }
 
 </script>
-
 
 </body>
 </html>
