@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Dashboard | Shree Shatrunjay</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4efe4;color:#17263a}
+button,input,select{font:inherit}
+header{background:#10263e;color:#fff;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:1px}
+.brand img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.logout{background:#d6aa4a;color:#17263a;border:0;border-radius:6px;padding:9px 14px;cursor:pointer;font-weight:700}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px}
+.login-card,.panel{background:#fff;border-radius:12px;box-shadow:0 8px 30px #17263a18}
+.login-card{width:min(420px,100%);padding:30px}
+h1,h2{margin-top:0}
+input,select{width:100%;padding:11px;margin:7px 0 14px;border:1px solid #ccd2d8;border-radius:6px}
+.primary{width:100%;padding:12px;border:0;border-radius:6px;background:#d6aa4a;color:#17263a;font-weight:700;cursor:pointer}
+.error{color:#b42318;margin-top:10px}
+.dashboard{display:none}
+.container{max-width:1200px;margin:auto;padding:22px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid #d6aa4a;background:#fff;color:#17263a;padding:10px 15px;border-radius:7px;cursor:pointer}
+.tab.active{background:#d6aa4a}
+.panel{padding:20px}
+.section{display:none}
+.section.active{display:block}
+.card{border:1px solid #ddd;border-radius:8px;padding:15px;margin:10px 0;background:#fff}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.action{border:0;border-radius:5px;padding:8px 11px;cursor:pointer}
+.take{background:#d6aa4a}.delete{background:#f1b5b5}.restore{background:#b9dfc1}.dark{background:#17263a;color:#fff}
+.small{font-size:13px;color:#65717d}
+.badge{display:inline-block;padding:4px 8px;border-radius:20px;background:#eee;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+@media(max-width:600px){header{padding:12px}.container{padding:14px}.panel{padding:14px}.brand span{font-size:14px}}
+</style>
+</head>
+<body>
+
+<div id="loginScreen" class="login-wrap">
+  <div class="login-card">
+    <h1>Owner Login</h1>
+    <p>Shree Shatrunjay</p>
+    <input id="email" type="email" placeholder="Owner email">
+    <input id="password" type="password" placeholder="Password">
+    <button class="primary" onclick="login()">LOGIN</button>
+    <div id="loginError" class="error"></div>
+  </div>
+</div>
+
+<div id="dashboard" class="dashboard">
+<header>
+  <div class="brand">
+    <img src="logo.png" alt="Shree Shatrunjay">
+    <span>SHREE SHATRUNJAY — OWNER</span>
+  </div>
+  <button class="logout" onclick="logout()">Logout</button>
+</header>
+
+<div class="container">
+  <div class="tabs">
+    <button class="tab active" onclick="showSection('dashboardHome',this)">Dashboard</button>
+    <button class="tab" onclick="showSection('inquiries',this)">Inquiries</button>
+    <button class="tab" onclick="showSection('fleet',this)">Fleet</button>
+    <button class="tab" onclick="showSection('drivers',this)">Drivers</button>
+    <button class="tab" onclick="showSection('reviews',this)">Reviews</button>
+  </div>
+
+  <section id="dashboardHome" class="section active">
+    <div class="panel">
+      <h2>Dashboard</h2>
+      <div class="grid">
+        <div class="card"><h3 id="countNew">0</h3><div>New Inquiries</div></div>
+        <div class="card"><h3 id="countTaken">0</h3><div>Taken Inquiries</div></div>
+        <div class="card"><h3 id="countFleet">0</h3><div>Fleet Vehicles</div></div>
+        <div class="card"><h3 id="countReviews">0</h3><div>Reviews</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inquiries" class="section">
+    <div class="panel">
+      <h2>Inquiries</h2>
+      <div id="inquiryList">Loading...</div>
+    </div>
+  </section>
+
+  <section id="fleet" class="section">
+    <div class="panel">
+      <h2>Fleet</h2>
+      <div class="grid">
+        <div>
+          <input id="vehicleName" placeholder="Vehicle name e.g. Innova Crysta">
+          <input id="vehicleNumber" placeholder="Vehicle number">
+          <input id="seating" type="number" min="1" placeholder="Seating capacity">
+          <select id="fleetStatus">
+            <option value="available">Available</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="inactive">Inactive</option>
+          </select>
+          <button class="primary" onclick="addVehicle()">ADD VEHICLE</button>
+        </div>
+        <div id="fleetList">Loading...</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="drivers" class="section">
+    <div class="panel">
+      <h2>Drivers</h2>
+      <div class="grid">
+        <div>
+          <input id="driverName" placeholder="Driver name">
+          <input id="driverMobile" placeholder="Mobile number">
+          <input id="licenseNo" placeholder="License number">
+          <button class="primary" onclick="addDriver()">ADD DRIVER</button>
+        </div>
+        <div id="driverList">Loading...</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section">
+    <div class="panel">
+      <h2>Reviews</h2>
+      <div id="reviewList">Loading...</div>
+    </div>
+  </section>
+</div>
+</div>
+
+<script>
+const SUPABASE_URL = "https://jmvaotdxnuahoxsllasg.supabase.co";
+const SUPABASE_KEY = "sb_publishable_FfmL_iq8XTPwb1EyXj9ufw_QZaU3rOZ";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function showSection(id,btn){
+  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  loadAll();
+}
+
+async function login(){
+  const email=document.getElementById('email').value.trim();
+  const password=document.getElementById('password').value;
+  const err=document.getElementById('loginError');
+  err.textContent='';
+  const {error}=await supabaseClient.auth.signInWithPassword({email,password});
+  if(error){err.textContent=error.message;return;}
+  await checkSession();
+}
+
+async function logout(){
+  await supabaseClient.auth.signOut();
+  location.reload();
+}
+
+async function checkSession(){
+  const {data:{session}}=await supabaseClient.auth.getSession();
+  if(session){
+    document.getElementById('loginScreen').style.display='none';
+    document.getElementById('dashboard').style.display='block';
+    loadAll();
+  }
+}
+
+async function loadAll(){
+  loadInquiries();
+  loadFleet();
+  loadDrivers();
+  loadReviews();
+}
+
+function esc(v){
+  return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+
+async function loadInquiries(){
+  const {data,error}=await supabaseClient.from('inquiries').select('*').order('created_at',{ascending:false});
+  const box=document.getElementById('inquiryList');
+  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
+  document.getElementById('countNew').textContent=data.filter(x=>x.status==='new'&&!x.deleted).length;
+  document.getElementById('countTaken').textContent=data.filter(x=>x.status==='taken').length;
+  if(!data.length){box.innerHTML='<p>No inquiries yet.</p>';return;}
+  box.innerHTML=data.map(x=>`
+    <div class="card">
+      <b>${esc(x.name)}</b> <span class="badge">${esc(x.status)}</span>
+      ${x.deleted?'<span class="badge">DELETED</span>':''}
+      <p>Vehicle: ${esc(x.vehicle)}<br>
+      Pickup: ${esc(x.pickup_location)}<br>
+      Destination: ${esc(x.destination)}<br>
+      Travel: ${esc(x.travel_date)} to ${esc(x.end_date)}<br>
+      Passengers: ${esc(x.passengers)}<br>
+      Phone: ${esc(x.phone||'')}<br>
+      Requirement: ${esc(x.additional_requirement||'')}</p>
+      <div class="actions">
+        ${!x.deleted && x.status==='new'?`<button class="action take" onclick="takeInquiry(${x.id})">TAKE INQUIRY</button>`:''}
+        ${!x.deleted?`<button class="action delete" onclick="deleteInquiry(${x.id})">DELETE</button>`:''}
+        ${x.deleted?`<button class="action restore" onclick="restoreInquiry(${x.id})">RESTORE</button>`:''}
+      </div>
+    </div>`).join('');
+}
+
+async function takeInquiry(id){
+  const {data,error}=await supabaseClient.from('inquiries').select('*').eq('id',id).single();
+  if(error)return alert(error.message);
+  const start=new Date(data.travel_date+'T00:00:00');
+  const end=new Date(data.end_date+'T00:00:00');
+  const {data:fleet,error:fe}=await supabaseClient.from('fleet').select('*').eq('status','available');
+  if(fe)return alert(fe.message);
+  const {data:booked,error:be}=await supabaseClient.from('inquiries')
+    .select('fleet_id,travel_date,end_date,status,deleted')
+    .not('fleet_id','is',null)
+    .in('status',['taken','completed'])
+    .eq('deleted',false);
+  if(be)return alert(be.message);
+
+  const available=(fleet||[]).filter(car=>{
+    if(Number(data.passengers)>Number(car.seating_capacity)) return false;
+    return !(booked||[]).some(b=>{
+      if(Number(b.fleet_id)!==Number(car.id)) return false;
+      const bs=new Date(b.travel_date+'T00:00:00');
+      const be=new Date(b.end_date+'T00:00:00');
+      return start<=be && end>=bs;
+    });
+  });
+  if(!available.length){alert('No suitable fleet vehicle is available for these dates and passengers.');return;}
+  const choices=available.map((c,i)=>`${i+1}. ${c.vehicle_name} | ${c.vehicle_number||'No number'} | ${c.seating_capacity} seats`).join('\n');
+  const answer=prompt('Select fleet vehicle number:\\n\\n'+choices);
+  const idx=Number(answer)-1;
+  if(!available[idx])return;
+  const car=available[idx];
+  if(Number(data.passengers)>Number(car.seating_capacity)){alert('Occupancy exceeds vehicle capacity.');return;}
+  const {error:ue}=await supabaseClient.from('inquiries').update({
+    status:'taken',fleet_id:car.id,occupancy:Number(data.passengers),taken_at:new Date().toISOString()
+  }).eq('id',id);
+  if(ue)alert(ue.message);else loadInquiries();
+}
+
+async function deleteInquiry(id){
+  if(!confirm('Move this inquiry to Deleted Inquiries?'))return;
+  const {error}=await supabaseClient.from('inquiries').update({deleted:true,status:'deleted'}).eq('id',id);
+  if(error)alert(error.message);else loadInquiries();
+}
+
+async function restoreInquiry(id){
+  const {error}=await supabaseClient.from('inquiries').update({deleted:false,status:'new'}).eq('id',id);
+  if(error)alert(error.message);else loadInquiries();
+}
+
+async function addVehicle(){
+  const payload={
+    vehicle_name:document.getElementById('vehicleName').value.trim(),
+    vehicle_number:document.getElementById('vehicleNumber').value.trim(),
+    seating_capacity:Number(document.getElementById('seating').value),
+    status:document.getElementById('fleetStatus').value
+  };
+  if(!payload.vehicle_name||!payload.seating_capacity)return alert('Enter vehicle name and seating capacity.');
+  const {error}=await supabaseClient.from('fleet').insert(payload);
+  if(error)alert(error.message);else{
+    document.getElementById('vehicleName').value='';
+    document.getElementById('vehicleNumber').value='';
+    document.getElementById('seating').value='';
+    loadFleet();
+  }
+}
+
+async function loadFleet(){
+  const {data,error}=await supabaseClient.from('fleet').select('*').order('created_at',{ascending:false});
+  const box=document.getElementById('fleetList');
+  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
+  document.getElementById('countFleet').textContent=(data||[]).length;
+  box.innerHTML=(data||[]).map(x=>`
+    <div class="card"><b>${esc(x.vehicle_name)}</b>
+    <p>${esc(x.vehicle_number||'No vehicle number')}<br>${esc(x.seating_capacity)} seats<br>Status: ${esc(x.status)}</p></div>`).join('')||'<p>No fleet vehicles added.</p>';
+}
+
+async function addDriver(){
+  const payload={
+    name:document.getElementById('driverName').value.trim(),
+    mobile:document.getElementById('driverMobile').value.trim(),
+    license_no:document.getElementById('licenseNo').value.trim(),
+    status:'active'
+  };
+  if(!payload.name)return alert('Enter driver name.');
+  const {error}=await supabaseClient.from('drivers').insert(payload);
+  if(error)alert(error.message);else{
+    document.getElementById('driverName').value='';
+    document.getElementById('driverMobile').value='';
+    document.getElementById('licenseNo').value='';
+    loadDrivers();
+  }
+}
+
+async function loadDrivers(){
+  const {data,error}=await supabaseClient.from('drivers').select('*').order('created_at',{ascending:false});
+  const box=document.getElementById('driverList');
+  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
+  box.innerHTML=(data||[]).map(x=>`<div class="card"><b>${esc(x.name)}</b><p>${esc(x.mobile||'')}<br>License: ${esc(x.license_no||'')}<br>Status: ${esc(x.status)}</p></div>`).join('')||'<p>No drivers added.</p>';
+}
+
+async function loadReviews(){
+  const {data,error}=await supabaseClient.from('reviews').select('*').order('created_at',{ascending:false});
+  const box=document.getElementById('reviewList');
+  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
+  document.getElementById('countReviews').textContent=(data||[]).length;
+  box.innerHTML=(data||[]).map(x=>`
+    <div class="card"><b>${esc(x.name)}</b> — ${'★'.repeat(Number(x.rating))}${'☆'.repeat(5-Number(x.rating))}
+    <p>${esc(x.experience)}</p><span class="small">${new Date(x.created_at).toLocaleString()}</span></div>`).join('')||'<p>No reviews yet.</p>';
+}
+
+supabaseClient.auth.onAuthStateChange((_event,_session)=>checkSession());
+checkSession();
+</script>
+</body>
+</html>
