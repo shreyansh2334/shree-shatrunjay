@@ -3,319 +3,2066 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Owner Dashboard | Shree Shatrunjay</title>
+<title>Shree Shatrunjay | Owner Dashboard</title>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4efe4;color:#17263a}
-button,input,select{font:inherit}
-header{background:#10263e;color:#fff;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:1px}
-.brand img{width:48px;height:48px;border-radius:50%;object-fit:cover}
-.logout{background:#d6aa4a;color:#17263a;border:0;border-radius:6px;padding:9px 14px;cursor:pointer;font-weight:700}
-.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px}
-.login-card,.panel{background:#fff;border-radius:12px;box-shadow:0 8px 30px #17263a18}
-.login-card{width:min(420px,100%);padding:30px}
-h1,h2{margin-top:0}
-input,select{width:100%;padding:11px;margin:7px 0 14px;border:1px solid #ccd2d8;border-radius:6px}
-.primary{width:100%;padding:12px;border:0;border-radius:6px;background:#d6aa4a;color:#17263a;font-weight:700;cursor:pointer}
-.error{color:#b42318;margin-top:10px}
-.dashboard{display:none}
-.container{max-width:1200px;margin:auto;padding:22px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.tab{border:1px solid #d6aa4a;background:#fff;color:#17263a;padding:10px 15px;border-radius:7px;cursor:pointer}
-.tab.active{background:#d6aa4a}
-.panel{padding:20px}
-.section{display:none}
-.section.active{display:block}
-.card{border:1px solid #ddd;border-radius:8px;padding:15px;margin:10px 0;background:#fff}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.action{border:0;border-radius:5px;padding:8px 11px;cursor:pointer}
-.take{background:#d6aa4a}.delete{background:#f1b5b5}.restore{background:#b9dfc1}.dark{background:#17263a;color:#fff}
-.small{font-size:13px;color:#65717d}
-.badge{display:inline-block;padding:4px 8px;border-radius:20px;background:#eee;font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-@media(max-width:600px){header{padding:12px}.container{padding:14px}.panel{padding:14px}.brand span{font-size:14px}}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #222;
+}
+
+.login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #071a33, #123b68);
+}
+
+.login-box {
+    width: 380px;
+    max-width: 92%;
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.25);
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #0b2c50;
+    margin-bottom: 8px;
+}
+
+.login-box p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+button {
+    border: none;
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-btn {
+    width: 100%;
+    background: #0b2c50;
+    color: white;
+    margin-top: 10px;
+}
+
+.error {
+    color: #d00;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+#dashboard {
+    display: none;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    background: #071a33;
+    color: white;
+    padding: 25px 15px;
+    overflow-y: auto;
+}
+
+.logo-area {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    margin-bottom: 20px;
+}
+
+.logo-area h2 {
+    font-size: 20px;
+}
+
+.logo-area small {
+    color: #d5b45b;
+}
+
+.menu button {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    color: #ddd;
+    margin: 4px 0;
+}
+
+.menu button:hover,
+.menu button.active {
+    background: #173c65;
+    color: white;
+}
+
+.logout {
+    margin-top: 25px !important;
+    background: #a52828 !important;
+    color: white !important;
+}
+
+.main {
+    margin-left: 240px;
+    padding: 25px;
+}
+
+.topbar {
+    background: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.topbar h1 {
+    color: #0b2c50;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.06);
+}
+
+.card h3 {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.card strong {
+    font-size: 28px;
+    color: #0b2c50;
+}
+
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.panel h2 {
+    color: #0b2c50;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: #f5f7fa;
+    color: #333;
+}
+
+.add-btn {
+    background: #0b2c50;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.green {
+    background: #198754;
+    color: white;
+}
+
+.red {
+    background: #dc3545;
+    color: white;
+}
+
+.orange {
+    background: #e69b00;
+    color: white;
+}
+
+.blue {
+    background: #1769aa;
+    color: white;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: #eee;
+}
+
+.alert {
+    padding: 12px;
+    border-radius: 8px;
+    background: #fff4d6;
+    margin: 8px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: white;
+    width: 500px;
+    max-width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 14px;
+}
+
+.modal-box h2 {
+    margin-bottom: 15px;
+    color: #0b2c50;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+@media(max-width:800px) {
+    .sidebar {
+        width: 190px;
+    }
+
+    .main {
+        margin-left: 190px;
+    }
+}
+
+@media(max-width:600px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .topbar {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<div id="loginScreen" class="login-wrap">
-  <div class="login-card">
-    <h1>Owner Login</h1>
-    <p>Shree Shatrunjay</p>
-    <input id="email" type="email" placeholder="Owner email">
-    <input id="password" type="password" placeholder="Password">
-    <button class="primary" onclick="login()">LOGIN</button>
-    <div id="loginError" class="error"></div>
-  </div>
+<!-- LOGIN -->
+<div id="loginScreen" class="login-screen">
+
+    <div class="login-box">
+
+        <h1>SHREE SHATRUNJAY</h1>
+        <p>Owner Dashboard</p>
+
+        <input type="email" id="loginEmail" placeholder="Owner Email">
+
+        <input type="password" id="loginPassword" placeholder="Password">
+
+        <button class="login-btn" onclick="login()">LOGIN</button>
+
+        <div id="loginError" class="error"></div>
+
+    </div>
+
 </div>
 
-<div id="dashboard" class="dashboard">
-<header>
-  <div class="brand">
-    <img src="logo.png" alt="Shree Shatrunjay">
-    <span>SHREE SHATRUNJAY — OWNER</span>
-  </div>
-  <button class="logout" onclick="logout()">Logout</button>
-</header>
 
-<div class="container">
-  <div class="tabs">
-    <button class="tab active" onclick="showSection('dashboardHome',this)">Dashboard</button>
-    <button class="tab" onclick="showSection('inquiries',this)">Inquiries</button>
-    <button class="tab" onclick="showSection('fleet',this)">Fleet</button>
-    <button class="tab" onclick="showSection('drivers',this)">Drivers</button>
-    <button class="tab" onclick="showSection('reviews',this)">Reviews</button>
-  </div>
+<!-- DASHBOARD -->
+<div id="dashboard">
 
-  <section id="dashboardHome" class="section active">
-    <div class="panel">
-      <h2>Dashboard</h2>
-      <div class="grid">
-        <div class="card"><h3 id="countNew">0</h3><div>New Inquiries</div></div>
-        <div class="card"><h3 id="countTaken">0</h3><div>Taken Inquiries</div></div>
-        <div class="card"><h3 id="countFleet">0</h3><div>Fleet Vehicles</div></div>
-        <div class="card"><h3 id="countReviews">0</h3><div>Reviews</div></div>
-      </div>
-    </div>
-  </section>
+    <aside class="sidebar">
 
-  <section id="inquiries" class="section">
-    <div class="panel">
-      <h2>Inquiries</h2>
-      <div id="inquiryList">Loading...</div>
-    </div>
-  </section>
-
-  <section id="fleet" class="section">
-    <div class="panel">
-      <h2>Fleet</h2>
-      <div class="grid">
-        <div>
-          <input id="vehicleName" placeholder="Vehicle name e.g. Innova Crysta">
-          <input id="vehicleNumber" placeholder="Vehicle number">
-          <input id="seating" type="number" min="1" placeholder="Seating capacity">
-          <select id="fleetStatus">
-            <option value="available">Available</option>
-            <option value="maintenance">Maintenance</option>
-            <option value="inactive">Inactive</option>
-          </select>
-          <button class="primary" onclick="addVehicle()">ADD VEHICLE</button>
+        <div class="logo-area">
+            <h2>SHREE SHATRUNJAY</h2>
+            <small>OWNER PANEL</small>
         </div>
-        <div id="fleetList">Loading...</div>
-      </div>
-    </div>
-  </section>
 
-  <section id="drivers" class="section">
-    <div class="panel">
-      <h2>Drivers</h2>
-      <div class="grid">
-        <div>
-          <input id="driverName" placeholder="Driver name">
-          <input id="driverMobile" placeholder="Mobile number">
-          <input id="licenseNo" placeholder="License number">
-          <button class="primary" onclick="addDriver()">ADD DRIVER</button>
+        <div class="menu">
+
+            <button class="active" onclick="showSection('dashboardSection',this)">
+                📊 Dashboard
+            </button>
+
+            <button onclick="showSection('bookingsSection',this)">
+                📋 Inquiries & Bookings
+            </button>
+
+            <button onclick="showSection('fleetSection',this)">
+                🚗 Fleet
+            </button>
+
+            <button onclick="showSection('driversSection',this)">
+                👨‍✈️ Drivers
+            </button>
+
+            <button onclick="showSection('attendanceSection',this)">
+                📅 Driver Attendance
+            </button>
+
+            <button onclick="showSection('maintenanceSection',this)">
+                🔧 Vehicle Maintenance
+            </button>
+
+            <button onclick="showSection('paymentsSection',this)">
+                💰 Payments & Expenses
+            </button>
+
+            <button onclick="showSection('calendarSection',this)">
+                🗓 Calendar
+            </button>
+
+            <button onclick="showSection('reviewsSection',this)">
+                ⭐ Reviews
+            </button>
+
+            <button onclick="showSection('reportsSection',this)">
+                📈 Reports
+            </button>
+
+            <button class="logout" onclick="logout()">
+                🚪 Logout
+            </button>
+
         </div>
-        <div id="driverList">Loading...</div>
-      </div>
-    </div>
-  </section>
 
-  <section id="reviews" class="section">
-    <div class="panel">
-      <h2>Reviews</h2>
-      <div id="reviewList">Loading...</div>
+    </aside>
+
+
+    <main class="main">
+
+        <div class="topbar">
+            <h1 id="pageTitle">Dashboard</h1>
+            <span id="ownerEmail"></span>
+        </div>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboardSection" class="section active">
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Inquiries</h3>
+                    <strong id="totalInquiries">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Today's Bookings</h3>
+                    <strong id="todayBookings">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Upcoming Bookings</h3>
+                    <strong id="upcomingBookings">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Active Trips</h3>
+                    <strong id="activeTrips">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Available Cars</h3>
+                    <strong id="availableCars">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Cars On Trip</h3>
+                    <strong id="carsOnTrip">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Drivers Present</h3>
+                    <strong id="driversPresent">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Pending Payments</h3>
+                    <strong id="pendingPayments">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h2>Quick Alerts</h2>
+
+                <div id="alerts">
+                    <div class="alert">
+                        Dashboard loaded successfully.
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOOKINGS -->
+        <section id="bookingsSection" class="section">
+
+            <div class="panel">
+
+                <h2>Inquiries & Bookings</h2>
+
+                <button class="add-btn" onclick="openBookingModal()">
+                    + Add Booking
+                </button>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Phone</th>
+                                <th>Pickup</th>
+                                <th>Drop</th>
+                                <th>Date</th>
+                                <th>Vehicle</th>
+                                <th>Driver</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="bookingsTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FLEET -->
+        <section id="fleetSection" class="section">
+
+            <div class="panel">
+
+                <h2>Vehicle Fleet</h2>
+
+                <button class="add-btn" onclick="openVehicleModal()">
+                    + Add Vehicle
+                </button>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Vehicle Number</th>
+                                <th>Model</th>
+                                <th>Category</th>
+                                <th>Seats</th>
+                                <th>Status</th>
+                                <th>KM</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="fleetTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DRIVERS -->
+        <section id="driversSection" class="section">
+
+            <div class="panel">
+
+                <h2>Driver Management</h2>
+
+                <button class="add-btn" onclick="openDriverModal()">
+                    + Add Driver
+                </button>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Licence</th>
+                                <th>Licence Expiry</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="driversTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATTENDANCE -->
+        <section id="attendanceSection" class="section">
+
+            <div class="panel">
+
+                <h2>Driver Attendance</h2>
+
+                <button class="add-btn" onclick="openAttendanceModal()">
+                    + Mark Attendance
+                </button>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Driver</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="attendanceTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAINTENANCE -->
+        <section id="maintenanceSection" class="section">
+
+            <div class="panel">
+
+                <h2>Vehicle Maintenance</h2>
+
+                <button class="add-btn" onclick="openMaintenanceModal()">
+                    + Add Maintenance Record
+                </button>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Vehicle</th>
+                                <th>Service Date</th>
+                                <th>Next Service</th>
+                                <th>KM</th>
+                                <th>Expense</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="maintenanceTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAYMENTS -->
+        <section id="paymentsSection" class="section">
+
+            <div class="panel">
+
+                <h2>Payments & Expenses</h2>
+
+                <button class="add-btn" onclick="openPaymentModal()">
+                    + Add Payment
+                </button>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Booking</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Advance</th>
+                                <th>Balance</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="paymentsTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALENDAR -->
+        <section id="calendarSection" class="section">
+
+            <div class="panel">
+
+                <h2>Booking Calendar</h2>
+
+                <input type="date" id="calendarDate" onchange="showCalendar()">
+
+                <div id="calendarResults" style="margin-top:20px;">
+                    Select a date to view bookings.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REVIEWS -->
+        <section id="reviewsSection" class="section">
+
+            <div class="panel">
+
+                <h2>Customer Reviews</h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Rating</th>
+                                <th>Review</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="reviewsTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REPORTS -->
+        <section id="reportsSection" class="section">
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Bookings</h3>
+                    <strong id="reportBookings">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Total Revenue</h3>
+                    <strong id="reportRevenue">₹0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Total Expenses</h3>
+                    <strong id="reportExpenses">₹0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Pending Amount</h3>
+                    <strong id="reportPending">₹0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- VEHICLE MODAL -->
+<div class="modal" id="vehicleModal">
+
+    <div class="modal-box">
+
+        <h2>Add Vehicle</h2>
+
+        <input id="vehicleNumber" placeholder="Vehicle Number">
+
+        <input id="vehicleModel" placeholder="Vehicle Model">
+
+        <input id="vehicleCategory" placeholder="Category e.g. Sedan">
+
+        <input id="vehicleSeats" type="number" placeholder="Seating Capacity">
+
+        <input id="vehicleKm" type="number" placeholder="Current KM">
+
+        <select id="vehicleStatus">
+            <option value="AVAILABLE">AVAILABLE</option>
+            <option value="BOOKED">BOOKED</option>
+            <option value="ON TRIP">ON TRIP</option>
+            <option value="SERVICE">SERVICE</option>
+        </select>
+
+        <div class="modal-buttons">
+
+            <button class="green" onclick="saveVehicle()">
+                Save
+            </button>
+
+            <button class="red" onclick="closeModal('vehicleModal')">
+                Cancel
+            </button>
+
+        </div>
+
     </div>
-  </section>
+
 </div>
+
+
+<!-- DRIVER MODAL -->
+<div class="modal" id="driverModal">
+
+    <div class="modal-box">
+
+        <h2>Add Driver</h2>
+
+        <input id="driverName" placeholder="Driver Name">
+
+        <input id="driverMobile" placeholder="Mobile Number">
+
+        <input id="driverLicence" placeholder="Driving Licence Number">
+
+        <label>Licence Expiry</label>
+        <input id="driverLicenceExpiry" type="date">
+
+        <select id="driverStatus">
+            <option value="AVAILABLE">AVAILABLE</option>
+            <option value="ON TRIP">ON TRIP</option>
+            <option value="LEAVE">LEAVE</option>
+        </select>
+
+        <div class="modal-buttons">
+
+            <button class="green" onclick="saveDriver()">
+                Save
+            </button>
+
+            <button class="red" onclick="closeModal('driverModal')">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
+
+
+<!-- ATTENDANCE MODAL -->
+<div class="modal" id="attendanceModal">
+
+    <div class="modal-box">
+
+        <h2>Mark Attendance</h2>
+
+        <input id="attendanceDriver" placeholder="Driver Name">
+
+        <input id="attendanceDate" type="date">
+
+        <select id="attendanceStatus">
+            <option value="PRESENT">Present</option>
+            <option value="ABSENT">Absent</option>
+            <option value="HALF DAY">Half Day</option>
+            <option value="LEAVE">Leave</option>
+        </select>
+
+        <textarea id="attendanceNotes" placeholder="Notes / Reason"></textarea>
+
+        <div class="modal-buttons">
+
+            <button class="green" onclick="saveAttendance()">
+                Save
+            </button>
+
+            <button class="red" onclick="closeModal('attendanceModal')">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- MAINTENANCE MODAL -->
+<div class="modal" id="maintenanceModal">
+
+    <div class="modal-box">
+
+        <h2>Maintenance Record</h2>
+
+        <input id="maintenanceVehicle" placeholder="Vehicle Number">
+
+        <label>Service Date</label>
+        <input id="maintenanceDate" type="date">
+
+        <label>Next Service Date</label>
+        <input id="maintenanceNextDate" type="date">
+
+        <input id="maintenanceKm" type="number" placeholder="Service KM">
+
+        <input id="maintenanceExpense" type="number" placeholder="Expense">
+
+        <textarea id="maintenanceNotes" placeholder="Repair / Service Details"></textarea>
+
+        <div class="modal-buttons">
+
+            <button class="green" onclick="saveMaintenance()">
+                Save
+            </button>
+
+            <button class="red" onclick="closeModal('maintenanceModal')">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PAYMENT MODAL -->
+<div class="modal" id="paymentModal">
+
+    <div class="modal-box">
+
+        <h2>Payment</h2>
+
+        <input id="paymentBooking" placeholder="Booking ID">
+
+        <input id="paymentCustomer" placeholder="Customer Name">
+
+        <input id="paymentTotal" type="number" placeholder="Total Amount">
+
+        <input id="paymentAdvance" type="number" placeholder="Advance Amount">
+
+        <select id="paymentStatus">
+            <option value="PENDING">PENDING</option>
+            <option value="PARTIAL">PARTIAL</option>
+            <option value="PAID">PAID</option>
+        </select>
+
+        <div class="modal-buttons">
+
+            <button class="green" onclick="savePayment()">
+                Save
+            </button>
+
+            <button class="red" onclick="closeModal('paymentModal')">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+
+    <div class="modal-box">
+
+        <h2>Add Booking</h2>
+
+        <input id="bookingCustomer" placeholder="Customer Name">
+
+        <input id="bookingPhone" placeholder="Customer Phone">
+
+        <input id="bookingPickup" placeholder="Pickup Location">
+
+        <input id="bookingDrop" placeholder="Drop Location">
+
+        <label>Booking Date</label>
+        <input id="bookingDate" type="date">
+
+        <input id="bookingVehicle" placeholder="Vehicle Number">
+
+        <input id="bookingDriver" placeholder="Driver Name">
+
+        <select id="bookingStatus">
+            <option value="NEW">NEW</option>
+            <option value="TAKEN">TAKEN</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="CANCELLED">CANCELLED</option>
+        </select>
+
+        <div class="modal-buttons">
+
+            <button class="green" onclick="saveBooking()">
+                Save
+            </button>
+
+            <button class="red" onclick="closeModal('bookingModal')">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <script>
-const SUPABASE_URL = "https://jmvaotdxnuahoxsllasg.supabase.co";
-const SUPABASE_KEY = "sb_publishable_FfmL_iq8XTPwb1EyXj9ufw_QZaU3rOZ";
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-function showSection(id,btn){
-  document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-  loadAll();
+/* =====================================================
+   SUPABASE CONFIGURATION
+   ===================================================== */
+
+const SUPABASE_URL = "https://jmvaotdxnuahoxsllasg.supabase.co/rest/v1/";
+
+const SUPABASE_ANON_KEY = "sb_publishable_FfmL_iq8XTPwb1EyXj9ufw_QZaU3rOZ";
+
+const sb = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+
+/* =====================================================
+   LOGIN
+   ===================================================== */
+
+async function login() {
+
+    const email =
+        document.getElementById("loginEmail").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value;
+
+    const error =
+        document.getElementById("loginError");
+
+    error.textContent = "";
+
+    if (!email || !password) {
+
+        error.textContent =
+            "Please enter email and password.";
+
+        return;
+    }
+
+    const { data, error: loginError } =
+        await sb.auth.signInWithPassword({
+            email: email,
+            password: password
+        });
+
+    if (loginError) {
+
+        error.textContent =
+            loginError.message;
+
+        return;
+    }
+
+    const user = data.user;
+
+    /*
+       OWNER CHECK
+
+       The user must exist in owner_users.
+    */
+
+    const { data: owner, error: ownerError } =
+        await sb
+        .from("owner_users")
+        .select("*")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+    if (ownerError || !owner) {
+
+        await sb.auth.signOut();
+
+        error.textContent =
+            "This account is not authorized as an owner.";
+
+        return;
+    }
+
+    document.getElementById("loginScreen").style.display =
+        "none";
+
+    document.getElementById("dashboard").style.display =
+        "block";
+
+    document.getElementById("ownerEmail").textContent =
+        user.email;
+
+    loadEverything();
 }
 
-async function login(){
-  const email=document.getElementById('email').value.trim();
-  const password=document.getElementById('password').value;
-  const err=document.getElementById('loginError');
-  err.textContent='';
-  const {error}=await supabaseClient.auth.signInWithPassword({email,password});
-  if(error){err.textContent=error.message;return;}
-  await checkSession();
+
+/* =====================================================
+   LOGOUT
+   ===================================================== */
+
+async function logout() {
+
+    await sb.auth.signOut();
+
+    location.reload();
 }
 
-async function logout(){
-  await supabaseClient.auth.signOut();
-  location.reload();
+
+/* =====================================================
+   SECTION NAVIGATION
+   ===================================================== */
+
+function showSection(id, button) {
+
+    document
+        .querySelectorAll(".section")
+        .forEach(section => {
+            section.classList.remove("active");
+        });
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+    document
+        .querySelectorAll(".menu button")
+        .forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    const titles = {
+
+        dashboardSection: "Dashboard",
+
+        bookingsSection: "Inquiries & Bookings",
+
+        fleetSection: "Vehicle Fleet",
+
+        driversSection: "Driver Management",
+
+        attendanceSection: "Driver Attendance",
+
+        maintenanceSection: "Vehicle Maintenance",
+
+        paymentsSection: "Payments & Expenses",
+
+        calendarSection: "Calendar",
+
+        reviewsSection: "Customer Reviews",
+
+        reportsSection: "Reports"
+    };
+
+    document.getElementById("pageTitle").textContent =
+        titles[id] || "Dashboard";
 }
 
-async function checkSession(){
-  const {data:{session}}=await supabaseClient.auth.getSession();
-  if(session){
-    document.getElementById('loginScreen').style.display='none';
-    document.getElementById('dashboard').style.display='block';
-    loadAll();
-  }
+
+/* =====================================================
+   SAFE TABLE LOAD
+   ===================================================== */
+
+async function getTable(table) {
+
+    const { data, error } =
+        await sb
+        .from(table)
+        .select("*");
+
+    if (error) {
+
+        console.warn(
+            "Could not load table:",
+            table,
+            error.message
+        );
+
+        return [];
+    }
+
+    return data || [];
 }
 
-async function loadAll(){
-  loadInquiries();
-  loadFleet();
-  loadDrivers();
-  loadReviews();
+
+/* =====================================================
+   LOAD EVERYTHING
+   ===================================================== */
+
+async function loadEverything() {
+
+    const inquiries = await getTable("inquiries");
+
+    const fleet = await getTable("fleet");
+
+    const drivers = await getTable("drivers");
+
+    const attendance = await getTable("driver_attendance");
+
+    const maintenance =
+        await getTable("vehicle_maintenance");
+
+    const payments = await getTable("payments");
+
+    const reviews = await getTable("reviews");
+
+    renderDashboard(
+        inquiries,
+        fleet,
+        drivers,
+        attendance,
+        payments
+    );
+
+    renderBookings(inquiries);
+
+    renderFleet(fleet);
+
+    renderDrivers(drivers);
+
+    renderAttendance(attendance);
+
+    renderMaintenance(maintenance);
+
+    renderPayments(payments);
+
+    renderReviews(reviews);
+
+    renderReports(inquiries, payments, maintenance);
 }
 
-function esc(v){
-  return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+
+function renderDashboard(
+    inquiries,
+    fleet,
+    drivers,
+    attendance,
+    payments
+) {
+
+    document.getElementById("totalInquiries")
+        .textContent = inquiries.length;
+
+    const today =
+        new Date().toISOString().split("T")[0];
+
+    const todayBookings =
+        inquiries.filter(x =>
+            String(x.booking_date || x.date || "")
+            .startsWith(today)
+        );
+
+    document.getElementById("todayBookings")
+        .textContent = todayBookings.length;
+
+    const upcoming =
+        inquiries.filter(x =>
+            String(x.booking_date || x.date || "") >= today
+        );
+
+    document.getElementById("upcomingBookings")
+        .textContent = upcoming.length;
+
+    const active =
+        inquiries.filter(x =>
+            String(x.status || "").toUpperCase() ===
+            "TAKEN"
+        );
+
+    document.getElementById("activeTrips")
+        .textContent = active.length;
+
+    const available =
+        fleet.filter(x =>
+            String(x.status || "").toUpperCase() ===
+            "AVAILABLE"
+        );
+
+    document.getElementById("availableCars")
+        .textContent = available.length;
+
+    const onTrip =
+        fleet.filter(x =>
+            String(x.status || "").toUpperCase() ===
+            "ON TRIP"
+        );
+
+    document.getElementById("carsOnTrip")
+        .textContent = onTrip.length;
+
+    const present =
+        attendance.filter(x =>
+            String(x.status || "").toUpperCase() ===
+            "PRESENT"
+        );
+
+    document.getElementById("driversPresent")
+        .textContent = present.length;
+
+    const pending =
+        payments.filter(x =>
+            String(x.status || "").toUpperCase() !==
+            "PAID"
+        );
+
+    document.getElementById("pendingPayments")
+        .textContent = pending.length;
+
+    const alerts =
+        document.getElementById("alerts");
+
+    alerts.innerHTML = "";
+
+    if (upcoming.length) {
+
+        alerts.innerHTML +=
+            `<div class="alert">
+                📅 You have ${upcoming.length}
+                upcoming booking(s).
+            </div>`;
+    }
+
+    if (pending.length) {
+
+        alerts.innerHTML +=
+            `<div class="alert">
+                💰 ${pending.length}
+                payment(s) are pending.
+            </div>`;
+    }
+
+    if (!upcoming.length && !pending.length) {
+
+        alerts.innerHTML =
+            `<div class="alert">
+                ✅ No major alerts right now.
+            </div>`;
+    }
 }
 
-async function loadInquiries(){
-  const {data,error}=await supabaseClient.from('inquiries').select('*').order('created_at',{ascending:false});
-  const box=document.getElementById('inquiryList');
-  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
-  document.getElementById('countNew').textContent=data.filter(x=>x.status==='new'&&!x.deleted).length;
-  document.getElementById('countTaken').textContent=data.filter(x=>x.status==='taken').length;
-  if(!data.length){box.innerHTML='<p>No inquiries yet.</p>';return;}
-  box.innerHTML=data.map(x=>`
-    <div class="card">
-      <b>${esc(x.name)}</b> <span class="badge">${esc(x.status)}</span>
-      ${x.deleted?'<span class="badge">DELETED</span>':''}
-      <p>Vehicle: ${esc(x.vehicle)}<br>
-      Pickup: ${esc(x.pickup_location)}<br>
-      Destination: ${esc(x.destination)}<br>
-      Travel: ${esc(x.travel_date)} to ${esc(x.end_date)}<br>
-      Passengers: ${esc(x.passengers)}<br>
-      Phone: ${esc(x.phone||'')}<br>
-      Requirement: ${esc(x.additional_requirement||'')}</p>
-      <div class="actions">
-        ${!x.deleted && x.status==='new'?`<button class="action take" onclick="takeInquiry(${x.id})">TAKE INQUIRY</button>`:''}
-        ${!x.deleted?`<button class="action delete" onclick="deleteInquiry(${x.id})">DELETE</button>`:''}
-        ${x.deleted?`<button class="action restore" onclick="restoreInquiry(${x.id})">RESTORE</button>`:''}
-      </div>
-    </div>`).join('');
-}
 
-async function takeInquiry(id){
-  const {data,error}=await supabaseClient.from('inquiries').select('*').eq('id',id).single();
-  if(error)return alert(error.message);
-  const start=new Date(data.travel_date+'T00:00:00');
-  const end=new Date(data.end_date+'T00:00:00');
-  const {data:fleet,error:fe}=await supabaseClient.from('fleet').select('*').eq('status','available');
-  if(fe)return alert(fe.message);
-  const {data:booked,error:be}=await supabaseClient.from('inquiries')
-    .select('fleet_id,travel_date,end_date,status,deleted')
-    .not('fleet_id','is',null)
-    .in('status',['taken','completed'])
-    .eq('deleted',false);
-  if(be)return alert(be.message);
+/* =====================================================
+   BOOKINGS
+   ===================================================== */
 
-  const available=(fleet||[]).filter(car=>{
-    if(Number(data.passengers)>Number(car.seating_capacity)) return false;
-    return !(booked||[]).some(b=>{
-      if(Number(b.fleet_id)!==Number(car.id)) return false;
-      const bs=new Date(b.travel_date+'T00:00:00');
-      const be=new Date(b.end_date+'T00:00:00');
-      return start<=be && end>=bs;
+function renderBookings(rows) {
+
+    const table =
+        document.getElementById("bookingsTable");
+
+    table.innerHTML = "";
+
+    rows.forEach(row => {
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.customer_name || row.name || "-"}</td>
+            <td>${row.phone || row.mobile || "-"}</td>
+            <td>${row.pickup || "-"}</td>
+            <td>${row.drop_location || row.drop || "-"}</td>
+            <td>${row.booking_date || row.date || "-"}</td>
+            <td>${row.vehicle || row.vehicle_number || "-"}</td>
+            <td>${row.driver || row.driver_name || "-"}</td>
+            <td>
+                <span class="badge">
+                    ${row.status || "NEW"}
+                </span>
+            </td>
+        </tr>`;
     });
-  });
-  if(!available.length){alert('No suitable fleet vehicle is available for these dates and passengers.');return;}
-  const choices=available.map((c,i)=>`${i+1}. ${c.vehicle_name} | ${c.vehicle_number||'No number'} | ${c.seating_capacity} seats`).join('\n');
-  const answer=prompt('Select fleet vehicle number:\\n\\n'+choices);
-  const idx=Number(answer)-1;
-  if(!available[idx])return;
-  const car=available[idx];
-  if(Number(data.passengers)>Number(car.seating_capacity)){alert('Occupancy exceeds vehicle capacity.');return;}
-  const {error:ue}=await supabaseClient.from('inquiries').update({
-    status:'taken',fleet_id:car.id,occupancy:Number(data.passengers),taken_at:new Date().toISOString()
-  }).eq('id',id);
-  if(ue)alert(ue.message);else loadInquiries();
 }
 
-async function deleteInquiry(id){
-  if(!confirm('Move this inquiry to Deleted Inquiries?'))return;
-  const {error}=await supabaseClient.from('inquiries').update({deleted:true,status:'deleted'}).eq('id',id);
-  if(error)alert(error.message);else loadInquiries();
+
+/* =====================================================
+   FLEET
+   ===================================================== */
+
+function renderFleet(rows) {
+
+    const table =
+        document.getElementById("fleetTable");
+
+    table.innerHTML = "";
+
+    rows.forEach(row => {
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.vehicle_number || row.number || "-"}</td>
+            <td>${row.model || "-"}</td>
+            <td>${row.category || "-"}</td>
+            <td>${row.seats || row.seating_capacity || "-"}</td>
+            <td>${row.status || "AVAILABLE"}</td>
+            <td>${row.km || row.odometer || 0}</td>
+            <td>
+                <button class="red"
+                    onclick="deleteRow('fleet','${row.id}')">
+                    Delete
+                </button>
+            </td>
+        </tr>`;
+    });
 }
 
-async function restoreInquiry(id){
-  const {error}=await supabaseClient.from('inquiries').update({deleted:false,status:'new'}).eq('id',id);
-  if(error)alert(error.message);else loadInquiries();
+
+/* =====================================================
+   DRIVERS
+   ===================================================== */
+
+function renderDrivers(rows) {
+
+    const table =
+        document.getElementById("driversTable");
+
+    table.innerHTML = "";
+
+    rows.forEach(row => {
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.name || "-"}</td>
+            <td>${row.mobile || row.phone || "-"}</td>
+            <td>${row.licence || row.license || "-"}</td>
+            <td>${row.licence_expiry || row.license_expiry || "-"}</td>
+            <td>${row.status || "AVAILABLE"}</td>
+        </tr>`;
+    });
 }
 
-async function addVehicle(){
-  const payload={
-    vehicle_name:document.getElementById('vehicleName').value.trim(),
-    vehicle_number:document.getElementById('vehicleNumber').value.trim(),
-    seating_capacity:Number(document.getElementById('seating').value),
-    status:document.getElementById('fleetStatus').value
-  };
-  if(!payload.vehicle_name||!payload.seating_capacity)return alert('Enter vehicle name and seating capacity.');
-  const {error}=await supabaseClient.from('fleet').insert(payload);
-  if(error)alert(error.message);else{
-    document.getElementById('vehicleName').value='';
-    document.getElementById('vehicleNumber').value='';
-    document.getElementById('seating').value='';
-    loadFleet();
-  }
+
+/* =====================================================
+   ATTENDANCE
+   ===================================================== */
+
+function renderAttendance(rows) {
+
+    const table =
+        document.getElementById("attendanceTable");
+
+    table.innerHTML = "";
+
+    rows.forEach(row => {
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.date || "-"}</td>
+            <td>${row.driver_name || row.driver || "-"}</td>
+            <td>${row.status || "-"}</td>
+            <td>${row.notes || "-"}</td>
+        </tr>`;
+    });
 }
 
-async function loadFleet(){
-  const {data,error}=await supabaseClient.from('fleet').select('*').order('created_at',{ascending:false});
-  const box=document.getElementById('fleetList');
-  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
-  document.getElementById('countFleet').textContent=(data||[]).length;
-  box.innerHTML=(data||[]).map(x=>`
-    <div class="card"><b>${esc(x.vehicle_name)}</b>
-    <p>${esc(x.vehicle_number||'No vehicle number')}<br>${esc(x.seating_capacity)} seats<br>Status: ${esc(x.status)}</p></div>`).join('')||'<p>No fleet vehicles added.</p>';
+
+/* =====================================================
+   MAINTENANCE
+   ===================================================== */
+
+function renderMaintenance(rows) {
+
+    const table =
+        document.getElementById("maintenanceTable");
+
+    table.innerHTML = "";
+
+    rows.forEach(row => {
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.vehicle_number || row.vehicle || "-"}</td>
+            <td>${row.service_date || row.date || "-"}</td>
+            <td>${row.next_service_date || "-"}</td>
+            <td>${row.km || 0}</td>
+            <td>₹${row.expense || 0}</td>
+            <td>${row.notes || "-"}</td>
+        </tr>`;
+    });
 }
 
-async function addDriver(){
-  const payload={
-    name:document.getElementById('driverName').value.trim(),
-    mobile:document.getElementById('driverMobile').value.trim(),
-    license_no:document.getElementById('licenseNo').value.trim(),
-    status:'active'
-  };
-  if(!payload.name)return alert('Enter driver name.');
-  const {error}=await supabaseClient.from('drivers').insert(payload);
-  if(error)alert(error.message);else{
-    document.getElementById('driverName').value='';
-    document.getElementById('driverMobile').value='';
-    document.getElementById('licenseNo').value='';
-    loadDrivers();
-  }
+
+/* =====================================================
+   PAYMENTS
+   ===================================================== */
+
+function renderPayments(rows) {
+
+    const table =
+        document.getElementById("paymentsTable");
+
+    table.innerHTML = "";
+
+    rows.forEach(row => {
+
+        const total =
+            Number(row.total || row.total_amount || 0);
+
+        const advance =
+            Number(row.advance || row.advance_amount || 0);
+
+        const balance =
+            total - advance;
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.booking_id || "-"}</td>
+            <td>${row.customer_name || "-"}</td>
+            <td>₹${total}</td>
+            <td>₹${advance}</td>
+            <td>₹${balance}</td>
+            <td>${row.status || "PENDING"}</td>
+        </tr>`;
+    });
 }
 
-async function loadDrivers(){
-  const {data,error}=await supabaseClient.from('drivers').select('*').order('created_at',{ascending:false});
-  const box=document.getElementById('driverList');
-  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
-  box.innerHTML=(data||[]).map(x=>`<div class="card"><b>${esc(x.name)}</b><p>${esc(x.mobile||'')}<br>License: ${esc(x.license_no||'')}<br>Status: ${esc(x.status)}</p></div>`).join('')||'<p>No drivers added.</p>';
+
+/* =====================================================
+   REVIEWS
+   ===================================================== */
+
+function renderReviews(rows) {
+
+    const table =
+        document.getElementById("reviewsTable");
+
+    table.innerHTML = "";
+
+    rows.forEach(row => {
+
+        table.innerHTML += `
+        <tr>
+            <td>${row.customer_name || row.name || "-"}</td>
+            <td>${row.rating || "-"}/5</td>
+            <td>${row.review || row.comment || "-"}</td>
+            <td>${row.status || "VISIBLE"}</td>
+            <td>
+                <button class="orange"
+                    onclick="toggleReview('${row.id}','${row.status}')">
+                    Change
+                </button>
+            </td>
+        </tr>`;
+    });
 }
 
-async function loadReviews(){
-  const {data,error}=await supabaseClient.from('reviews').select('*').order('created_at',{ascending:false});
-  const box=document.getElementById('reviewList');
-  if(error){box.innerHTML='<p>'+esc(error.message)+'</p>';return;}
-  document.getElementById('countReviews').textContent=(data||[]).length;
-  box.innerHTML=(data||[]).map(x=>`
-    <div class="card"><b>${esc(x.name)}</b> — ${'★'.repeat(Number(x.rating))}${'☆'.repeat(5-Number(x.rating))}
-    <p>${esc(x.experience)}</p><span class="small">${new Date(x.created_at).toLocaleString()}</span></div>`).join('')||'<p>No reviews yet.</p>';
+
+/* =====================================================
+   REPORTS
+   ===================================================== */
+
+function renderReports(
+    bookings,
+    payments,
+    maintenance
+) {
+
+    document.getElementById("reportBookings")
+        .textContent = bookings.length;
+
+    let revenue = 0;
+    let pending = 0;
+    let expenses = 0;
+
+    payments.forEach(row => {
+
+        revenue += Number(
+            row.total ||
+            row.total_amount ||
+            0
+        );
+
+        const total =
+            Number(row.total || row.total_amount || 0);
+
+        const advance =
+            Number(row.advance || row.advance_amount || 0);
+
+        pending += Math.max(
+            0,
+            total - advance
+        );
+    });
+
+    maintenance.forEach(row => {
+
+        expenses += Number(
+            row.expense || 0
+        );
+    });
+
+    document.getElementById("reportRevenue")
+        .textContent = "₹" + revenue;
+
+    document.getElementById("reportExpenses")
+        .textContent = "₹" + expenses;
+
+    document.getElementById("reportPending")
+        .textContent = "₹" + pending;
 }
 
-supabaseClient.auth.onAuthStateChange((_event,_session)=>checkSession());
+
+/* =====================================================
+   SAVE VEHICLE
+   ===================================================== */
+
+async function saveVehicle() {
+
+    const { error } =
+        await sb.from("fleet").insert({
+
+            vehicle_number:
+                document.getElementById("vehicleNumber").value,
+
+            model:
+                document.getElementById("vehicleModel").value,
+
+            category:
+                document.getElementById("vehicleCategory").value,
+
+            seats:
+                Number(
+                    document.getElementById("vehicleSeats").value
+                ),
+
+            km:
+                Number(
+                    document.getElementById("vehicleKm").value
+                ),
+
+            status:
+                document.getElementById("vehicleStatus").value
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    closeModal("vehicleModal");
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   SAVE DRIVER
+   ===================================================== */
+
+async function saveDriver() {
+
+    const { error } =
+        await sb.from("drivers").insert({
+
+            name:
+                document.getElementById("driverName").value,
+
+            mobile:
+                document.getElementById("driverMobile").value,
+
+            licence:
+                document.getElementById("driverLicence").value,
+
+            licence_expiry:
+                document.getElementById("driverLicenceExpiry").value,
+
+            status:
+                document.getElementById("driverStatus").value
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    closeModal("driverModal");
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   SAVE ATTENDANCE
+   ===================================================== */
+
+async function saveAttendance() {
+
+    const { error } =
+        await sb.from("driver_attendance").insert({
+
+            driver_name:
+                document.getElementById("attendanceDriver").value,
+
+            date:
+                document.getElementById("attendanceDate").value,
+
+            status:
+                document.getElementById("attendanceStatus").value,
+
+            notes:
+                document.getElementById("attendanceNotes").value
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    closeModal("attendanceModal");
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   SAVE MAINTENANCE
+   ===================================================== */
+
+async function saveMaintenance() {
+
+    const { error } =
+        await sb.from("vehicle_maintenance").insert({
+
+            vehicle_number:
+                document.getElementById("maintenanceVehicle").value,
+
+            service_date:
+                document.getElementById("maintenanceDate").value,
+
+            next_service_date:
+                document.getElementById("maintenanceNextDate").value,
+
+            km:
+                Number(
+                    document.getElementById("maintenanceKm").value
+                ),
+
+            expense:
+                Number(
+                    document.getElementById("maintenanceExpense").value
+                ),
+
+            notes:
+                document.getElementById("maintenanceNotes").value
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    closeModal("maintenanceModal");
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   SAVE PAYMENT
+   ===================================================== */
+
+async function savePayment() {
+
+    const total =
+        Number(
+            document.getElementById("paymentTotal").value
+        );
+
+    const advance =
+        Number(
+            document.getElementById("paymentAdvance").value
+        );
+
+    const { error } =
+        await sb.from("payments").insert({
+
+            booking_id:
+                document.getElementById("paymentBooking").value,
+
+            customer_name:
+                document.getElementById("paymentCustomer").value,
+
+            total_amount: total,
+
+            advance_amount: advance,
+
+            status:
+                document.getElementById("paymentStatus").value
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    closeModal("paymentModal");
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   SAVE BOOKING
+   ===================================================== */
+
+async function saveBooking() {
+
+    const { error } =
+        await sb.from("inquiries").insert({
+
+            customer_name:
+                document.getElementById("bookingCustomer").value,
+
+            phone:
+                document.getElementById("bookingPhone").value,
+
+            pickup:
+                document.getElementById("bookingPickup").value,
+
+            drop_location:
+                document.getElementById("bookingDrop").value,
+
+            booking_date:
+                document.getElementById("bookingDate").value,
+
+            vehicle:
+                document.getElementById("bookingVehicle").value,
+
+            driver:
+                document.getElementById("bookingDriver").value,
+
+            status:
+                document.getElementById("bookingStatus").value
+        });
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    closeModal("bookingModal");
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   DELETE
+   ===================================================== */
+
+async function deleteRow(table, id) {
+
+    if (!confirm("Delete this record?")) {
+        return;
+    }
+
+    const { error } =
+        await sb
+        .from(table)
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   REVIEWS
+   ===================================================== */
+
+async function toggleReview(id, currentStatus) {
+
+    const newStatus =
+        String(currentStatus).toUpperCase() === "HIDDEN"
+        ? "VISIBLE"
+        : "HIDDEN";
+
+    const { error } =
+        await sb
+        .from("reviews")
+        .update({
+            status: newStatus
+        })
+        .eq("id", id);
+
+    if (error) {
+
+        alert(error.message);
+
+        return;
+    }
+
+    loadEverything();
+}
+
+
+/* =====================================================
+   CALENDAR
+   ===================================================== */
+
+async function showCalendar() {
+
+    const date =
+        document.getElementById("calendarDate").value;
+
+    if (!date) return;
+
+    const { data, error } =
+        await sb
+        .from("inquiries")
+        .select("*")
+        .eq("booking_date", date);
+
+    if (error) {
+
+        document.getElementById("calendarResults")
+            .textContent = error.message;
+
+        return;
+    }
+
+    const results =
+        document.getElementById("calendarResults");
+
+    if (!data.length) {
+
+        results.innerHTML =
+            "<p>No bookings for this date.</p>";
+
+        return;
+    }
+
+    results.innerHTML =
+        data.map(x => `
+            <div class="alert">
+                <b>${x.customer_name || "Customer"}</b><br>
+                ${x.pickup || "-"} → ${x.drop_location || "-"}<br>
+                Vehicle: ${x.vehicle || "-"}<br>
+                Driver: ${x.driver || "-"}<br>
+                Status: ${x.status || "-"}
+            </div>
+        `).join("");
+}
+
+
+/* =====================================================
+   MODALS
+   ===================================================== */
+
+function openVehicleModal() {
+    document.getElementById("vehicleModal").style.display = "flex";
+}
+
+function openDriverModal() {
+    document.getElementById("driverModal").style.display = "flex";
+}
+
+function openAttendanceModal() {
+    document.getElementById("attendanceModal").style.display = "flex";
+}
+
+function openMaintenanceModal() {
+    document.getElementById("maintenanceModal").style.display = "flex";
+}
+
+function openPaymentModal() {
+    document.getElementById("paymentModal").style.display = "flex";
+}
+
+function openBookingModal() {
+    document.getElementById("bookingModal").style.display = "flex";
+}
+
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+
+/* =====================================================
+   CHECK EXISTING SESSION
+   ===================================================== */
+
+async function checkSession() {
+
+    const {
+        data: { session }
+    } = await sb.auth.getSession();
+
+    if (!session) {
+        return;
+    }
+
+    const { data: owner } =
+        await sb
+        .from("owner_users")
+        .select("*")
+        .eq("user_id", session.user.id)
+        .maybeSingle();
+
+    if (!owner) {
+
+        await sb.auth.signOut();
+
+        return;
+    }
+
+    document.getElementById("loginScreen").style.display =
+        "none";
+
+    document.getElementById("dashboard").style.display =
+        "block";
+
+    document.getElementById("ownerEmail").textContent =
+        session.user.email;
+
+    loadEverything();
+}
+
 checkSession();
+
 </script>
+
 </body>
 </html>
