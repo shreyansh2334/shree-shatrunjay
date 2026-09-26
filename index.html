@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -34,6 +35,10 @@
     scroll-behavior:smooth;
 }
 
+html{
+    scroll-padding-top:90px;
+}
+
 body{
     background:var(--cream);
     color:var(--navy);
@@ -50,6 +55,7 @@ img{
     max-width:100%;
     display:block;
 }
+
 
 /* ================= NAVBAR ================= */
 
@@ -80,7 +86,8 @@ img{
 .nav-logo img{
     width:48px;
     height:48px;
-    object-fit:contain;
+    object-fit:cover;
+    border-radius:50%;
 }
 
 .nav-logo-text{
@@ -92,12 +99,12 @@ img{
 
 .nav-links{
     display:flex;
-    gap:28px;
+    gap:24px;
     align-items:center;
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
     text-transform:uppercase;
-    letter-spacing:.8px;
+    letter-spacing:.7px;
 }
 
 .nav-links a:hover{
@@ -110,6 +117,32 @@ img{
     padding:11px 18px;
     border-radius:30px;
 }
+
+.nav-review{
+    color:var(--gold);
+}
+
+.nav-instagram{
+    color:#9d4edd;
+}
+
+
+/* ================= MOBILE MENU BUTTON ================= */
+
+.mobile-menu-btn{
+    display:none;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:var(--navy);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+}
+
 
 /* ================= HERO ================= */
 
@@ -134,7 +167,8 @@ img{
 .hero-logo{
     width:125px;
     height:125px;
-    object-fit:contain;
+    object-fit:cover;
+    border-radius:50%;
     margin:0 auto 25px;
 }
 
@@ -175,6 +209,7 @@ img{
     font-size:13px;
     letter-spacing:.7px;
     transition:.3s;
+    display:inline-block;
 }
 
 .btn-gold{
@@ -191,6 +226,11 @@ img{
     transform:translateY(-2px);
 }
 
+.review-hero-btn{
+    border-color:#f7d47c;
+}
+
+
 /* ================= QUICK INFO ================= */
 
 .quick-info{
@@ -202,7 +242,7 @@ img{
     max-width:1200px;
     margin:auto;
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
 }
 
 .quick-box{
@@ -225,6 +265,15 @@ img{
     font-size:12px;
     opacity:.85;
 }
+
+.quick-box a{
+    transition:.2s;
+}
+
+.quick-box a:hover{
+    color:var(--bright-gold);
+}
+
 
 /* ================= GENERAL SECTIONS ================= */
 
@@ -263,6 +312,7 @@ img{
     font-size:14px;
     color:#59616b;
 }
+
 
 /* ================= BOOKING ================= */
 
@@ -347,6 +397,7 @@ img{
     color:var(--dark);
 }
 
+
 /* ================= SERVICES ================= */
 
 .services-grid{
@@ -379,7 +430,8 @@ img{
     color:#626872;
 }
 
-/* ================= WHY CHOOSE US ================= */
+
+/* ================= WHY ================= */
 
 .why-section{
     background:var(--deep);
@@ -422,6 +474,7 @@ img{
     font-size:12px;
     color:#d2d5d8;
 }
+
 
 /* ================= CLIENTS ================= */
 
@@ -484,7 +537,39 @@ img{
     color:#777;
 }
 
-/* ================= TRAVEL REQUIREMENTS ================= */
+.hidden-client{
+    display:none;
+}
+
+.hidden-client.show{
+    display:flex;
+}
+
+.clients-more{
+    text-align:center;
+    margin-top:32px;
+}
+
+.clients-more button{
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--navy);
+    padding:12px 24px;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.6px;
+}
+
+.clients-more button:hover{
+    background:var(--gold);
+    color:var(--dark);
+}
+
+
+/* ================= TRAVEL ================= */
 
 .travel-section{
     background:var(--cream-dark);
@@ -514,6 +599,7 @@ img{
     margin-top:5px;
 }
 
+
 /* ================= ABOUT ================= */
 
 .about-section{
@@ -522,9 +608,13 @@ img{
 
 .about-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr;
     gap:55px;
     align-items:center;
+}
+
+.about-content{
+    max-width:900px;
 }
 
 .about-content h2{
@@ -548,6 +638,7 @@ img{
     font-size:13px;
 }
 
+
 /* ================= CATALOG ================= */
 
 .catalog-section{
@@ -568,6 +659,167 @@ img{
     color:#e0e0e0;
     font-size:14px;
 }
+
+
+/* ================= REVIEWS ================= */
+
+.reviews-section{
+    background:var(--cream-light);
+}
+
+.review-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    border:1px solid rgba(214,170,74,.20);
+    box-shadow:0 15px 40px rgba(23,38,58,.08);
+}
+
+.review-form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.review-form .full{
+    grid-column:1/-1;
+}
+
+.review-form label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.review-form input,
+.review-form textarea{
+    width:100%;
+    border:1px solid #ddd5c7;
+    background:#faf8f3;
+    border-radius:8px;
+    padding:13px;
+    font-family:'Montserrat',sans-serif;
+    outline:none;
+}
+
+.review-form textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.star-selector{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+    gap:5px;
+}
+
+.star-selector input{
+    display:none;
+}
+
+.star-selector label{
+    font-size:30px;
+    color:#cfc8b9;
+    cursor:pointer;
+    margin:0;
+    line-height:1;
+    transition:.15s;
+}
+
+.star-selector label:hover,
+.star-selector label:hover ~ label,
+.star-selector input:checked ~ label{
+    color:var(--gold);
+}
+
+.review-submit{
+    grid-column:1/-1;
+    text-align:center;
+    margin-top:5px;
+}
+
+.review-submit button{
+    border:none;
+    cursor:pointer;
+    padding:14px 30px;
+    border-radius:30px;
+    background:var(--navy);
+    color:white;
+    font-weight:700;
+}
+
+.review-submit button:hover{
+    background:var(--gold);
+    color:var(--dark);
+}
+
+.review-status{
+    text-align:center;
+    margin-top:14px;
+    font-size:12px;
+    min-height:18px;
+}
+
+.reviews-list{
+    margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.review-card{
+    background:white;
+    border:1px solid rgba(214,170,74,.20);
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(23,38,58,.06);
+}
+
+.review-card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.review-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    color:var(--navy);
+}
+
+.review-stars{
+    color:var(--gold);
+    letter-spacing:2px;
+    white-space:nowrap;
+}
+
+.review-date{
+    margin-top:3px;
+    font-size:10px;
+    color:#888;
+}
+
+.review-text{
+    margin-top:14px;
+    font-size:13px;
+    color:#59616b;
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+}
+
+.no-reviews{
+    grid-column:1/-1;
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    padding:20px;
+}
+
 
 /* ================= CONTACT ================= */
 
@@ -595,7 +847,7 @@ img{
 }
 
 .contact-item{
-    margin-bottom:14px;
+    margin-bottom:18px;
     font-size:14px;
 }
 
@@ -605,7 +857,36 @@ img{
     text-transform:uppercase;
     letter-spacing:1px;
     color:var(--gold);
+    margin-bottom:3px;
 }
+
+.contact-link{
+    display:inline-block;
+    margin-bottom:2px;
+}
+
+.contact-link:hover{
+    color:var(--gold);
+}
+
+.whatsapp-link{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    background:#25D366;
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:13px;
+    margin-top:4px;
+}
+
+.whatsapp-link:hover{
+    color:white;
+    transform:translateY(-2px);
+}
+
 
 /* ================= FOOTER ================= */
 
@@ -618,6 +899,9 @@ footer{
 
 footer .footer-logo{
     width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:50%;
     margin:0 auto 10px;
 }
 
@@ -642,31 +926,97 @@ footer p{
     color:var(--bright-gold);
 }
 
-/* ================= FLOATING WHATSAPP ================= */
 
-.whatsapp-float{
+/* ================= FLOATING ACTIONS ================= */
+
+.floating-actions{
     position:fixed;
     right:20px;
     bottom:20px;
-    width:58px;
-    height:58px;
+    z-index:999;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.phone-float,
+.whatsapp-float{
+    width:56px;
+    height:56px;
     border-radius:50%;
-    background:#25D366;
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:27px;
     box-shadow:0 8px 25px rgba(0,0,0,.25);
-    z-index:999;
+    transition:.2s;
 }
+
+.phone-float{
+    background:var(--navy);
+    font-size:25px;
+}
+
+.whatsapp-float{
+    background:#25D366;
+}
+
+.phone-float:hover,
+.whatsapp-float:hover{
+    transform:translateY(-3px);
+}
+
+.whatsapp-float svg{
+    width:27px;
+    height:27px;
+    fill:white;
+}
+
 
 /* ================= MOBILE ================= */
 
 @media(max-width:850px){
 
+    .mobile-menu-btn{
+        display:flex;
+    }
+
     .nav-links{
         display:none;
+        position:absolute;
+        top:76px;
+        left:12px;
+        right:12px;
+        background:var(--navy);
+        border-radius:14px;
+        padding:12px;
+        flex-direction:column;
+        gap:3px;
+        box-shadow:0 15px 35px rgba(0,0,0,.25);
+        border:1px solid rgba(247,212,124,.20);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a{
+        width:100%;
+        color:white;
+        padding:13px 15px;
+        border-radius:8px;
+    }
+
+    .nav-links a:hover{
+        background:rgba(247,212,124,.12);
+        color:var(--bright-gold);
+    }
+
+    .nav-button{
+        background:var(--gold) !important;
+        color:var(--dark) !important;
+        text-align:center;
+        margin-top:4px;
     }
 
     .hero{
@@ -696,17 +1046,20 @@ footer p{
         border-bottom:1px solid rgba(255,255,255,.12);
     }
 
-    .booking-form{
+    .booking-form,
+    .review-form{
         grid-template-columns:1fr;
     }
 
-    .form-group.full{
+    .form-group.full,
+    .review-form .full{
         grid-column:auto;
     }
 
     .services-grid,
     .clients-grid,
-    .travel-grid{
+    .travel-grid,
+    .reviews-list{
         grid-template-columns:1fr;
     }
 
@@ -724,12 +1077,33 @@ footer p{
         font-size:40px;
     }
 
-    .booking-box{
+    .booking-box,
+    .review-box{
         padding:25px 18px;
     }
+
+    .review-card-top{
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .review-stars{
+        font-size:16px;
+    }
+
 }
 
+
 @media(max-width:500px){
+
+    .nav-logo-text{
+        font-size:19px;
+    }
+
+    .nav-logo img{
+        width:43px;
+        height:43px;
+    }
 
     .hero h1{
         font-size:39px;
@@ -752,12 +1126,24 @@ footer p{
         padding:65px 18px;
     }
 
+    .floating-actions{
+        right:14px;
+        bottom:14px;
+    }
+
+    .phone-float,
+    .whatsapp-float{
+        width:52px;
+        height:52px;
+    }
+
 }
 
 </style>
 </head>
 
 <body>
+
 
 <!-- ================= NAVBAR ================= -->
 
@@ -766,19 +1152,59 @@ footer p{
     <div class="nav-inner">
 
         <a href="#home" class="nav-logo">
-            <img src="logo.png" alt="Shree Shatrunjay Logo">
-            <div class="nav-logo-text">SHREE SHATRUNJAY</div>
+
+            <img
+                src="logo.png"
+                alt="Shree Shatrunjay Logo">
+
+            <div class="nav-logo-text">
+                SHREE SHATRUNJAY
+            </div>
+
         </a>
 
+
         <div class="nav-links">
+
             <a href="#home">Home</a>
+
             <a href="#booking">Book</a>
+
             <a href="#services">Services</a>
+
             <a href="#clients">Clients</a>
+
             <a href="#about">About</a>
+
             <a href="#catalog">Catalog</a>
-            <a href="#contact" class="nav-button">Contact</a>
+
+            <a href="#reviews" class="nav-review">
+                Review Us
+            </a>
+
+            <a
+                href="https://www.instagram.com/shreeshatrunjay_indore/"
+                target="_blank"
+                class="nav-instagram">
+                Instagram
+            </a>
+
+            <a href="#contact" class="nav-button">
+                Contact
+            </a>
+
         </div>
+
+
+        <button
+            class="mobile-menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
 
     </div>
 
@@ -791,34 +1217,61 @@ footer p{
 
     <div class="hero-content">
 
-        <img src="logo.png"
-             alt="Shree Shatrunjay"
-             class="hero-logo">
+        <img
+            src="logo.png"
+            alt="Shree Shatrunjay"
+            class="hero-logo">
 
-        <h1>SHREE SHATRUNJAY</h1>
+        <h1>
+            SHREE SHATRUNJAY
+        </h1>
 
-        <h2>CAR RENTAL SERVICES</h2>
+        <h2>
+            CAR RENTAL SERVICES
+        </h2>
 
         <p>
             Reliable • Comfortable • Professional Travel Solutions
         </p>
 
+
         <div class="hero-buttons">
 
-            <a href="#booking" class="btn btn-gold">
+            <a
+                href="#booking"
+                class="btn btn-gold">
+
                 BOOK YOUR RIDE
+
             </a>
 
-            <a href="https://wa.me/919406649446"
-               target="_blank"
-               class="btn btn-outline">
+
+            <a
+                href="#reviews"
+                class="btn btn-outline review-hero-btn">
+
+                ⭐ REVIEW US
+
+            </a>
+
+
+            <a
+                href="https://wa.me/919406649446"
+                target="_blank"
+                class="btn btn-outline">
+
                 WHATSAPP ENQUIRY
+
             </a>
 
-            <a href="Shree%20Shatrunjay%20catalogue%201.pdf"
-               target="_blank"
-               class="btn btn-outline">
+
+            <a
+                href="Shree%20Shatrunjay%20catalogue%201.pdf"
+                target="_blank"
+                class="btn btn-outline">
+
                 VIEW COMPLETE CATALOG →
+
             </a>
 
         </div>
@@ -835,18 +1288,60 @@ footer p{
     <div class="quick-inner">
 
         <div class="quick-box">
-            <strong>Reliable Service</strong>
-            <span>Professional travel support</span>
+
+            <strong>
+                Reliable Service
+            </strong>
+
+            <span>
+                Professional travel support
+            </span>
+
         </div>
 
-        <div class="quick-box">
-            <strong>Comfortable Travel</strong>
-            <span>Vehicles for every requirement</span>
-        </div>
 
         <div class="quick-box">
-            <strong>Indore Based</strong>
-            <span>Local & nationwide travel solutions</span>
+
+            <strong>
+                Comfortable Travel
+            </strong>
+
+            <span>
+                Vehicles for every requirement
+            </span>
+
+        </div>
+
+
+        <div class="quick-box">
+
+            <strong>
+                Call Us
+            </strong>
+
+            <span>
+                <a href="tel:9406649446">9406649446</a>
+                •
+                <a href="tel:9827077300">9827077300</a>
+            </span>
+
+        </div>
+
+
+        <div class="quick-box">
+
+            <strong>
+                Instagram
+            </strong>
+
+            <span>
+                <a
+                    href="https://www.instagram.com/shreeshatrunjay_indore/"
+                    target="_blank">
+                    @shreeshatrunjay_indore
+                </a>
+            </span>
+
         </div>
 
     </div>
@@ -856,7 +1351,9 @@ footer p{
 
 <!-- ================= BOOKING ================= -->
 
-<section class="section booking-section" id="booking">
+<section
+    class="section booking-section"
+    id="booking">
 
     <div class="section-inner">
 
@@ -866,7 +1363,9 @@ footer p{
                 Quick Enquiry
             </div>
 
-            <h2>Book Your Ride</h2>
+            <h2>
+                Book Your Ride
+            </h2>
 
             <p>
                 Share your travel requirements and connect with us directly on WhatsApp.
@@ -877,66 +1376,57 @@ footer p{
 
         <div class="booking-box">
 
-            <form class="booking-form" onsubmit="sendBooking(); return false;">
+            <form
+                class="booking-form"
+                onsubmit="sendBooking(); return false;">
+
 
                 <div class="form-group">
 
-                    <label>Your Name</label>
+                    <label>
+                        Your Name
+                    </label>
 
                     <input
                         type="text"
                         id="name"
                         placeholder="Enter your name"
-                        required
-                    >
+                        required>
 
                 </div>
 
 
                 <div class="form-group">
 
-                    <label>Vehicle</label>
+                    <label>
+                        Vehicle
+                    </label>
 
-                    <select id="vehicle" required>
+                    <select
+                        id="vehicle"
+                        required>
 
                         <option value="">
                             Select Vehicle
                         </option>
 
                         <option>Dzire</option>
-
                         <option>Amaze</option>
-
                         <option>Ertiga</option>
-
                         <option>Brezza</option>
-
                         <option>Toyota Innova Hycross</option>
-
                         <option>Mahindra XUV 7XO</option>
-
                         <option>Toyota Innova Crysta</option>
-
                         <option>Mahindra XUV700</option>
-
                         <option>Kia Carens</option>
-
                         <option>Kia Carens EV</option>
-
                         <option>Toyota Rumion</option>
-
                         <option>Mahindra Scorpio</option>
-
                         <option>Mahindra Bolero Neo</option>
-
                         <option>Mahindra Bolero</option>
-
                         <option>Force Urbania</option>
-
                         <option>Toofan</option>
-
                         <option>TUV</option>
-
                         <option>Any Other Vehicle</option>
 
                     </select>
@@ -946,63 +1436,69 @@ footer p{
 
                 <div class="form-group">
 
-                    <label>Pickup Location</label>
+                    <label>
+                        Pickup Location
+                    </label>
 
                     <input
                         type="text"
                         id="pickup"
                         placeholder="Pickup location"
-                        required
-                    >
+                        required>
 
                 </div>
 
 
                 <div class="form-group">
 
-                    <label>Destination</label>
+                    <label>
+                        Destination
+                    </label>
 
                     <input
                         type="text"
                         id="destination"
                         placeholder="Destination"
-                        required
-                    >
+                        required>
 
                 </div>
 
 
                 <div class="form-group">
 
-                    <label>Travel Date</label>
+                    <label>
+                        Travel Date
+                    </label>
 
                     <input
                         type="date"
                         id="date"
-                        required
-                    >
+                        required>
 
                 </div>
 
 
                 <div class="form-group">
 
-                    <label>Passengers</label>
+                    <label>
+                        Passengers
+                    </label>
 
                     <input
                         type="number"
                         id="passengers"
                         min="1"
                         placeholder="Number of passengers"
-                        required
-                    >
+                        required>
 
                 </div>
 
 
                 <div class="form-group full">
 
-                    <label>Additional Requirement</label>
+                    <label>
+                        Additional Requirement
+                    </label>
 
                     <textarea
                         id="requirement"
@@ -1041,7 +1537,9 @@ footer p{
                 What We Offer
             </div>
 
-            <h2>Our Services</h2>
+            <h2>
+                Our Services
+            </h2>
 
             <p>
                 Travel solutions designed for individuals, families,
@@ -1125,7 +1623,9 @@ footer p{
                 The Shree Shatrunjay Difference
             </div>
 
-            <h2>Why Choose Us</h2>
+            <h2>
+                Why Choose Us
+            </h2>
 
             <p>
                 Professional service with comfort, convenience and
@@ -1141,7 +1641,9 @@ footer p{
 
                 <div class="number">01</div>
 
-                <h3>Professional Service</h3>
+                <h3>
+                    Professional Service
+                </h3>
 
                 <p>
                     Focused on providing smooth and comfortable travel.
@@ -1154,7 +1656,9 @@ footer p{
 
                 <div class="number">02</div>
 
-                <h3>Multiple Vehicle Options</h3>
+                <h3>
+                    Multiple Vehicle Options
+                </h3>
 
                 <p>
                     Vehicles available for different travel requirements.
@@ -1167,7 +1671,9 @@ footer p{
 
                 <div class="number">03</div>
 
-                <h3>Flexible Travel</h3>
+                <h3>
+                    Flexible Travel
+                </h3>
 
                 <p>
                     Local, outstation, airport and customized journeys.
@@ -1180,7 +1686,9 @@ footer p{
 
                 <div class="number">04</div>
 
-                <h3>Easy Booking</h3>
+                <h3>
+                    Easy Booking
+                </h3>
 
                 <p>
                     Quick enquiry and booking directly through WhatsApp.
@@ -1207,7 +1715,9 @@ footer p{
                 Trusted By
             </div>
 
-            <h2>Our Clients</h2>
+            <h2>
+                Our Clients
+            </h2>
 
             <p>
                 Proud to have served organizations and distinguished
@@ -1220,7 +1730,7 @@ footer p{
         <div class="clients-grid">
 
 
-            <!-- AIRPORTS AUTHORITY OF INDIA -->
+            <!-- 1 AAI - VISIBLE -->
 
             <div class="client-card">
 
@@ -1228,8 +1738,7 @@ footer p{
                     src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Airports_authority_of_India_Logo.png"
                     alt="Airports Authority of India Logo"
                     class="client-image"
-                    loading="lazy"
-                >
+                    loading="lazy">
 
                 <h3>
                     Airports Authority of India
@@ -1242,7 +1751,7 @@ footer p{
             </div>
 
 
-            <!-- INCOME TAX DEPARTMENT -->
+            <!-- 2 INCOME TAX - VISIBLE -->
 
             <div class="client-card">
 
@@ -1250,8 +1759,7 @@ footer p{
                     src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Logo_of_Income_Tax_Department_India.png"
                     alt="Income Tax Department Logo"
                     class="client-image"
-                    loading="lazy"
-                >
+                    loading="lazy">
 
                 <h3>
                     Income Tax Department
@@ -1264,29 +1772,7 @@ footer p{
             </div>
 
 
-            <!-- WESTERN RAILWAY -->
-
-            <div class="client-card">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Western_Railway_Zone.svg"
-                    alt="Western Railway Logo"
-                    class="client-image"
-                    loading="lazy"
-                >
-
-                <h3>
-                    Western Railway
-                </h3>
-
-                <p>
-                    Indian Railways
-                </p>
-
-            </div>
-
-
-            <!-- NAYANTHARA -->
+            <!-- 3 NAYANTHARA - VISIBLE -->
 
             <div class="client-card person">
 
@@ -1294,8 +1780,7 @@ footer p{
                     src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nayanthara_in_2023.jpg"
                     alt="Nayanthara"
                     class="client-image"
-                    loading="lazy"
-                >
+                    loading="lazy">
 
                 <h3>
                     Nayanthara
@@ -1308,7 +1793,7 @@ footer p{
             </div>
 
 
-            <!-- SREELEELA -->
+            <!-- 4 SREELEELA - VISIBLE -->
 
             <div class="client-card person">
 
@@ -1316,8 +1801,7 @@ footer p{
                     src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sree_Leela_2021.png"
                     alt="Sreeleela"
                     class="client-image"
-                    loading="lazy"
-                >
+                    loading="lazy">
 
                 <h3>
                     Sreeleela
@@ -1330,16 +1814,36 @@ footer p{
             </div>
 
 
-            <!-- SHATRUGHAN SINHA -->
+            <!-- 5 WESTERN RAILWAY -->
 
-            <div class="client-card person">
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Western_Railway_Zone.svg"
+                    alt="Western Railway Logo"
+                    class="client-image"
+                    loading="lazy">
+
+                <h3>
+                    Western Railway
+                </h3>
+
+                <p>
+                    Indian Railways
+                </p>
+
+            </div>
+
+
+            <!-- 6 SHATRUGHAN SINHA -->
+
+            <div class="client-card person hidden-client">
 
                 <img
                     src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shatrughan_Sinha.jpg"
                     alt="Shatrughan Sinha"
                     class="client-image"
-                    loading="lazy"
-                >
+                    loading="lazy">
 
                 <h3>
                     Shatrughan Sinha
@@ -1351,6 +1855,146 @@ footer p{
 
             </div>
 
+
+            <!-- 7 POWERGRID -->
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://www.presentations.gov.in/wp-content/uploads/2023/03/Power-Grid-Corp-Logo-PNG.png"
+                    alt="POWERGRID Logo"
+                    class="client-image"
+                    loading="lazy">
+
+                <h3>
+                    POWERGRID
+                </h3>
+
+                <p>
+                    Government Organization
+                </p>
+
+            </div>
+
+
+            <!-- 8 RRCAT -->
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Raja_Ramanna_Centre_for_Advanced_Technology_logo.svg"
+                    alt="RRCAT Logo"
+                    class="client-image"
+                    loading="lazy">
+
+                <h3>
+                    RRCAT
+                </h3>
+
+                <p>
+                    Government Research Centre
+                </p>
+
+            </div>
+
+
+            <!-- 9 NHAI -->
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/National_Highways_Authority_of_India_logo.svg"
+                    alt="NHAI Logo"
+                    class="client-image"
+                    loading="lazy">
+
+                <h3>
+                    NHAI
+                </h3>
+
+                <p>
+                    Government Organization
+                </p>
+
+            </div>
+
+
+            <!-- 10 NCLT -->
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/NCLT_logo.png"
+                    alt="NCLT Logo"
+                    class="client-image"
+                    loading="lazy">
+
+                <h3>
+                    NCLT
+                </h3>
+
+                <p>
+                    Government Tribunal
+                </p>
+
+            </div>
+
+
+            <!-- 11 ITAT -->
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Income_Tax_Appellate_Tribunal_logo.png"
+                    alt="ITAT Logo"
+                    class="client-image"
+                    loading="lazy">
+
+                <h3>
+                    ITAT
+                </h3>
+
+                <p>
+                    Government Tribunal
+                </p>
+
+            </div>
+
+
+            <!-- 12 INDIA POST -->
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://www.presentations.gov.in/wp-content/uploads/2023/03/India-Post-Logo-PNG.png"
+                    alt="India Post Logo"
+                    class="client-image"
+                    loading="lazy">
+
+                <h3>
+                    India Post
+                </h3>
+
+                <p>
+                    Government Organization
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="clients-more">
+
+            <button
+                type="button"
+                id="clientsButton"
+                onclick="toggleClients()">
+
+                VIEW ALL CLIENTS →
+
+            </button>
 
         </div>
 
@@ -1371,7 +2015,9 @@ footer p{
                 Travel Made Easy
             </div>
 
-            <h2>Popular Travel Requirements</h2>
+            <h2>
+                Popular Travel Requirements
+            </h2>
 
             <p>
                 Choose the travel arrangement that suits your journey.
@@ -1384,7 +2030,9 @@ footer p{
 
             <div class="travel-card">
 
-                <h3>One-Way Car Rental</h3>
+                <h3>
+                    One-Way Car Rental
+                </h3>
 
                 <p>
                     Convenient one-way travel between cities.
@@ -1395,7 +2043,9 @@ footer p{
 
             <div class="travel-card">
 
-                <h3>Round-Trip Rental</h3>
+                <h3>
+                    Round-Trip Rental
+                </h3>
 
                 <p>
                     Comfortable return journeys with flexible planning.
@@ -1406,7 +2056,9 @@ footer p{
 
             <div class="travel-card">
 
-                <h3>Car Rental With Driver</h3>
+                <h3>
+                    Car Rental With Driver
+                </h3>
 
                 <p>
                     Professional chauffeur-driven travel solutions.
@@ -1417,7 +2069,9 @@ footer p{
 
             <div class="travel-card">
 
-                <h3>Family Travel</h3>
+                <h3>
+                    Family Travel
+                </h3>
 
                 <p>
                     Comfortable vehicles for family journeys.
@@ -1428,7 +2082,9 @@ footer p{
 
             <div class="travel-card">
 
-                <h3>Group Travel</h3>
+                <h3>
+                    Group Travel
+                </h3>
 
                 <p>
                     Suitable transportation for larger groups.
@@ -1439,7 +2095,9 @@ footer p{
 
             <div class="travel-card">
 
-                <h3>Customized Travel</h3>
+                <h3>
+                    Customized Travel
+                </h3>
 
                 <p>
                     Travel solutions designed around your requirements.
@@ -1525,10 +2183,166 @@ footer p{
         <a
             href="Shree%20Shatrunjay%20catalogue%201.pdf"
             target="_blank"
-            class="btn btn-gold"
-        >
+            class="btn btn-gold">
+
             VIEW COMPLETE CATALOG →
+
         </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section
+    class="section reviews-section"
+    id="reviews">
+
+    <div class="section-inner">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Customer Experience
+            </div>
+
+            <h2>
+                Review Us
+            </h2>
+
+            <p>
+                Share your experience with Shree Shatrunjay.
+                Your review will appear here for other visitors to see.
+            </p>
+
+        </div>
+
+
+        <div class="review-box">
+
+            <form
+                class="review-form"
+                onsubmit="submitReview(); return false;">
+
+                <div>
+
+                    <label for="reviewName">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reviewName"
+                        maxlength="80"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Your Rating
+                    </label>
+
+                    <div class="star-selector">
+
+                        <input
+                            type="radio"
+                            id="star5"
+                            name="rating"
+                            value="5"
+                            required>
+
+                        <label for="star5" title="5 stars">★</label>
+
+
+                        <input
+                            type="radio"
+                            id="star4"
+                            name="rating"
+                            value="4">
+
+                        <label for="star4" title="4 stars">★</label>
+
+
+                        <input
+                            type="radio"
+                            id="star3"
+                            name="rating"
+                            value="3">
+
+                        <label for="star3" title="3 stars">★</label>
+
+
+                        <input
+                            type="radio"
+                            id="star2"
+                            name="rating"
+                            value="2">
+
+                        <label for="star2" title="2 stars">★</label>
+
+
+                        <input
+                            type="radio"
+                            id="star1"
+                            name="rating"
+                            value="1">
+
+                        <label for="star1" title="1 star">★</label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-form full">
+
+                    <label for="reviewExperience">
+                        Your Experience
+                    </label>
+
+                    <textarea
+                        id="reviewExperience"
+                        maxlength="1000"
+                        placeholder="Tell us about your experience..."
+                        required></textarea>
+
+                </div>
+
+
+                <div class="review-submit">
+
+                    <button type="submit" id="reviewSubmitButton">
+                        SUBMIT REVIEW
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                class="review-status"
+                id="reviewStatus">
+            </div>
+
+        </div>
+
+
+        <div
+            class="reviews-list"
+            id="reviewsList">
+
+            <div class="no-reviews">
+                Loading customer reviews...
+            </div>
+
+        </div>
 
     </div>
 
@@ -1537,7 +2351,9 @@ footer p{
 
 <!-- ================= CONTACT ================= -->
 
-<section class="section contact-section" id="contact">
+<section
+    class="section contact-section"
+    id="contact">
 
     <div class="section-inner">
 
@@ -1547,7 +2363,9 @@ footer p{
                 Get In Touch
             </div>
 
-            <h2>Contact Us</h2>
+            <h2>
+                Contact Us
+            </h2>
 
             <p>
                 Tell us about your travel requirement and our team will
@@ -1565,18 +2383,29 @@ footer p{
                     Shree Shatrunjay
                 </h3>
 
+
                 <div class="contact-item">
 
-                    <strong>Phone</strong>
+                    <strong>
+                        Phone
+                    </strong>
 
-                    <a href="tel:9406649446">
+                    <a
+                        href="tel:9406649446"
+                        class="contact-link">
+
                         9406649446
+
                     </a>
 
                     <br>
 
-                    <a href="tel:9827077300">
+                    <a
+                        href="tel:9827077300"
+                        class="contact-link">
+
                         9827077300
+
                     </a>
 
                 </div>
@@ -1584,13 +2413,17 @@ footer p{
 
                 <div class="contact-item">
 
-                    <strong>Instagram</strong>
+                    <strong>
+                        Instagram
+                    </strong>
 
                     <a
                         href="https://www.instagram.com/shreeshatrunjay_indore/"
                         target="_blank"
-                    >
+                        class="contact-link">
+
                         @shreeshatrunjay_indore
+
                     </a>
 
                 </div>
@@ -1604,15 +2437,29 @@ footer p{
                     Quick Contact
                 </h3>
 
+
                 <div class="contact-item">
 
-                    <strong>WhatsApp</strong>
+                    <strong>
+                        WhatsApp
+                    </strong>
 
                     <a
                         href="https://wa.me/919406649446"
                         target="_blank"
-                    >
-                        Chat With Us
+                        class="whatsapp-link"
+                        rel="noopener">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true">
+
+                            <path d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.53 0 .2 5.33.2 11.87c0 2.09.55 4.13 1.6 5.93L.1 24l6.35-1.67a11.88 11.88 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.23-6.15-3.43-8.41ZM12.08 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.82 9.82 0 0 1-1.5-5.19C2.2 6.45 6.63 2.02 12.08 2.02c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.88 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.21 5.08 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"/>
+
+                        </svg>
+
+                        Chat With Us on WhatsApp
+
                     </a>
 
                 </div>
@@ -1620,13 +2467,17 @@ footer p{
 
                 <div class="contact-item">
 
-                    <strong>Website</strong>
+                    <strong>
+                        Website
+                    </strong>
 
                     <a
                         href="https://www.shreeshatrunjay.com/"
                         target="_blank"
-                    >
+                        class="contact-link">
+
                         www.shreeshatrunjay.com
+
                     </a>
 
                 </div>
@@ -1647,8 +2498,7 @@ footer p{
     <img
         src="logo.png"
         alt="Shree Shatrunjay Logo"
-        class="footer-logo"
-    >
+        class="footer-logo">
 
     <h3>
         SHREE SHATRUNJAY
@@ -1658,16 +2508,19 @@ footer p{
         CAR RENTAL SERVICES
     </p>
 
+
     <div class="footer-social">
 
         <a
             href="https://www.instagram.com/shreeshatrunjay_indore/"
-            target="_blank"
-        >
+            target="_blank">
+
             Instagram @shreeshatrunjay_indore
+
         </a>
 
     </div>
+
 
     <p style="margin-top:18px;">
         © 2026 Shree Shatrunjay. All Rights Reserved.
@@ -1676,21 +2529,137 @@ footer p{
 </footer>
 
 
-<!-- ================= FLOATING WHATSAPP ================= -->
+<!-- ================= FLOATING ACTIONS ================= -->
 
-<a
-    href="https://wa.me/919406649446"
-    target="_blank"
-    class="whatsapp-float"
-    aria-label="WhatsApp"
->
-    ☎
-</a>
+<div class="floating-actions">
+
+
+    <!-- TELEPHONE: OPENS PHONE KEYPAD -->
+
+    <a
+        href="tel:9406649446"
+        class="phone-float"
+        aria-label="Call Shree Shatrunjay">
+
+        ☎
+
+    </a>
+
+
+    <!-- WHATSAPP -->
+
+    <a
+        href="https://wa.me/919406649446"
+        target="_blank"
+        class="whatsapp-float"
+        aria-label="Chat with Shree Shatrunjay on WhatsApp"
+        rel="noopener">
+
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <path d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.53 0 .2 5.33.2 11.87c0 2.09.55 4.13 1.6 5.93L.1 24l6.35-1.67a11.88 11.88 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.23-6.15-3.43-8.41ZM12.08 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.82 9.82 0 0 1-1.5-5.19C2.2 6.45 6.63 2.02 12.08 2.02c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.88 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.21 5.08 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"/>
+
+        </svg>
+
+    </a>
+
+</div>
 
 
 <!-- ================= JAVASCRIPT ================= -->
 
 <script>
+
+/* ================= MOBILE MENU ================= */
+
+function toggleMenu(){
+
+    const menu =
+        document.querySelector('.nav-links');
+
+    const button =
+        document.querySelector('.mobile-menu-btn');
+
+    menu.classList.toggle('active');
+
+    const isOpen =
+        menu.classList.contains('active');
+
+    button.setAttribute(
+        'aria-expanded',
+        isOpen ? 'true' : 'false'
+    );
+
+    button.innerHTML =
+        isOpen ? '✕' : '☰';
+}
+
+
+document
+    .querySelectorAll('.nav-links a')
+    .forEach(function(link){
+
+        link.addEventListener(
+            'click',
+            function(){
+
+                const menu =
+                    document.querySelector('.nav-links');
+
+                const button =
+                    document.querySelector('.mobile-menu-btn');
+
+                menu.classList.remove('active');
+
+                button.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+                button.innerHTML = '☰';
+
+            }
+        );
+
+    });
+
+
+document.addEventListener(
+    'click',
+    function(event){
+
+        const menu =
+            document.querySelector('.nav-links');
+
+        const button =
+            document.querySelector('.mobile-menu-btn');
+
+        if(
+            menu &&
+            button &&
+            menu.classList.contains('active') &&
+            !menu.contains(event.target) &&
+            !button.contains(event.target)
+        ){
+
+            menu.classList.remove('active');
+
+            button.setAttribute(
+                'aria-expanded',
+                'false'
+            );
+
+            button.innerHTML = '☰';
+
+        }
+
+    }
+);
+
+
+/* ================= BOOKING ================= */
 
 function sendBooking(){
 
@@ -1764,6 +2733,403 @@ Please share the availability and quotation.`;
     );
 
 }
+
+
+/* ================= CLIENTS ================= */
+
+function toggleClients(){
+
+    const hiddenClients =
+        document.querySelectorAll('.hidden-client');
+
+    const button =
+        document.getElementById('clientsButton');
+
+    const isShowing =
+        hiddenClients[0] &&
+        hiddenClients[0].classList.contains('show');
+
+
+    hiddenClients.forEach(function(card){
+
+        if(isShowing){
+
+            card.classList.remove('show');
+
+        }else{
+
+            card.classList.add('show');
+
+        }
+
+    });
+
+
+    button.textContent =
+        isShowing
+            ? 'VIEW ALL CLIENTS →'
+            : 'SHOW LESS ↑';
+
+}
+
+
+/* ================= SUPABASE REVIEWS ================= */
+
+/*
+    Supabase configuration
+*/
+
+const SUPABASE_URL =
+    "https://jmvaotdxnuahoxsllasg.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_FfmL_iq8XTPwb1EyXj9ufw_QZaU3rOZ";
+
+
+/* Load reviews */
+
+async function loadReviews(){
+
+    const list =
+        document.getElementById("reviewsList");
+
+
+    try{
+
+        const response =
+            await fetch(
+                SUPABASE_URL +
+                "/rest/v1/reviews?select=id,name,rating,experience,created_at&order=created_at.desc",
+                {
+                    method:"GET",
+
+                    headers:{
+                        "apikey":SUPABASE_KEY,
+                        "Authorization":
+                            "Bearer " + SUPABASE_KEY
+                    }
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Unable to load reviews."
+            );
+
+        }
+
+
+        const reviews =
+            await response.json();
+
+
+        list.innerHTML = "";
+
+
+        if(!reviews.length){
+
+            list.innerHTML =
+                '<div class="no-reviews">Be the first to share your experience.</div>';
+
+            return;
+
+        }
+
+
+        reviews.forEach(function(review){
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "review-card";
+
+
+            const top =
+                document.createElement("div");
+
+            top.className =
+                "review-card-top";
+
+
+            const nameBlock =
+                document.createElement("div");
+
+
+            const name =
+                document.createElement("div");
+
+            name.className =
+                "review-name";
+
+            name.textContent =
+                review.name;
+
+
+            const date =
+                document.createElement("div");
+
+            date.className =
+                "review-date";
+
+            date.textContent =
+                formatReviewDate(
+                    review.created_at
+                );
+
+
+            nameBlock.appendChild(name);
+
+            nameBlock.appendChild(date);
+
+
+            const stars =
+                document.createElement("div");
+
+            stars.className =
+                "review-stars";
+
+            stars.textContent =
+                "★".repeat(Number(review.rating)) +
+                "☆".repeat(5 - Number(review.rating));
+
+
+            top.appendChild(nameBlock);
+
+            top.appendChild(stars);
+
+
+            const text =
+                document.createElement("div");
+
+            text.className =
+                "review-text";
+
+            text.textContent =
+                review.experience;
+
+
+            card.appendChild(top);
+
+            card.appendChild(text);
+
+            list.appendChild(card);
+
+        });
+
+
+    }catch(error){
+
+        list.innerHTML =
+            '<div class="no-reviews">Reviews could not be loaded right now. Please try again later.</div>';
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* Format review date */
+
+function formatReviewDate(dateString){
+
+    if(!dateString){
+        return "";
+    }
+
+    const date =
+        new Date(dateString);
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:"numeric",
+            month:"short",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* Submit review */
+
+async function submitReview(){
+
+    const nameInput =
+        document.getElementById("reviewName");
+
+    const experienceInput =
+        document.getElementById("reviewExperience");
+
+    const selectedRating =
+        document.querySelector(
+            'input[name="rating"]:checked'
+        );
+
+    const button =
+        document.getElementById(
+            "reviewSubmitButton"
+        );
+
+    const status =
+        document.getElementById(
+            "reviewStatus"
+        );
+
+
+    const name =
+        nameInput.value.trim();
+
+    const experience =
+        experienceInput.value.trim();
+
+
+    if(!selectedRating){
+
+        status.textContent =
+            "Please select a star rating.";
+
+        return;
+
+    }
+
+
+    const rating =
+        Number(selectedRating.value);
+
+
+    if(
+        name.length < 2 ||
+        name.length > 80
+    ){
+
+        status.textContent =
+            "Please enter a valid name.";
+
+        return;
+
+    }
+
+
+    if(
+        experience.length < 5 ||
+        experience.length > 1000
+    ){
+
+        status.textContent =
+            "Please write at least 5 characters.";
+
+        return;
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "SUBMITTING...";
+
+    status.textContent =
+        "";
+
+
+    try{
+
+        const response =
+            await fetch(
+                SUPABASE_URL +
+                "/rest/v1/reviews",
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json",
+
+                        "apikey":
+                            SUPABASE_KEY,
+
+                        "Authorization":
+                            "Bearer " +
+                            SUPABASE_KEY,
+
+                        "Prefer":
+                            "return=minimal"
+                    },
+
+                    body:JSON.stringify({
+                        name:name,
+                        rating:rating,
+                        experience:experience
+                    })
+                }
+            );
+
+
+        if(!response.ok){
+
+            const errorText =
+                await response.text();
+
+            throw new Error(
+                errorText ||
+                "Review submission failed."
+            );
+
+        }
+
+
+        status.textContent =
+            "Thank you! Your review is now visible.";
+
+        status.style.color =
+            "#287a45";
+
+
+        document
+            .querySelector(".review-form")
+            .reset();
+
+
+        await loadReviews();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        status.textContent =
+            "Sorry, your review could not be submitted. Please try again.";
+
+        status.style.color =
+            "#a33a3a";
+
+    }finally{
+
+        button.disabled = false;
+
+        button.textContent =
+            "SUBMIT REVIEW";
+
+    }
+
+}
+
+
+/* Load reviews when page opens */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadReviews();
+
+    }
+);
 
 </script>
 
