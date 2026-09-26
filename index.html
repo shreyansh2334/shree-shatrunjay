@@ -1,1217 +1,948 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Shree Shatrunjay | Car Rental Services in Indore</title>
-
-<meta name="description" content="Shree Shatrunjay - Premium car rental services in Indore for local rides, airport transfers, outstation trips, pilgrimage tours, corporate travel and customized travel requirements.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-    --cream:#f4efe4;
-    --cream-light:#f8f2e5;
-    --cream-dark:#eee6d7;
-    --navy:#17263a;
-    --deep:#10263e;
-    --gold:#d6aa4a;
-    --bright-gold:#f7d47c;
-    --white:#ffffff;
-    --dark:#091522;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-html{
-    scroll-padding-top:90px;
-}
-
-body{
-    background:var(--cream);
-    color:var(--navy);
-    font-family:'Montserrat',sans-serif;
-    line-height:1.6;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-
-/* ================= NAVBAR ================= */
-
-.navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(244,239,228,0.96);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(214,170,74,0.25);
-}
-
-.nav-inner{
-    max-width:1200px;
-    margin:auto;
-    padding:14px 25px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.nav-logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.nav-logo img{
-    width:48px;
-    height:48px;
-    object-fit:cover;
-    border-radius:50%;
-}
-
-.nav-logo-text{
-    font-family:'Cormorant Garamond',serif;
-    font-size:24px;
-    font-weight:700;
-    letter-spacing:1px;
-}
-
-.nav-links{
-    display:flex;
-    gap:24px;
-    align-items:center;
-    font-size:12px;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:.7px;
-}
-
-.nav-links a:hover{
-    color:var(--gold);
-}
-
-.nav-button{
-    background:var(--navy);
-    color:white;
-    padding:11px 18px;
-    border-radius:30px;
-}
-
-.nav-review{
-    color:var(--gold);
-}
-
-.nav-instagram{
-    color:#9d4edd;
-}
-
-
-/* ================= MOBILE MENU BUTTON ================= */
-
-.mobile-menu-btn{
-    display:none;
-    width:42px;
-    height:42px;
-    border:none;
-    border-radius:50%;
-    background:var(--navy);
-    color:white;
-    font-size:22px;
-    cursor:pointer;
-    align-items:center;
-    justify-content:center;
-}
-
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:88vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    position:relative;
-    background:
-        linear-gradient(rgba(9,21,34,.60),rgba(9,21,34,.70)),
-        url('rajwada.webp') center/cover no-repeat;
-}
-
-.hero-content{
-    max-width:900px;
-    padding:60px 25px;
-    color:white;
-}
-
-.hero-logo{
-    width:125px;
-    height:125px;
-    object-fit:cover;
-    border-radius:50%;
-    margin:0 auto 25px;
-}
-
-.hero h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:72px;
-    letter-spacing:4px;
-    color:var(--bright-gold);
-    line-height:1;
-}
-
-.hero h2{
-    font-size:19px;
-    letter-spacing:4px;
-    margin-top:15px;
-    font-weight:600;
-}
-
-.hero p{
-    margin:22px auto;
-    max-width:650px;
-    font-size:16px;
-    color:#f7f1e5;
-}
-
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:13px;
-    margin-top:30px;
-}
-
-.btn{
-    padding:14px 25px;
-    border-radius:30px;
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:.7px;
-    transition:.3s;
-    display:inline-block;
-}
-
-.btn-gold{
-    background:var(--gold);
-    color:var(--dark);
-}
-
-.btn-outline{
-    border:1px solid var(--bright-gold);
-    color:white;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.review-hero-btn{
-    border-color:#f7d47c;
-}
-
-
-/* ================= QUICK INFO ================= */
-
-.quick-info{
-    background:var(--deep);
-    color:white;
-}
-
-.quick-inner{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-}
-
-.quick-box{
-    text-align:center;
-    padding:22px;
-    border-right:1px solid rgba(255,255,255,.12);
-}
-
-.quick-box:last-child{
-    border-right:none;
-}
-
-.quick-box strong{
-    display:block;
-    color:var(--bright-gold);
-    font-size:18px;
-}
-
-.quick-box span{
-    font-size:12px;
-    opacity:.85;
-}
-
-.quick-box a{
-    transition:.2s;
-}
-
-.quick-box a:hover{
-    color:var(--bright-gold);
-}
-
-
-/* ================= GENERAL SECTIONS ================= */
-
-.section{
-    padding:85px 25px;
-}
-
-.section-inner{
-    max-width:1150px;
-    margin:auto;
-}
-
-.section-heading{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.small-title{
-    color:var(--gold);
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    margin-bottom:8px;
-}
-
-.section-heading h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:48px;
-    color:var(--navy);
-}
-
-.section-heading p{
-    max-width:700px;
-    margin:10px auto 0;
-    font-size:14px;
-    color:#59616b;
-}
-
-
-/* ================= BOOKING ================= */
-
-.booking-section{
-    background:var(--cream-light);
-}
-
-.booking-box{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:40px;
-    border-radius:18px;
-    box-shadow:0 15px 40px rgba(23,38,58,.08);
-    border:1px solid rgba(214,170,74,.20);
-}
-
-.booking-form{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.form-group{
-    display:flex;
-    flex-direction:column;
-}
-
-.form-group.full{
-    grid-column:1/-1;
-}
-
-.form-group label{
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:7px;
-    color:var(--navy);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    border:1px solid #ddd5c7;
-    background:#faf8f3;
-    border-radius:8px;
-    padding:13px;
-    font-family:'Montserrat',sans-serif;
-    outline:none;
-}
-
-.form-group textarea{
-    min-height:90px;
-    resize:vertical;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:var(--gold);
-}
-
-.booking-submit{
-    grid-column:1/-1;
-    text-align:center;
-    margin-top:8px;
-}
-
-.booking-submit button{
-    border:none;
-    cursor:pointer;
-    padding:15px 35px;
-    border-radius:30px;
-    background:var(--navy);
-    color:white;
-    font-weight:700;
-    letter-spacing:.7px;
-}
-
-.booking-submit button:hover{
-    background:var(--gold);
-    color:var(--dark);
-}
-
-
-/* ================= SERVICES ================= */
-
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.service-card{
-    background:var(--cream-light);
-    padding:28px 24px;
-    border-radius:14px;
-    border:1px solid rgba(214,170,74,.18);
-    transition:.3s;
-}
-
-.service-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 12px 30px rgba(23,38,58,.08);
-}
-
-.service-card h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:27px;
-    margin-bottom:8px;
-}
-
-.service-card p{
-    font-size:13px;
-    color:#626872;
-}
-
-
-/* ================= WHY ================= */
-
-.why-section{
-    background:var(--deep);
-    color:white;
-}
-
-.why-section .section-heading h2{
-    color:white;
-}
-
-.why-section .section-heading p{
-    color:#d9d9d9;
-}
-
-.why-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.why-card{
-    text-align:center;
-    padding:28px 18px;
-    border:1px solid rgba(247,212,124,.18);
-    border-radius:14px;
-}
-
-.why-card .number{
-    font-family:'Cormorant Garamond',serif;
-    font-size:40px;
-    color:var(--bright-gold);
-}
-
-.why-card h3{
-    font-size:15px;
-    margin:8px 0;
-}
-
-.why-card p{
-    font-size:12px;
-    color:#d2d5d8;
-}
-
-
-/* ================= CLIENTS ================= */
-
-.clients-section{
-    background:var(--cream);
-}
-
-.clients-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
-}
-
-.client-card{
-    background:#fff;
-    min-height:245px;
-    border-radius:16px;
-    border:1px solid rgba(214,170,74,.22);
-    box-shadow:0 10px 30px rgba(23,38,58,.07);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:25px;
-    text-align:center;
-    transition:.3s;
-}
-
-.client-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 16px 35px rgba(23,38,58,.11);
-}
-
-.client-image{
-    width:150px;
-    height:125px;
-    object-fit:contain;
-    margin-bottom:20px;
-}
-
-.client-card.person .client-image{
-    width:130px;
-    height:145px;
-    object-fit:cover;
-    border-radius:12px;
-}
-
-.client-card h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;
-    color:var(--navy);
-    line-height:1.1;
-}
-
-.client-card p{
-    margin-top:6px;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    color:#777;
-}
-
-.hidden-client{
-    display:none;
-}
-
-.hidden-client.show{
-    display:flex;
-}
-
-.clients-more{
-    text-align:center;
-    margin-top:32px;
-}
-
-.clients-more button{
-    border:1px solid var(--gold);
-    background:transparent;
-    color:var(--navy);
-    padding:12px 24px;
-    border-radius:30px;
-    cursor:pointer;
-    font-family:'Montserrat',sans-serif;
-    font-weight:700;
-    font-size:12px;
-    letter-spacing:.6px;
-}
-
-.clients-more button:hover{
-    background:var(--gold);
-    color:var(--dark);
-}
-
-
-/* ================= TRAVEL ================= */
-
-.travel-section{
-    background:var(--cream-dark);
-}
-
-.travel-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.travel-card{
-    background:var(--cream-light);
-    padding:24px;
-    border-radius:13px;
-    border-left:4px solid var(--gold);
-}
-
-.travel-card h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;
-}
-
-.travel-card p{
-    font-size:12px;
-    color:#656b73;
-    margin-top:5px;
-}
-
-
-/* ================= ABOUT ================= */
-
-.about-section{
-    background:var(--cream-light);
-}
-
-.about-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:55px;
-    align-items:center;
-}
-
-.about-content{
-    max-width:900px;
-}
-
-.about-content h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:48px;
-    margin-bottom:15px;
-}
-
-.about-content p{
-    font-size:14px;
-    color:#555e68;
-    margin-bottom:14px;
-}
-
-.about-highlight{
-    margin-top:20px;
-    padding:20px;
-    background:white;
-    border-left:4px solid var(--gold);
-    font-weight:600;
-    font-size:13px;
-}
-
-
-/* ================= CATALOG ================= */
-
-.catalog-section{
-    background:var(--deep);
-    color:white;
-    text-align:center;
-}
-
-.catalog-section h2{
-    color:var(--bright-gold);
-    font-family:'Cormorant Garamond',serif;
-    font-size:50px;
-}
-
-.catalog-section p{
-    max-width:650px;
-    margin:12px auto 25px;
-    color:#e0e0e0;
-    font-size:14px;
-}
-
-
-/* ================= REVIEWS ================= */
-
-.reviews-section{
-    background:var(--cream-light);
-}
-
-.review-box{
-    max-width:850px;
-    margin:auto;
-    background:white;
-    padding:35px;
-    border-radius:18px;
-    border:1px solid rgba(214,170,74,.20);
-    box-shadow:0 15px 40px rgba(23,38,58,.08);
-}
-
-.review-form{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.review-form .full{
-    grid-column:1/-1;
-}
-
-.review-form label{
-    display:block;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:7px;
-}
-
-.review-form input,
-.review-form textarea{
-    width:100%;
-    border:1px solid #ddd5c7;
-    background:#faf8f3;
-    border-radius:8px;
-    padding:13px;
-    font-family:'Montserrat',sans-serif;
-    outline:none;
-}
-
-.review-form textarea{
-    min-height:110px;
-    resize:vertical;
-}
-
-.star-selector{
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:flex-end;
-    gap:5px;
-}
-
-.star-selector input{
-    display:none;
-}
-
-.star-selector label{
-    font-size:30px;
-    color:#cfc8b9;
-    cursor:pointer;
-    margin:0;
-    line-height:1;
-    transition:.15s;
-}
-
-.star-selector label:hover,
-.star-selector label:hover ~ label,
-.star-selector input:checked ~ label{
-    color:var(--gold);
-}
-
-.review-submit{
-    grid-column:1/-1;
-    text-align:center;
-    margin-top:5px;
-}
-
-.review-submit button{
-    border:none;
-    cursor:pointer;
-    padding:14px 30px;
-    border-radius:30px;
-    background:var(--navy);
-    color:white;
-    font-weight:700;
-}
-
-.review-submit button:hover{
-    background:var(--gold);
-    color:var(--dark);
-}
-
-.review-status{
-    text-align:center;
-    margin-top:14px;
-    font-size:12px;
-    min-height:18px;
-}
-
-.reviews-list{
-    margin-top:45px;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.review-card{
-    background:white;
-    border:1px solid rgba(214,170,74,.20);
-    border-radius:15px;
-    padding:25px;
-    box-shadow:0 10px 30px rgba(23,38,58,.06);
-}
-
-.review-card-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:15px;
-}
-
-.review-name{
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;
-    color:var(--navy);
-}
-
-.review-stars{
-    color:var(--gold);
-    letter-spacing:2px;
-    white-space:nowrap;
-}
-
-.review-date{
-    margin-top:3px;
-    font-size:10px;
-    color:#888;
-}
-
-.review-text{
-    margin-top:14px;
-    font-size:13px;
-    color:#59616b;
-    white-space:pre-wrap;
-    overflow-wrap:anywhere;
-}
-
-.no-reviews{
-    grid-column:1/-1;
-    text-align:center;
-    color:#777;
-    font-size:13px;
-    padding:20px;
-}
-
-
-/* ================= CONTACT ================= */
-
-.contact-section{
-    background:var(--cream);
-}
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-.contact-card{
-    background:var(--cream-light);
-    padding:32px;
-    border-radius:15px;
-    border:1px solid rgba(214,170,74,.20);
-}
-
-.contact-card h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:30px;
-    margin-bottom:15px;
-}
-
-.contact-item{
-    margin-bottom:18px;
-    font-size:14px;
-}
-
-.contact-item strong{
-    display:block;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    color:var(--gold);
-    margin-bottom:3px;
-}
-
-.contact-link{
-    display:inline-block;
-    margin-bottom:2px;
-}
-
-.contact-link:hover{
-    color:var(--gold);
-}
-
-.whatsapp-link{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    background:#25D366;
-    color:white;
-    padding:10px 16px;
-    border-radius:8px;
-    font-weight:700;
-    font-size:13px;
-    margin-top:4px;
-}
-
-.whatsapp-link:hover{
-    color:white;
-    transform:translateY(-2px);
-}
-
-
-/* ================= FOOTER ================= */
-
-footer{
-    background:var(--dark);
-    color:white;
-    text-align:center;
-    padding:30px 20px;
-}
-
-footer .footer-logo{
-    width:65px;
-    height:65px;
-    object-fit:cover;
-    border-radius:50%;
-    margin:0 auto 10px;
-}
-
-footer h3{
-    font-family:'Cormorant Garamond',serif;
-    color:var(--bright-gold);
-    font-size:25px;
-}
-
-footer p{
-    font-size:11px;
-    color:#c4c8cc;
-    margin-top:5px;
-}
-
-.footer-social{
-    margin-top:14px;
-    font-size:13px;
-}
-
-.footer-social a{
-    color:var(--bright-gold);
-}
-
-
-/* ================= FLOATING ACTIONS ================= */
-
-.floating-actions{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    z-index:999;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.phone-float,
-.whatsapp-float{
-    width:56px;
-    height:56px;
-    border-radius:50%;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
-    transition:.2s;
-}
-
-.phone-float{
-    background:var(--navy);
-    font-size:25px;
-}
-
-.whatsapp-float{
-    background:#25D366;
-}
-
-.phone-float:hover,
-.whatsapp-float:hover{
-    transform:translateY(-3px);
-}
-
-.whatsapp-float svg{
-    width:27px;
-    height:27px;
-    fill:white;
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:850px){
-
-    .mobile-menu-btn{
-        display:flex;
-    }
-
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:76px;
-        left:12px;
-        right:12px;
-        background:var(--navy);
-        border-radius:14px;
-        padding:12px;
-        flex-direction:column;
-        gap:3px;
-        box-shadow:0 15px 35px rgba(0,0,0,.25);
-        border:1px solid rgba(247,212,124,.20);
-    }
-
-    .nav-links.active{
-        display:flex;
-    }
-
-    .nav-links a{
-        width:100%;
-        color:white;
-        padding:13px 15px;
-        border-radius:8px;
-    }
-
-    .nav-links a:hover{
-        background:rgba(247,212,124,.12);
-        color:var(--bright-gold);
-    }
-
-    .nav-button{
-        background:var(--gold) !important;
-        color:var(--dark) !important;
-        text-align:center;
-        margin-top:4px;
-    }
-
-    .hero{
-        min-height:80vh;
-    }
-
-    .hero h1{
-        font-size:48px;
-    }
-
-    .hero h2{
-        font-size:14px;
-        letter-spacing:2px;
-    }
-
-    .hero-logo{
-        width:100px;
-        height:100px;
-    }
-
-    .quick-inner{
-        grid-template-columns:1fr;
-    }
-
-    .quick-box{
-        border-right:none;
-        border-bottom:1px solid rgba(255,255,255,.12);
-    }
-
-    .booking-form,
-    .review-form{
-        grid-template-columns:1fr;
-    }
-
-    .form-group.full,
-    .review-form .full{
-        grid-column:auto;
-    }
-
-    .services-grid,
-    .clients-grid,
-    .travel-grid,
-    .reviews-list{
-        grid-template-columns:1fr;
-    }
-
-    .why-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .about-grid,
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-
-    .section-heading h2,
-    .catalog-section h2{
-        font-size:40px;
-    }
-
-    .booking-box,
-    .review-box{
-        padding:25px 18px;
-    }
-
-    .review-card-top{
-        flex-direction:column;
-        gap:5px;
-    }
-
-    .review-stars{
-        font-size:16px;
-    }
-
-}
-
-
-@media(max-width:500px){
-
-    .nav-logo-text{
-        font-size:19px;
-    }
-
-    .nav-logo img{
-        width:43px;
-        height:43px;
-    }
-
-    .hero h1{
-        font-size:39px;
-        letter-spacing:2px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .btn{
-        width:100%;
-    }
-
-    .why-grid{
-        grid-template-columns:1fr;
-    }
-
-    .section{
-        padding:65px 18px;
-    }
-
-    .floating-actions{
-        right:14px;
-        bottom:14px;
-    }
-
-    .phone-float,
-    .whatsapp-float{
-        width:52px;
-        height:52px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shree Shatrunjay | Car Rental Services in Indore</title>
+
+    <meta name="description"
+        content="Shree Shatrunjay provides reliable car rental and travel services in Indore including local rides, airport transfers, pilgrimage tours, outstation trips and corporate travel.">
+
+    <meta name="keywords"
+        content="car rental Indore, Shree Shatrunjay, taxi Indore, car rental services Indore, airport taxi Indore, outstation car rental, pilgrimage tour Indore">
+
+    <meta name="author" content="Shree Shatrunjay">
+
+    <link rel="canonical" href="https://www.shreeshatrunjay.com/">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4efe4;
+            color: #17263a;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(244, 239, 228, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(23, 38, 58, 0.12);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .5px;
+        }
+
+        .nav-links a {
+            transition: .25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d6aa4a;
+        }
+
+        .review-nav {
+            color: #b78619;
+            font-weight: 700;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #17263a;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(rgba(16, 38, 62, .55), rgba(16, 38, 62, .68)),
+                url("rajwada.webp") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-logo {
+            width: 125px;
+            height: 125px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 3px solid #d6aa4a;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(48px, 8vw, 82px);
+            line-height: 1;
+            letter-spacing: 3px;
+            color: #f7d47c;
+            margin-bottom: 8px;
+        }
+
+        .hero h2 {
+            font-size: clamp(18px, 3vw, 28px);
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 23px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: .5px;
+            border: 1px solid #d6aa4a;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .btn-gold {
+            background: #d6aa4a;
+            color: #17263a;
+        }
+
+        .btn-gold:hover {
+            background: #f7d47c;
+        }
+
+        .btn-outline {
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #d6aa4a;
+            color: #17263a;
+        }
+
+        /* =========================
+           COMMON
+        ========================== */
+
+        section {
+            padding: 75px 20px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 45px;
+            color: #17263a;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 8px auto 0;
+            color: #5e6570;
+            font-size: 14px;
+        }
+
+        /* =========================
+           QUICK INFO
+        ========================== */
+
+        .quick-info {
+            background: #fffaf0;
+            padding: 25px 20px;
+        }
+
+        .quick-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
+        .quick-item {
+            padding: 15px;
+        }
+
+        .quick-item strong {
+            display: block;
+            color: #b78619;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .quick-item span {
+            font-size: 13px;
+        }
+
+        /* =========================
+           BOOKING
+        ========================== */
+
+        .booking-section {
+            background: #fffaf0;
+        }
+
+        .booking-box {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border: 1px solid rgba(23, 38, 58, .12);
+            box-shadow: 0 12px 35px rgba(23, 38, 58, .08);
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: #17263a;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid #d8d0c0;
+            padding: 13px 14px;
+            background: #fffdf8;
+            color: #17263a;
+            outline: none;
+            border-radius: 3px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #d6aa4a;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .booking-submit {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .form-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            display: none;
+            padding: 10px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fffaf0;
+            border: 1px solid rgba(23, 38, 58, .1);
+            padding: 28px;
+            text-align: center;
+            transition: .25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(23, 38, 58, .1);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 13px;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: #606873;
+            font-size: 13px;
+        }
+
+        /* =========================
+           WHY CHOOSE US
+        ========================== */
+
+        .why-section {
+            background: #10263e;
+            color: white;
+        }
+
+        .why-section .section-title h2 {
+            color: white;
+        }
+
+        .why-section .section-title p {
+            color: #d4d9df;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .why-card {
+            padding: 25px 18px;
+            text-align: center;
+            border: 1px solid rgba(247, 212, 124, .25);
+        }
+
+        .why-card h3 {
+            color: #f7d47c;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .why-card p {
+            color: #d7dce2;
+            font-size: 12px;
+        }
+
+        /* =========================
+           CLIENTS
+        ========================== */
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .client-card {
+            background: white;
+            min-height: 150px;
+            padding: 20px;
+            border: 1px solid rgba(23, 38, 58, .1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .client-card img {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .client-card h3 {
+            font-size: 13px;
+            line-height: 1.35;
+        }
+
+        .client-card.hidden-client {
+            display: none;
+        }
+
+        .clients-button {
+            text-align: center;
+            margin-top: 28px;
+        }
+
+        /* =========================
+           TRAVEL REQUIREMENTS
+        ========================== */
+
+        .requirements {
+            background: #fffaf0;
+        }
+
+        .requirements-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .requirement {
+            background: white;
+            border-left: 4px solid #d6aa4a;
+            padding: 18px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            color: #5f6772;
+            font-size: 14px;
+            margin-bottom: 13px;
+        }
+
+        .about-highlight {
+            border-left: 4px solid #d6aa4a;
+            padding-left: 18px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           CATALOG
+        ========================== */
+
+        .catalog-section {
+            background: #10263e;
+            color: white;
+            text-align: center;
+        }
+
+        .catalog-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 45px;
+            color: #f7d47c;
+            margin-bottom: 10px;
+        }
+
+        .catalog-section p {
+            color: #d7dce2;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================== */
+
+        .reviews-section {
+            background: #fffaf0;
+        }
+
+        .review-form-box {
+            max-width: 700px;
+            margin: 0 auto 45px;
+            background: white;
+            padding: 30px;
+            border: 1px solid rgba(23, 38, 58, .1);
+        }
+
+        .stars {
+            display: flex;
+            gap: 7px;
+            margin-bottom: 10px;
+        }
+
+        .star {
+            font-size: 28px;
+            cursor: pointer;
+            color: #c7c7c7;
+            transition: .2s;
+            user-select: none;
+        }
+
+        .star.active {
+            color: #d6aa4a;
+        }
+
+        .reviews-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            gap: 15px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 22px;
+            border: 1px solid rgba(23, 38, 58, .1);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .review-name {
+            font-weight: 700;
+        }
+
+        .review-date {
+            font-size: 11px;
+            color: #8a8f96;
+        }
+
+        .review-stars {
+            color: #d6aa4a;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .review-experience {
+            font-size: 13px;
+            color: #59616c;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-section {
+            background: #17263a;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            text-align: center;
+        }
+
+        .contact-card {
+            border: 1px solid rgba(247, 212, 124, .25);
+            padding: 25px 15px;
+        }
+
+        .contact-card h3 {
+            color: #f7d47c;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            font-size: 13px;
+            color: #e1e4e8;
+        }
+
+        .contact-card a:hover {
+            color: #f7d47c;
+        }
+
+        .instagram-link {
+            display: inline-block;
+            margin-top: 7px;
+            color: #f7d47c !important;
+            font-weight: 700;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #0e1b2a;
+            color: white;
+            padding: 40px 20px 25px;
+            text-align: center;
+        }
+
+        footer .footer-logo {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+        }
+
+        footer h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 27px;
+            color: #f7d47c;
+        }
+
+        footer p {
+            color: #bfc6cf;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .footer-links {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: #f7d47c;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            border-top: 1px solid rgba(255,255,255,.1);
+            padding-top: 18px;
+        }
+
+        /* =========================
+           WHATSAPP FLOATING BUTTON
+        ========================== */
+
+        .floating-whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1500;
+            background: #25D366;
+            color: white;
+            padding: 13px 18px;
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.2);
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .floating-whatsapp:hover {
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                position: fixed;
+                top: 78px;
+                left: 0;
+                right: 0;
+                background: #f4efe4;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 20px 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 13px 8px;
+                border-bottom: 1px solid rgba(23,38,58,.08);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .services-grid,
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .requirements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 10px 15px;
+            }
+
+            .brand {
+                font-size: 21px;
+            }
+
+            .nav-logo img {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hero {
+                min-height: 600px;
+                padding: 60px 18px;
+            }
+
+            .hero-logo {
+                width: 105px;
+                height: 105px;
+            }
+
+            section {
+                padding: 55px 15px;
+            }
+
+            .section-title h2,
+            .about-text h2,
+            .catalog-section h2 {
+                font-size: 37px;
+            }
+
+            .quick-grid,
+            .booking-form,
+            .services-grid,
+            .why-grid,
+            .clients-grid,
+            .requirements-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .booking-submit,
+            .form-message {
+                grid-column: auto;
+            }
+
+            .booking-box {
+                padding: 22px 17px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                max-width: 300px;
+                margin: auto;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .floating-whatsapp {
+                right: 12px;
+                bottom: 12px;
+                padding: 11px 15px;
+                font-size: 12px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
+<!-- =========================
+     NAVBAR
+========================== -->
 
-<!-- ================= NAVBAR ================= -->
+<header>
 
-<nav class="navbar">
+    <nav class="navbar">
 
-    <div class="nav-inner">
+        <a href="#home" class="brand">
 
-        <a href="#home" class="nav-logo">
+            <span class="nav-logo">
+                <img src="logo.png" alt="Shree Shatrunjay Logo">
+            </span>
 
-            <img
-                src="logo.png"
-                alt="Shree Shatrunjay Logo">
-
-            <div class="nav-logo-text">
-                SHREE SHATRUNJAY
-            </div>
+            <span>SHREE SHATRUNJAY</span>
 
         </a>
 
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu">
+            ☰
+        </button>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
 
-            <a href="#home">Home</a>
+            <a href="#home">HOME</a>
 
-            <a href="#booking">Book</a>
+            <a href="#booking">BOOK</a>
 
-            <a href="#services">Services</a>
+            <a href="#services">SERVICES</a>
 
-            <a href="#clients">Clients</a>
+            <a href="#clients">CLIENTS</a>
 
-            <a href="#about">About</a>
+            <a href="#about">ABOUT</a>
 
-            <a href="#catalog">Catalog</a>
+            <a href="#catalog">CATALOG</a>
 
-            <a href="#reviews" class="nav-review">
-                Review Us
-            </a>
+            <a href="#reviews" class="review-nav">REVIEW US ⭐</a>
 
-            <a
-                href="https://www.instagram.com/shreeshatrunjay_indore/"
-                target="_blank"
-                class="nav-instagram">
-                Instagram
-            </a>
-
-            <a href="#contact" class="nav-button">
-                Contact
-            </a>
+            <a href="#contact">CONTACT</a>
 
         </div>
 
+    </nav>
 
-        <button
-            class="mobile-menu-btn"
-            onclick="toggleMenu()"
-            aria-label="Open navigation menu"
-            aria-expanded="false">
-
-            ☰
-
-        </button>
-
-    </div>
-
-</nav>
+</header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+     HERO
+========================== -->
 
 <section class="hero" id="home">
 
@@ -1222,56 +953,29 @@ footer p{
             alt="Shree Shatrunjay"
             class="hero-logo">
 
-        <h1>
-            SHREE SHATRUNJAY
-        </h1>
+        <h1>SHREE SHATRUNJAY</h1>
 
-        <h2>
-            CAR RENTAL SERVICES
-        </h2>
+        <h2>CAR RENTAL SERVICES</h2>
 
         <p>
             Reliable • Comfortable • Professional Travel Solutions
         </p>
 
-
         <div class="hero-buttons">
 
-            <a
-                href="#booking"
-                class="btn btn-gold">
-
+            <a href="#booking" class="btn btn-gold">
                 BOOK YOUR RIDE
-
             </a>
 
-
-            <a
-                href="#reviews"
-                class="btn btn-outline review-hero-btn">
-
-                ⭐ REVIEW US
-
+            <a href="tel:9406649446" class="btn btn-outline">
+                ☎ CALL 9406649446
             </a>
-
 
             <a
                 href="https://wa.me/919406649446"
                 target="_blank"
                 class="btn btn-outline">
-
-                WHATSAPP ENQUIRY
-
-            </a>
-
-
-            <a
-                href="Shree%20Shatrunjay%20catalogue%201.pdf"
-                target="_blank"
-                class="btn btn-outline">
-
-                VIEW COMPLETE CATALOG →
-
+                💬 WHATSAPP ENQUIRY
             </a>
 
         </div>
@@ -1281,67 +985,31 @@ footer p{
 </section>
 
 
-<!-- ================= QUICK INFO ================= -->
+<!-- =========================
+     QUICK INFO
+========================== -->
 
 <section class="quick-info">
 
-    <div class="quick-inner">
+    <div class="quick-grid">
 
-        <div class="quick-box">
-
-            <strong>
-                Reliable Service
-            </strong>
-
-            <span>
-                Professional travel support
-            </span>
-
+        <div class="quick-item">
+            <strong>CALL US</strong>
+            <a href="tel:9406649446">9406649446</a>
         </div>
 
-
-        <div class="quick-box">
-
-            <strong>
-                Comfortable Travel
-            </strong>
-
-            <span>
-                Vehicles for every requirement
-            </span>
-
+        <div class="quick-item">
+            <strong>ALTERNATE NUMBER</strong>
+            <a href="tel:9827077300">9827077300</a>
         </div>
 
-
-        <div class="quick-box">
-
-            <strong>
-                Call Us
-            </strong>
-
-            <span>
-                <a href="tel:9406649446">9406649446</a>
-                •
-                <a href="tel:9827077300">9827077300</a>
-            </span>
-
-        </div>
-
-
-        <div class="quick-box">
-
-            <strong>
-                Instagram
-            </strong>
-
-            <span>
-                <a
-                    href="https://www.instagram.com/shreeshatrunjay_indore/"
-                    target="_blank">
-                    @shreeshatrunjay_indore
-                </a>
-            </span>
-
+        <div class="quick-item">
+            <strong>INSTAGRAM</strong>
+            <a
+                href="https://www.instagram.com/shreeshatrunjay_indore/"
+                target="_blank">
+                @shreeshatrunjay_indore
+            </a>
         </div>
 
     </div>
@@ -1349,26 +1017,21 @@ footer p{
 </section>
 
 
-<!-- ================= BOOKING ================= -->
+<!-- =========================
+     BOOKING
+========================== -->
 
-<section
-    class="section booking-section"
-    id="booking">
+<section class="booking-section" id="booking">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title">
 
-            <div class="small-title">
-                Quick Enquiry
-            </div>
-
-            <h2>
-                Book Your Ride
-            </h2>
+            <h2>Book Your Ride</h2>
 
             <p>
-                Share your travel requirements and connect with us directly on WhatsApp.
+                Share your travel requirements and we will get back to you
+                with availability and quotation.
             </p>
 
         </div>
@@ -1376,35 +1039,47 @@ footer p{
 
         <div class="booking-box">
 
-            <form
-                class="booking-form"
-                onsubmit="sendBooking(); return false;">
-
+            <form id="bookingForm" class="booking-form">
 
                 <div class="form-group">
 
-                    <label>
-                        Your Name
+                    <label for="customerName">
+                        Name *
                     </label>
 
                     <input
                         type="text"
-                        id="name"
-                        placeholder="Enter your name"
-                        required>
+                        id="customerName"
+                        required
+                        maxlength="80"
+                        placeholder="Your name">
 
                 </div>
 
 
                 <div class="form-group">
 
-                    <label>
-                        Vehicle
+                    <label for="customerPhone">
+                        Phone Number *
                     </label>
 
-                    <select
-                        id="vehicle"
-                        required>
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        required
+                        maxlength="20"
+                        placeholder="Your phone number">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="vehicle">
+                        Vehicle *
+                    </label>
+
+                    <select id="vehicle" required>
 
                         <option value="">
                             Select Vehicle
@@ -1436,59 +1111,76 @@ footer p{
 
                 <div class="form-group">
 
-                    <label>
-                        Pickup Location
-                    </label>
-
-                    <input
-                        type="text"
-                        id="pickup"
-                        placeholder="Pickup location"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        Destination
-                    </label>
-
-                    <input
-                        type="text"
-                        id="destination"
-                        placeholder="Destination"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        Travel Date
-                    </label>
-
-                    <input
-                        type="date"
-                        id="date"
-                        required>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        Passengers
+                    <label for="passengers">
+                        Passengers *
                     </label>
 
                     <input
                         type="number"
                         id="passengers"
                         min="1"
-                        placeholder="Number of passengers"
+                        max="100"
+                        required
+                        placeholder="Number of passengers">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="pickup">
+                        Pickup Location *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="pickup"
+                        required
+                        maxlength="200"
+                        placeholder="Pickup location">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="destination">
+                        Destination *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="destination"
+                        required
+                        maxlength="200"
+                        placeholder="Destination">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="travelDate">
+                        Travel Start Date *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="travelDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="endDate">
+                        Travel End / Return Date *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="endDate"
                         required>
 
                 </div>
@@ -1496,22 +1188,30 @@ footer p{
 
                 <div class="form-group full">
 
-                    <label>
+                    <label for="additionalRequirement">
                         Additional Requirement
                     </label>
 
                     <textarea
-                        id="requirement"
-                        placeholder="Tell us anything else about your trip..."
-                    ></textarea>
+                        id="additionalRequirement"
+                        maxlength="1000"
+                        placeholder="Any additional requirement"></textarea>
 
+                </div>
+
+
+                <div
+                    id="bookingMessage"
+                    class="form-message">
                 </div>
 
 
                 <div class="booking-submit">
 
-                    <button type="submit">
-                        SEND BOOKING ENQUIRY ON WHATSAPP
+                    <button
+                        type="submit"
+                        class="btn btn-gold">
+                        SUBMIT BOOKING REQUEST
                     </button>
 
                 </div>
@@ -1525,25 +1225,21 @@ footer p{
 </section>
 
 
-<!-- ================= SERVICES ================= -->
+<!-- =========================
+     SERVICES
+========================== -->
 
-<section class="section" id="services">
+<section id="services">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title">
 
-            <div class="small-title">
-                What We Offer
-            </div>
-
-            <h2>
-                Our Services
-            </h2>
+            <h2>Our Services</h2>
 
             <p>
-                Travel solutions designed for individuals, families,
-                businesses and groups.
+                Travel solutions designed for local, business,
+                family and long-distance journeys.
             </p>
 
         </div>
@@ -1552,56 +1248,86 @@ footer p{
         <div class="services-grid">
 
             <div class="service-card">
+
+                <div class="service-icon">🚘</div>
+
                 <h3>Local City Rides</h3>
+
                 <p>
-                    Comfortable and convenient cars for local travel,
-                    meetings, shopping and daily requirements.
+                    Comfortable and dependable cars for
+                    everyday travel within the city.
                 </p>
+
             </div>
 
 
             <div class="service-card">
-                <h3>Airport Transfers</h3>
+
+                <div class="service-icon">✈️</div>
+
+                <h3>Airport Transfer</h3>
+
                 <p>
-                    Reliable pickup and drop services for airport travel
-                    with convenient scheduling.
+                    Convenient airport pickup and drop
+                    services with timely travel support.
                 </p>
+
             </div>
 
 
             <div class="service-card">
-                <h3>Outstation Trips</h3>
-                <p>
-                    Comfortable vehicles for intercity and long-distance
-                    journeys.
-                </p>
-            </div>
 
+                <div class="service-icon">🙏</div>
 
-            <div class="service-card">
                 <h3>Pilgrimage Tours</h3>
+
                 <p>
-                    Comfortable travel arrangements for religious and
-                    pilgrimage journeys.
+                    Comfortable travel arrangements for
+                    religious and pilgrimage journeys.
                 </p>
+
             </div>
 
 
             <div class="service-card">
+
+                <div class="service-icon">🛣️</div>
+
+                <h3>Outstation Trips</h3>
+
+                <p>
+                    Reliable vehicles for family,
+                    leisure and long-distance travel.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">💼</div>
+
                 <h3>Corporate Travel</h3>
+
                 <p>
-                    Professional transportation solutions for meetings,
-                    events and business travel.
+                    Professional transportation solutions
+                    for corporate and official requirements.
                 </p>
+
             </div>
 
 
             <div class="service-card">
+
+                <div class="service-icon">✨</div>
+
                 <h3>Customized Packages</h3>
+
                 <p>
-                    Travel plans customized according to your destination,
-                    duration and requirements.
+                    Flexible travel arrangements designed
+                    according to your specific requirements.
                 </p>
+
             </div>
 
         </div>
@@ -1611,25 +1337,21 @@ footer p{
 </section>
 
 
-<!-- ================= WHY CHOOSE US ================= -->
+<!-- =========================
+     WHY CHOOSE US
+========================== -->
 
-<section class="section why-section">
+<section class="why-section">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title">
 
-            <div class="small-title">
-                The Shree Shatrunjay Difference
-            </div>
-
-            <h2>
-                Why Choose Us
-            </h2>
+            <h2>Why Choose Us</h2>
 
             <p>
-                Professional service with comfort, convenience and
-                dependable travel support.
+                Professional travel service focused on
+                comfort, reliability and convenience.
             </p>
 
         </div>
@@ -1639,14 +1361,11 @@ footer p{
 
             <div class="why-card">
 
-                <div class="number">01</div>
-
-                <h3>
-                    Professional Service
-                </h3>
+                <h3>Reliable Service</h3>
 
                 <p>
-                    Focused on providing smooth and comfortable travel.
+                    Dependable travel support for
+                    planned and regular journeys.
                 </p>
 
             </div>
@@ -1654,14 +1373,11 @@ footer p{
 
             <div class="why-card">
 
-                <div class="number">02</div>
-
-                <h3>
-                    Multiple Vehicle Options
-                </h3>
+                <h3>Comfortable Cars</h3>
 
                 <p>
-                    Vehicles available for different travel requirements.
+                    A range of comfortable vehicles
+                    for different travel requirements.
                 </p>
 
             </div>
@@ -1669,14 +1385,11 @@ footer p{
 
             <div class="why-card">
 
-                <div class="number">03</div>
-
-                <h3>
-                    Flexible Travel
-                </h3>
+                <h3>Professional Support</h3>
 
                 <p>
-                    Local, outstation, airport and customized journeys.
+                    Responsive assistance from booking
+                    to completion of your journey.
                 </p>
 
             </div>
@@ -1684,14 +1397,11 @@ footer p{
 
             <div class="why-card">
 
-                <div class="number">04</div>
-
-                <h3>
-                    Easy Booking
-                </h3>
+                <h3>Customized Travel</h3>
 
                 <p>
-                    Quick enquiry and booking directly through WhatsApp.
+                    Flexible solutions according to
+                    your destination and requirements.
                 </p>
 
             </div>
@@ -1703,297 +1413,217 @@ footer p{
 </section>
 
 
-<!-- ================= CLIENTS ================= -->
+<!-- =========================
+     CLIENTS
+========================== -->
 
-<section class="section clients-section" id="clients">
+<section id="clients">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title">
 
-            <div class="small-title">
-                Trusted By
-            </div>
-
-            <h2>
-                Our Clients
-            </h2>
+            <h2>Our Clients</h2>
 
             <p>
-                Proud to have served organizations and distinguished
-                personalities with professional travel solutions.
+                Trusted by organizations and clients
+                for professional transportation services.
             </p>
 
         </div>
 
 
-        <div class="clients-grid">
+        <div class="clients-grid" id="clientsGrid">
 
 
-            <!-- 1 AAI - VISIBLE -->
+            <!-- INITIAL CLIENTS -->
 
             <div class="client-card">
 
                 <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Airports_authority_of_India_Logo.png"
-                    alt="Airports Authority of India Logo"
-                    class="client-image"
-                    loading="lazy">
+                    src="https://www.google.com/s2/favicons?domain=aai.aero&sz=128"
+                    alt="Airports Authority of India">
 
                 <h3>
                     Airports Authority of India
                 </h3>
 
-                <p>
-                    Government Organization
-                </p>
-
             </div>
 
-
-            <!-- 2 INCOME TAX - VISIBLE -->
 
             <div class="client-card">
 
                 <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Logo_of_Income_Tax_Department_India.png"
-                    alt="Income Tax Department Logo"
-                    class="client-image"
-                    loading="lazy">
+                    src="https://www.google.com/s2/favicons?domain=incometax.gov.in&sz=128"
+                    alt="Income Tax Department">
 
                 <h3>
                     Income Tax Department
                 </h3>
 
-                <p>
-                    Government Department
-                </p>
-
             </div>
 
 
-            <!-- 3 NAYANTHARA - VISIBLE -->
-
-            <div class="client-card person">
+            <div class="client-card">
 
                 <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nayanthara_in_2023.jpg"
-                    alt="Nayanthara"
-                    class="client-image"
-                    loading="lazy">
+                    src="https://www.instagram.com/favicon.ico"
+                    alt="Nayanthara">
 
                 <h3>
                     Nayanthara
                 </h3>
 
-                <p>
-                    Actress & Producer
-                </p>
-
             </div>
 
 
-            <!-- 4 SREELEELA - VISIBLE -->
-
-            <div class="client-card person">
+            <div class="client-card">
 
                 <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sree_Leela_2021.png"
-                    alt="Sreeleela"
-                    class="client-image"
-                    loading="lazy">
+                    src="https://www.instagram.com/favicon.ico"
+                    alt="Sreeleela">
 
                 <h3>
                     Sreeleela
                 </h3>
 
-                <p>
-                    Actress
-                </p>
-
             </div>
 
 
-            <!-- 5 WESTERN RAILWAY -->
+            <!-- HIDDEN CLIENTS -->
 
             <div class="client-card hidden-client">
 
                 <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Western_Railway_Zone.svg"
-                    alt="Western Railway Logo"
-                    class="client-image"
-                    loading="lazy">
+                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/POWERGRID_NEW_LOGO.png"
+                    alt="POWERGRID">
+
+                <h3>
+                    POWERGRID — Power Grid Corporation of India Limited
+                </h3>
+
+            </div>
+
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://www.google.com/s2/favicons?domain=rrcat.gov.in&sz=128"
+                    alt="RRCAT">
+
+                <h3>
+                    RRCAT — Raja Ramanna Centre for Advanced Technology
+                </h3>
+
+            </div>
+
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://www.google.com/s2/favicons?domain=nhai.gov.in&sz=128"
+                    alt="NHAI">
+
+                <h3>
+                    NHAI — National Highways Authority of India
+                </h3>
+
+            </div>
+
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://www.google.com/s2/favicons?domain=nclt.gov.in&sz=128"
+                    alt="NCLT">
+
+                <h3>
+                    NCLT — National Company Law Tribunal
+                </h3>
+
+            </div>
+
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://www.google.com/s2/favicons?domain=itat.gov.in&sz=128"
+                    alt="ITAT">
+
+                <h3>
+                    ITAT — Income Tax Appellate Tribunal
+                </h3>
+
+            </div>
+
+
+            <div class="client-card hidden-client">
+
+                <img
+                    src="https://www.google.com/s2/favicons?domain=indiapost.gov.in&sz=128"
+                    alt="India Post">
+
+                <h3>
+                    India Post — Department of Posts, Government of India
+                </h3>
+
+            </div>
+
+
+            <div class="client-card hidden-client">
+
+                <div style="
+                    width:65px;
+                    height:65px;
+                    border-radius:50%;
+                    background:#17263a;
+                    color:#f7d47c;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-weight:700;
+                    margin-bottom:12px;">
+                    WR
+                </div>
 
                 <h3>
                     Western Railway
                 </h3>
 
-                <p>
-                    Indian Railways
-                </p>
-
             </div>
 
 
-            <!-- 6 SHATRUGHAN SINHA -->
+            <div class="client-card hidden-client">
 
-            <div class="client-card person hidden-client">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shatrughan_Sinha.jpg"
-                    alt="Shatrughan Sinha"
-                    class="client-image"
-                    loading="lazy">
+                <div style="
+                    width:65px;
+                    height:65px;
+                    border-radius:50%;
+                    background:#17263a;
+                    color:#f7d47c;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-weight:700;
+                    margin-bottom:12px;">
+                    SS
+                </div>
 
                 <h3>
                     Shatrughan Sinha
                 </h3>
 
-                <p>
-                    Actor & Public Figure
-                </p>
-
             </div>
-
-
-            <!-- 7 POWERGRID -->
-
-            <div class="client-card hidden-client">
-
-                <img
-                    src="https://www.presentations.gov.in/wp-content/uploads/2023/03/Power-Grid-Corp-Logo-PNG.png"
-                    alt="POWERGRID Logo"
-                    class="client-image"
-                    loading="lazy">
-
-                <h3>
-                    POWERGRID
-                </h3>
-
-                <p>
-                    Government Organization
-                </p>
-
-            </div>
-
-
-            <!-- 8 RRCAT -->
-
-            <div class="client-card hidden-client">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Raja_Ramanna_Centre_for_Advanced_Technology_logo.svg"
-                    alt="RRCAT Logo"
-                    class="client-image"
-                    loading="lazy">
-
-                <h3>
-                    RRCAT
-                </h3>
-
-                <p>
-                    Government Research Centre
-                </p>
-
-            </div>
-
-
-            <!-- 9 NHAI -->
-
-            <div class="client-card hidden-client">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/National_Highways_Authority_of_India_logo.svg"
-                    alt="NHAI Logo"
-                    class="client-image"
-                    loading="lazy">
-
-                <h3>
-                    NHAI
-                </h3>
-
-                <p>
-                    Government Organization
-                </p>
-
-            </div>
-
-
-            <!-- 10 NCLT -->
-
-            <div class="client-card hidden-client">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/NCLT_logo.png"
-                    alt="NCLT Logo"
-                    class="client-image"
-                    loading="lazy">
-
-                <h3>
-                    NCLT
-                </h3>
-
-                <p>
-                    Government Tribunal
-                </p>
-
-            </div>
-
-
-            <!-- 11 ITAT -->
-
-            <div class="client-card hidden-client">
-
-                <img
-                    src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Income_Tax_Appellate_Tribunal_logo.png"
-                    alt="ITAT Logo"
-                    class="client-image"
-                    loading="lazy">
-
-                <h3>
-                    ITAT
-                </h3>
-
-                <p>
-                    Government Tribunal
-                </p>
-
-            </div>
-
-
-            <!-- 12 INDIA POST -->
-
-            <div class="client-card hidden-client">
-
-                <img
-                    src="https://www.presentations.gov.in/wp-content/uploads/2023/03/India-Post-Logo-PNG.png"
-                    alt="India Post Logo"
-                    class="client-image"
-                    loading="lazy">
-
-                <h3>
-                    India Post
-                </h3>
-
-                <p>
-                    Government Organization
-                </p>
-
-            </div>
-
 
         </div>
 
 
-        <div class="clients-more">
+        <div class="clients-button">
 
             <button
-                type="button"
-                id="clientsButton"
-                onclick="toggleClients()">
-
-                VIEW ALL CLIENTS →
-
+                class="btn btn-gold"
+                id="viewClientsBtn">
+                VIEW ALL CLIENTS
             </button>
 
         </div>
@@ -2003,106 +1633,50 @@ footer p{
 </section>
 
 
-<!-- ================= TRAVEL REQUIREMENTS ================= -->
+<!-- =========================
+     TRAVEL REQUIREMENTS
+========================== -->
 
-<section class="section travel-section">
+<section class="requirements">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title">
 
-            <div class="small-title">
-                Travel Made Easy
-            </div>
-
-            <h2>
-                Popular Travel Requirements
-            </h2>
+            <h2>Travel Requirements</h2>
 
             <p>
-                Choose the travel arrangement that suits your journey.
+                Services suitable for different types
+                of personal and professional journeys.
             </p>
 
         </div>
 
 
-        <div class="travel-grid">
+        <div class="requirements-grid">
 
-            <div class="travel-card">
-
-                <h3>
-                    One-Way Car Rental
-                </h3>
-
-                <p>
-                    Convenient one-way travel between cities.
-                </p>
-
+            <div class="requirement">
+                Family Travel
             </div>
 
-
-            <div class="travel-card">
-
-                <h3>
-                    Round-Trip Rental
-                </h3>
-
-                <p>
-                    Comfortable return journeys with flexible planning.
-                </p>
-
+            <div class="requirement">
+                Business Travel
             </div>
 
-
-            <div class="travel-card">
-
-                <h3>
-                    Car Rental With Driver
-                </h3>
-
-                <p>
-                    Professional chauffeur-driven travel solutions.
-                </p>
-
+            <div class="requirement">
+                Religious Travel
             </div>
 
-
-            <div class="travel-card">
-
-                <h3>
-                    Family Travel
-                </h3>
-
-                <p>
-                    Comfortable vehicles for family journeys.
-                </p>
-
+            <div class="requirement">
+                Airport Travel
             </div>
 
-
-            <div class="travel-card">
-
-                <h3>
-                    Group Travel
-                </h3>
-
-                <p>
-                    Suitable transportation for larger groups.
-                </p>
-
+            <div class="requirement">
+                Outstation Travel
             </div>
 
-
-            <div class="travel-card">
-
-                <h3>
-                    Customized Travel
-                </h3>
-
-                <p>
-                    Travel solutions designed around your requirements.
-                </p>
-
+            <div class="requirement">
+                Special Requirements
             </div>
 
         </div>
@@ -2112,45 +1686,55 @@ footer p{
 </section>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =========================
+     ABOUT
+========================== -->
 
-<section class="section about-section" id="about">
+<section id="about">
 
-    <div class="section-inner">
+    <div class="container">
 
         <div class="about-grid">
 
-            <div class="about-content">
+            <div class="about-text">
 
-                <div class="small-title">
-                    About Us
-                </div>
-
-                <h2>
-                    Travel With Confidence
-                </h2>
+                <h2>About Shree Shatrunjay</h2>
 
                 <p>
-                    Shree Shatrunjay is a trusted car rental and travel
-                    service provider committed to offering comfortable,
-                    reliable and professional travel solutions.
+                    Shree Shatrunjay is a trusted car rental
+                    and travel service provider offering
+                    comfortable and reliable transportation
+                    solutions.
                 </p>
 
                 <p>
-                    From local city travel and airport transfers to
-                    outstation journeys, pilgrimage tours and corporate
-                    requirements, we provide vehicles suited to different
-                    travel needs.
-                </p>
-
-                <p>
-                    Our focus is on making every journey convenient,
-                    comfortable and well-organized.
+                    From local city rides and airport transfers
+                    to pilgrimage tours, corporate travel and
+                    outstation journeys, we provide flexible
+                    travel solutions according to customer needs.
                 </p>
 
                 <div class="about-highlight">
-                    Reliable • Comfortable • Professional Travel Solutions
+
+                    Reliable • Comfortable • Professional
+
                 </div>
+
+            </div>
+
+
+            <div>
+
+                <img
+                    src="logo.png"
+                    alt="Shree Shatrunjay"
+                    style="
+                        width:220px;
+                        height:220px;
+                        object-fit:cover;
+                        border-radius:50%;
+                        margin:auto;
+                        border:4px solid #d6aa4a;">
 
             </div>
 
@@ -2161,23 +1745,18 @@ footer p{
 </section>
 
 
-<!-- ================= CATALOG ================= -->
+<!-- =========================
+     CATALOG
+========================== -->
 
-<section class="section catalog-section" id="catalog">
+<section class="catalog-section" id="catalog">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="small-title">
-            Explore Our Vehicles
-        </div>
-
-        <h2>
-            Complete Car Rental Catalog
-        </h2>
+        <h2>Our Catalog</h2>
 
         <p>
-            Explore our complete vehicle catalogue and choose the vehicle
-            that best suits your travel requirement.
+            Explore our travel and car rental services.
         </p>
 
         <a
@@ -2185,7 +1764,7 @@ footer p{
             target="_blank"
             class="btn btn-gold">
 
-            VIEW COMPLETE CATALOG →
+            VIEW CATALOG →
 
         </a>
 
@@ -2194,142 +1773,107 @@ footer p{
 </section>
 
 
-<!-- ================= REVIEWS ================= -->
+<!-- =========================
+     REVIEWS
+========================== -->
 
-<section
-    class="section reviews-section"
-    id="reviews">
+<section class="reviews-section" id="reviews">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title">
 
-            <div class="small-title">
-                Customer Experience
-            </div>
-
-            <h2>
-                Review Us
-            </h2>
+            <h2>REVIEW US ⭐</h2>
 
             <p>
                 Share your experience with Shree Shatrunjay.
-                Your review will appear here for other visitors to see.
             </p>
 
         </div>
 
 
-        <div class="review-box">
+        <div class="review-form-box">
 
-            <form
-                class="review-form"
-                onsubmit="submitReview(); return false;">
+            <form id="reviewForm">
 
-                <div>
+                <div class="form-group">
 
                     <label for="reviewName">
-                        Your Name
+                        Your Name *
                     </label>
 
                     <input
                         type="text"
                         id="reviewName"
                         maxlength="80"
-                        placeholder="Enter your name"
-                        required>
+                        required
+                        placeholder="Your name">
 
                 </div>
 
 
-                <div>
+                <br>
+
+
+                <div class="form-group">
 
                     <label>
-                        Your Rating
+                        Your Rating *
                     </label>
 
-                    <div class="star-selector">
+                    <div
+                        class="stars"
+                        id="starContainer">
 
-                        <input
-                            type="radio"
-                            id="star5"
-                            name="rating"
-                            value="5"
-                            required>
-
-                        <label for="star5" title="5 stars">★</label>
-
-
-                        <input
-                            type="radio"
-                            id="star4"
-                            name="rating"
-                            value="4">
-
-                        <label for="star4" title="4 stars">★</label>
-
-
-                        <input
-                            type="radio"
-                            id="star3"
-                            name="rating"
-                            value="3">
-
-                        <label for="star3" title="3 stars">★</label>
-
-
-                        <input
-                            type="radio"
-                            id="star2"
-                            name="rating"
-                            value="2">
-
-                        <label for="star2" title="2 stars">★</label>
-
-
-                        <input
-                            type="radio"
-                            id="star1"
-                            name="rating"
-                            value="1">
-
-                        <label for="star1" title="1 star">★</label>
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
 
                     </div>
 
                 </div>
 
 
-                <div class="review-form full">
+                <input
+                    type="hidden"
+                    id="reviewRating"
+                    value="0">
+
+
+                <div class="form-group">
 
                     <label for="reviewExperience">
-                        Your Experience
+                        Your Experience *
                     </label>
 
                     <textarea
                         id="reviewExperience"
                         maxlength="1000"
-                        placeholder="Tell us about your experience..."
-                        required></textarea>
+                        minlength="5"
+                        required
+                        placeholder="Write about your experience"></textarea>
 
                 </div>
 
 
-                <div class="review-submit">
+                <br>
 
-                    <button type="submit" id="reviewSubmitButton">
-                        SUBMIT REVIEW
-                    </button>
 
+                <div
+                    id="reviewMessage"
+                    class="form-message">
                 </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-gold">
+                    SUBMIT REVIEW
+                </button>
 
             </form>
-
-
-            <div
-                class="review-status"
-                id="reviewStatus">
-            </div>
 
         </div>
 
@@ -2338,9 +1882,9 @@ footer p{
             class="reviews-list"
             id="reviewsList">
 
-            <div class="no-reviews">
-                Loading customer reviews...
-            </div>
+            <p style="text-align:center;">
+                Loading reviews...
+            </p>
 
         </div>
 
@@ -2349,27 +1893,23 @@ footer p{
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- =========================
+     CONTACT
+========================== -->
 
-<section
-    class="section contact-section"
-    id="contact">
+<section class="contact-section" id="contact">
 
-    <div class="section-inner">
+    <div class="container">
 
-        <div class="section-heading">
+        <div class="section-title">
 
-            <div class="small-title">
-                Get In Touch
-            </div>
-
-            <h2>
+            <h2 style="color:white;">
                 Contact Us
             </h2>
 
-            <p>
-                Tell us about your travel requirement and our team will
-                assist you.
+            <p style="color:#d7dce2;">
+                Get in touch with Shree Shatrunjay
+                for your travel requirements.
             </p>
 
         </div>
@@ -2379,108 +1919,54 @@ footer p{
 
             <div class="contact-card">
 
-                <h3>
-                    Shree Shatrunjay
-                </h3>
+                <h3>Call Us</h3>
 
-
-                <div class="contact-item">
-
-                    <strong>
-                        Phone
-                    </strong>
-
-                    <a
-                        href="tel:9406649446"
-                        class="contact-link">
-
+                <p>
+                    <a href="tel:9406649446">
                         9406649446
-
                     </a>
+                </p>
 
-                    <br>
-
-                    <a
-                        href="tel:9827077300"
-                        class="contact-link">
-
+                <p>
+                    <a href="tel:9827077300">
                         9827077300
-
                     </a>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <strong>
-                        Instagram
-                    </strong>
-
-                    <a
-                        href="https://www.instagram.com/shreeshatrunjay_indore/"
-                        target="_blank"
-                        class="contact-link">
-
-                        @shreeshatrunjay_indore
-
-                    </a>
-
-                </div>
+                </p>
 
             </div>
 
 
             <div class="contact-card">
 
-                <h3>
-                    Quick Contact
-                </h3>
+                <h3>WhatsApp</h3>
 
-
-                <div class="contact-item">
-
-                    <strong>
-                        WhatsApp
-                    </strong>
-
+                <p>
                     <a
                         href="https://wa.me/919406649446"
-                        target="_blank"
-                        class="whatsapp-link"
-                        rel="noopener">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true">
-
-                            <path d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.53 0 .2 5.33.2 11.87c0 2.09.55 4.13 1.6 5.93L.1 24l6.35-1.67a11.88 11.88 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.23-6.15-3.43-8.41ZM12.08 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.82 9.82 0 0 1-1.5-5.19C2.2 6.45 6.63 2.02 12.08 2.02c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.88 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.21 5.08 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"/>
-
-                        </svg>
-
-                        Chat With Us on WhatsApp
-
+                        target="_blank">
+                        💬 Chat with Us on WhatsApp →
                     </a>
+                </p>
 
-                </div>
+            </div>
 
 
-                <div class="contact-item">
+            <div class="contact-card">
 
-                    <strong>
-                        Website
-                    </strong>
+                <h3>Instagram</h3>
+
+                <p>
 
                     <a
-                        href="https://www.shreeshatrunjay.com/"
-                        target="_blank"
-                        class="contact-link">
+                        class="instagram-link"
+                        href="https://www.instagram.com/shreeshatrunjay_indore/"
+                        target="_blank">
 
-                        www.shreeshatrunjay.com
+                        @shreeshatrunjay_indore
 
                     </a>
 
-                </div>
+                </p>
 
             </div>
 
@@ -2491,7 +1977,9 @@ footer p{
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================== -->
 
 <footer>
 
@@ -2500,636 +1988,737 @@ footer p{
         alt="Shree Shatrunjay Logo"
         class="footer-logo">
 
-    <h3>
-        SHREE SHATRUNJAY
-    </h3>
+    <h3>SHREE SHATRUNJAY</h3>
 
     <p>
         CAR RENTAL SERVICES
     </p>
 
+    <div class="footer-links">
 
-    <div class="footer-social">
+        <a href="#home">Home</a>
 
-        <a
-            href="https://www.instagram.com/shreeshatrunjay_indore/"
-            target="_blank">
+        <a href="#booking">Book</a>
 
-            Instagram @shreeshatrunjay_indore
+        <a href="#services">Services</a>
 
-        </a>
+        <a href="#clients">Clients</a>
+
+        <a href="#about">About</a>
+
+        <a href="#catalog">Catalog</a>
+
+        <a href="#reviews">Review Us ⭐</a>
+
+        <a href="#contact">Contact</a>
 
     </div>
 
+    <p class="copyright">
 
-    <p style="margin-top:18px;">
-        © 2026 Shree Shatrunjay. All Rights Reserved.
+        © <span id="year"></span>
+        Shree Shatrunjay. All Rights Reserved.
+
     </p>
 
 </footer>
 
 
-<!-- ================= FLOATING ACTIONS ================= -->
+<!-- =========================
+     FLOATING WHATSAPP
+========================== -->
 
-<div class="floating-actions">
+<a
+    href="https://wa.me/919406649446"
+    target="_blank"
+    class="floating-whatsapp">
 
+    💬 WhatsApp
 
-    <!-- TELEPHONE: OPENS PHONE KEYPAD -->
+</a>
 
-    <a
-        href="tel:9406649446"
-        class="phone-float"
-        aria-label="Call Shree Shatrunjay">
-
-        ☎
-
-    </a>
-
-
-    <!-- WHATSAPP -->
-
-    <a
-        href="https://wa.me/919406649446"
-        target="_blank"
-        class="whatsapp-float"
-        aria-label="Chat with Shree Shatrunjay on WhatsApp"
-        rel="noopener">
-
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true">
-
-            <path d="M20.52 3.48A11.85 11.85 0 0 0 12.07 0C5.53 0 .2 5.33.2 11.87c0 2.09.55 4.13 1.6 5.93L.1 24l6.35-1.67a11.88 11.88 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.33 11.87-11.87 0-3.17-1.23-6.15-3.43-8.41ZM12.08 21.7h-.01a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.77.99 1.01-3.67-.23-.38a9.82 9.82 0 0 1-1.5-5.19C2.2 6.45 6.63 2.02 12.08 2.02c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.88 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.21 5.08 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"/>
-
-        </svg>
-
-    </a>
-
-</div>
-
-
-<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-/* ================= MOBILE MENU ================= */
+    /* ==========================================
+       SUPABASE CONFIGURATION
+    ========================================== */
 
-function toggleMenu(){
+    const SUPABASE_URL =
+        "https://jmvaotdxnuahoxsllasg.supabase.co";
 
-    const menu =
-        document.querySelector('.nav-links');
+    const SUPABASE_KEY =
+        "sb_publishable_FfmL_iq8XTPwb1EyXj9ufw_QZaU3rOZ";
 
-    const button =
-        document.querySelector('.mobile-menu-btn');
-
-    menu.classList.toggle('active');
-
-    const isOpen =
-        menu.classList.contains('active');
-
-    button.setAttribute(
-        'aria-expanded',
-        isOpen ? 'true' : 'false'
-    );
-
-    button.innerHTML =
-        isOpen ? '✕' : '☰';
-}
-
-
-document
-    .querySelectorAll('.nav-links a')
-    .forEach(function(link){
-
-        link.addEventListener(
-            'click',
-            function(){
-
-                const menu =
-                    document.querySelector('.nav-links');
-
-                const button =
-                    document.querySelector('.mobile-menu-btn');
-
-                menu.classList.remove('active');
-
-                button.setAttribute(
-                    'aria-expanded',
-                    'false'
-                );
-
-                button.innerHTML = '☰';
-
-            }
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
         );
 
+
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuToggle.addEventListener("click", function(e) {
+
+        e.stopPropagation();
+
+        navLinks.classList.toggle("active");
+
     });
 
 
-document.addEventListener(
-    'click',
-    function(event){
+    navLinks.querySelectorAll("a").forEach(function(link) {
 
-        const menu =
-            document.querySelector('.nav-links');
+        link.addEventListener("click", function() {
 
-        const button =
-            document.querySelector('.mobile-menu-btn');
+            navLinks.classList.remove("active");
 
-        if(
-            menu &&
-            button &&
-            menu.classList.contains('active') &&
-            !menu.contains(event.target) &&
-            !button.contains(event.target)
-        ){
+        });
 
-            menu.classList.remove('active');
-
-            button.setAttribute(
-                'aria-expanded',
-                'false'
-            );
-
-            button.innerHTML = '☰';
-
-        }
-
-    }
-);
+    });
 
 
-/* ================= BOOKING ================= */
+    document.addEventListener("click", function(e) {
 
-function sendBooking(){
+        if (
+            navLinks.classList.contains("active") &&
+            !navLinks.contains(e.target) &&
+            !menuToggle.contains(e.target)
+        ) {
 
-    const name =
-        document.getElementById("name").value.trim();
-
-    const vehicle =
-        document.getElementById("vehicle").value;
-
-    const pickup =
-        document.getElementById("pickup").value.trim();
-
-    const destination =
-        document.getElementById("destination").value.trim();
-
-    const date =
-        document.getElementById("date").value;
-
-    const passengers =
-        document.getElementById("passengers").value;
-
-    const requirement =
-        document.getElementById("requirement").value.trim();
-
-
-    let vehicleMessage;
-
-
-    if(vehicle === "Any Other Vehicle"){
-
-        vehicleMessage =
-            "Hello, I am interested in booking of a vehicle.";
-
-    }else{
-
-        vehicleMessage =
-            `Hello, I am interested in booking of a ${vehicle}.`;
-
-    }
-
-
-    const message =
-
-`${vehicleMessage}
-
-Name: ${name}
-
-Vehicle: ${vehicle}
-
-Pickup Location: ${pickup}
-
-Destination: ${destination}
-
-Travel Date: ${date}
-
-Passengers: ${passengers}
-
-Additional Requirement: ${requirement || "None"}
-
-Please share the availability and quotation.`;
-
-
-    const whatsappURL =
-        "https://wa.me/919406649446?text=" +
-        encodeURIComponent(message);
-
-
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
-
-}
-
-
-/* ================= CLIENTS ================= */
-
-function toggleClients(){
-
-    const hiddenClients =
-        document.querySelectorAll('.hidden-client');
-
-    const button =
-        document.getElementById('clientsButton');
-
-    const isShowing =
-        hiddenClients[0] &&
-        hiddenClients[0].classList.contains('show');
-
-
-    hiddenClients.forEach(function(card){
-
-        if(isShowing){
-
-            card.classList.remove('show');
-
-        }else{
-
-            card.classList.add('show');
+            navLinks.classList.remove("active");
 
         }
 
     });
 
 
-    button.textContent =
-        isShowing
-            ? 'VIEW ALL CLIENTS →'
-            : 'SHOW LESS ↑';
+    /* ==========================================
+       YEAR
+    ========================================== */
 
-}
-
-
-/* ================= SUPABASE REVIEWS ================= */
-
-/*
-    Supabase configuration
-*/
-
-const SUPABASE_URL =
-    "https://jmvaotdxnuahoxsllasg.supabase.co";
-
-const SUPABASE_KEY =
-    "sb_publishable_FfmL_iq8XTPwb1EyXj9ufw_QZaU3rOZ";
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
 
 
-/* Load reviews */
+    /* ==========================================
+       DATE VALIDATION
+    ========================================== */
 
-async function loadReviews(){
+    const travelDate =
+        document.getElementById("travelDate");
 
-    const list =
-        document.getElementById("reviewsList");
-
-
-    try{
-
-        const response =
-            await fetch(
-                SUPABASE_URL +
-                "/rest/v1/reviews?select=id,name,rating,experience,created_at&order=created_at.desc",
-                {
-                    method:"GET",
-
-                    headers:{
-                        "apikey":SUPABASE_KEY,
-                        "Authorization":
-                            "Bearer " + SUPABASE_KEY
-                    }
-                }
-            );
+    const endDate =
+        document.getElementById("endDate");
 
 
-        if(!response.ok){
+    const today =
+        new Date().toISOString().split("T")[0];
 
-            throw new Error(
-                "Unable to load reviews."
-            );
+
+    travelDate.min = today;
+    endDate.min = today;
+
+
+    travelDate.addEventListener("change", function() {
+
+        endDate.min = travelDate.value;
+
+        if (
+            endDate.value &&
+            endDate.value < travelDate.value
+        ) {
+
+            endDate.value = travelDate.value;
 
         }
 
-
-        const reviews =
-            await response.json();
+    });
 
 
-        list.innerHTML = "";
+    /* ==========================================
+       BOOKING FORM
+    ========================================== */
+
+    const bookingForm =
+        document.getElementById("bookingForm");
+
+    const bookingMessage =
+        document.getElementById("bookingMessage");
 
 
-        if(!reviews.length){
+    bookingForm.addEventListener("submit", async function(e) {
 
-            list.innerHTML =
-                '<div class="no-reviews">Be the first to share your experience.</div>';
+        e.preventDefault();
+
+
+        const name =
+            document.getElementById("customerName").value.trim();
+
+        const phone =
+            document.getElementById("customerPhone").value.trim();
+
+        const vehicle =
+            document.getElementById("vehicle").value;
+
+        const passengers =
+            parseInt(
+                document.getElementById("passengers").value,
+                10
+            );
+
+        const pickup =
+            document.getElementById("pickup").value.trim();
+
+        const destination =
+            document.getElementById("destination").value.trim();
+
+        const startDate =
+            document.getElementById("travelDate").value;
+
+        const returnDate =
+            document.getElementById("endDate").value;
+
+        const additional =
+            document
+                .getElementById("additionalRequirement")
+                .value
+                .trim();
+
+
+        if (returnDate < startDate) {
+
+            showBookingMessage(
+                "Travel end date cannot be before the start date.",
+                "error"
+            );
 
             return;
 
         }
 
 
-        reviews.forEach(function(review){
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "review-card";
+        const databaseVehicle =
+            vehicle === "Any Other Vehicle"
+                ? "Any Other Vehicle"
+                : vehicle;
 
 
-            const top =
-                document.createElement("div");
-
-            top.className =
-                "review-card-top";
-
-
-            const nameBlock =
-                document.createElement("div");
+        showBookingMessage(
+            "Saving your booking request...",
+            "success"
+        );
 
 
-            const name =
-                document.createElement("div");
+        /* ======================================
+           SAVE TO SUPABASE FIRST
+        ====================================== */
 
-            name.className =
-                "review-name";
+        const {
+            error
+        } = await supabaseClient
+            .from("inquiries")
+            .insert({
 
-            name.textContent =
-                review.name;
+                name: name,
 
+                phone: phone,
 
-            const date =
-                document.createElement("div");
+                vehicle: databaseVehicle,
 
-            date.className =
-                "review-date";
+                pickup_location: pickup,
 
-            date.textContent =
-                formatReviewDate(
-                    review.created_at
-                );
+                destination: destination,
 
+                travel_date: startDate,
 
-            nameBlock.appendChild(name);
+                end_date: returnDate,
 
-            nameBlock.appendChild(date);
+                passengers: passengers,
 
+                additional_requirement:
+                    additional || null,
 
-            const stars =
-                document.createElement("div");
+                status: "new",
 
-            stars.className =
-                "review-stars";
+                deleted: false
 
-            stars.textContent =
-                "★".repeat(Number(review.rating)) +
-                "☆".repeat(5 - Number(review.rating));
+            });
 
 
-            top.appendChild(nameBlock);
+        if (error) {
 
-            top.appendChild(stars);
+            console.error(
+                "Supabase booking error:",
+                error
+            );
+
+            showBookingMessage(
+                "We could not save your booking. Please try again.",
+                "error"
+            );
+
+            return;
+
+        }
 
 
-            const text =
-                document.createElement("div");
+        /* ======================================
+           WHATSAPP MESSAGE
+        ====================================== */
 
-            text.className =
-                "review-text";
+        let vehicleMessage = "";
 
-            text.textContent =
-                review.experience;
+        if (vehicle === "Any Other Vehicle") {
+
+            vehicleMessage =
+                "Hello, I am interested in booking of a vehicle.";
+
+        } else {
+
+            vehicleMessage =
+                `Hello, I am interested in booking of a ${vehicle}.`;
+
+        }
 
 
-            card.appendChild(top);
+        const whatsappMessage =
 
-            card.appendChild(text);
+`${vehicleMessage}
 
-            list.appendChild(card);
+Name: ${name}
+Phone: ${phone}
+Vehicle: ${vehicle}
+Pickup Location: ${pickup}
+Destination: ${destination}
+Travel Start Date: ${startDate}
+Travel End / Return Date: ${returnDate}
+Passengers: ${passengers}
+Additional Requirement: ${additional || "None"}
+
+Please share the availability and quotation.`;
+
+
+        const whatsappURL =
+            "https://wa.me/919406649446?text=" +
+            encodeURIComponent(whatsappMessage);
+
+
+        showBookingMessage(
+            "Booking saved successfully. Opening WhatsApp...",
+            "success"
+        );
+
+
+        setTimeout(function() {
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }, 500);
+
+
+        bookingForm.reset();
+
+        endDate.min = today;
+
+    });
+
+
+    function showBookingMessage(message, type) {
+
+        bookingMessage.textContent = message;
+
+        bookingMessage.style.display = "block";
+
+        bookingMessage.style.color =
+            type === "error"
+                ? "#b42318"
+                : "#287a42";
+
+    }
+
+
+    /* ==========================================
+       VIEW ALL CLIENTS
+    ========================================== */
+
+    const viewClientsBtn =
+        document.getElementById("viewClientsBtn");
+
+
+    viewClientsBtn.addEventListener("click", function() {
+
+        const hiddenClients =
+            document.querySelectorAll(".hidden-client");
+
+        const isExpanded =
+            this.dataset.expanded === "true";
+
+
+        hiddenClients.forEach(function(client) {
+
+            client.style.display =
+                isExpanded
+                    ? "none"
+                    : "flex";
 
         });
 
 
-    }catch(error){
+        if (isExpanded) {
 
-        list.innerHTML =
-            '<div class="no-reviews">Reviews could not be loaded right now. Please try again later.</div>';
+            this.textContent =
+                "VIEW ALL CLIENTS";
 
-        console.error(error);
+            this.dataset.expanded =
+                "false";
 
-    }
+        } else {
 
-}
+            this.textContent =
+                "SHOW LESS";
 
+            this.dataset.expanded =
+                "true";
 
-/* Format review date */
-
-function formatReviewDate(dateString){
-
-    if(!dateString){
-        return "";
-    }
-
-    const date =
-        new Date(dateString);
-
-    return date.toLocaleDateString(
-        "en-IN",
-        {
-            day:"numeric",
-            month:"short",
-            year:"numeric"
         }
-    );
 
-}
-
-
-/* Submit review */
-
-async function submitReview(){
-
-    const nameInput =
-        document.getElementById("reviewName");
-
-    const experienceInput =
-        document.getElementById("reviewExperience");
-
-    const selectedRating =
-        document.querySelector(
-            'input[name="rating"]:checked'
-        );
-
-    const button =
-        document.getElementById(
-            "reviewSubmitButton"
-        );
-
-    const status =
-        document.getElementById(
-            "reviewStatus"
-        );
+    });
 
 
-    const name =
-        nameInput.value.trim();
+    /* ==========================================
+       REVIEW STAR SYSTEM
+    ========================================== */
 
-    const experience =
-        experienceInput.value.trim();
+    const stars =
+        document.querySelectorAll(".star");
 
-
-    if(!selectedRating){
-
-        status.textContent =
-            "Please select a star rating.";
-
-        return;
-
-    }
+    const reviewRating =
+        document.getElementById("reviewRating");
 
 
-    const rating =
-        Number(selectedRating.value);
+    stars.forEach(function(star) {
+
+        star.addEventListener("click", function() {
+
+            const rating =
+                parseInt(
+                    this.dataset.rating,
+                    10
+                );
+
+            reviewRating.value = rating;
 
 
-    if(
-        name.length < 2 ||
-        name.length > 80
-    ){
+            stars.forEach(function(item) {
 
-        status.textContent =
-            "Please enter a valid name.";
+                const itemRating =
+                    parseInt(
+                        item.dataset.rating,
+                        10
+                    );
 
-        return;
+                item.classList.toggle(
+                    "active",
+                    itemRating <= rating
+                );
 
-    }
+            });
 
+        });
 
-    if(
-        experience.length < 5 ||
-        experience.length > 1000
-    ){
-
-        status.textContent =
-            "Please write at least 5 characters.";
-
-        return;
-
-    }
+    });
 
 
-    button.disabled = true;
+    /* ==========================================
+       SUBMIT REVIEW
+    ========================================== */
 
-    button.textContent =
-        "SUBMITTING...";
+    const reviewForm =
+        document.getElementById("reviewForm");
 
-    status.textContent =
-        "";
+    const reviewMessage =
+        document.getElementById("reviewMessage");
 
 
-    try{
+    reviewForm.addEventListener("submit", async function(e) {
 
-        const response =
-            await fetch(
-                SUPABASE_URL +
-                "/rest/v1/reviews",
-                {
-                    method:"POST",
+        e.preventDefault();
 
-                    headers:{
-                        "Content-Type":
-                            "application/json",
 
-                        "apikey":
-                            SUPABASE_KEY,
+        const name =
+            document
+                .getElementById("reviewName")
+                .value
+                .trim();
 
-                        "Authorization":
-                            "Bearer " +
-                            SUPABASE_KEY,
-
-                        "Prefer":
-                            "return=minimal"
-                    },
-
-                    body:JSON.stringify({
-                        name:name,
-                        rating:rating,
-                        experience:experience
-                    })
-                }
+        const rating =
+            parseInt(
+                reviewRating.value,
+                10
             );
 
+        const experience =
+            document
+                .getElementById("reviewExperience")
+                .value
+                .trim();
 
-        if(!response.ok){
 
-            const errorText =
-                await response.text();
+        if (rating < 1 || rating > 5) {
 
-            throw new Error(
-                errorText ||
-                "Review submission failed."
+            showReviewMessage(
+                "Please select a star rating.",
+                "error"
             );
+
+            return;
 
         }
 
 
-        status.textContent =
-            "Thank you! Your review is now visible.";
+        showReviewMessage(
+            "Submitting your review...",
+            "success"
+        );
 
-        status.style.color =
-            "#287a45";
+
+        const {
+            error
+        } = await supabaseClient
+            .from("reviews")
+            .insert({
+
+                name: name,
+
+                rating: rating,
+
+                experience: experience
+
+            });
 
 
-        document
-            .querySelector(".review-form")
-            .reset();
+        if (error) {
+
+            console.error(
+                "Review error:",
+                error
+            );
+
+            showReviewMessage(
+                "Unable to submit review. Please try again.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        reviewForm.reset();
+
+        reviewRating.value = 0;
+
+
+        stars.forEach(function(star) {
+
+            star.classList.remove("active");
+
+        });
+
+
+        showReviewMessage(
+            "Thank you! Your review has been published.",
+            "success"
+        );
 
 
         await loadReviews();
 
+    });
 
-    }catch(error){
 
-        console.error(error);
+    function showReviewMessage(message, type) {
 
-        status.textContent =
-            "Sorry, your review could not be submitted. Please try again.";
+        reviewMessage.textContent = message;
 
-        status.style.color =
-            "#a33a3a";
+        reviewMessage.style.display = "block";
 
-    }finally{
-
-        button.disabled = false;
-
-        button.textContent =
-            "SUBMIT REVIEW";
+        reviewMessage.style.color =
+            type === "error"
+                ? "#b42318"
+                : "#287a42";
 
     }
 
-}
 
+    /* ==========================================
+       ESCAPE HTML
+    ========================================== */
 
-/* Load reviews when page opens */
+    function escapeHTML(value) {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+        return String(value)
 
-        loadReviews();
+            .replace(/&/g, "&amp;")
+
+            .replace(/</g, "&lt;")
+
+            .replace(/>/g, "&gt;")
+
+            .replace(/"/g, "&quot;")
+
+            .replace(/'/g, "&#039;");
 
     }
-);
+
+
+    /* ==========================================
+       LOAD PUBLIC REVIEWS
+    ========================================== */
+
+    async function loadReviews() {
+
+        const reviewsList =
+            document.getElementById("reviewsList");
+
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+
+            .from("reviews")
+
+            .select(
+                "id, name, rating, experience, created_at"
+            )
+
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Review loading error:",
+                error
+            );
+
+            reviewsList.innerHTML = `
+
+                <p style="text-align:center;">
+                    Reviews could not be loaded right now.
+                </p>
+
+            `;
+
+            return;
+
+        }
+
+
+        if (!data || data.length === 0) {
+
+            reviewsList.innerHTML = `
+
+                <p style="text-align:center;">
+                    Be the first to review Shree Shatrunjay.
+                </p>
+
+            `;
+
+            return;
+
+        }
+
+
+        reviewsList.innerHTML =
+            data.map(function(review) {
+
+                const safeName =
+                    escapeHTML(review.name);
+
+                const safeExperience =
+                    escapeHTML(review.experience);
+
+
+                const starsHTML =
+                    "★".repeat(review.rating) +
+                    "☆".repeat(5 - review.rating);
+
+
+                const date =
+                    new Date(
+                        review.created_at
+                    ).toLocaleDateString(
+                        "en-IN",
+                        {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric"
+                        }
+                    );
+
+
+                return `
+
+                    <div class="review-card">
+
+                        <div class="review-header">
+
+                            <div class="review-name">
+                                ${safeName}
+                            </div>
+
+                            <div class="review-date">
+                                ${date}
+                            </div>
+
+                        </div>
+
+
+                        <div class="review-stars">
+                            ${starsHTML}
+                        </div>
+
+
+                        <div class="review-experience">
+                            ${safeExperience}
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+    }
+
+
+    /* ==========================================
+       LOAD REVIEWS ON PAGE LOAD
+    ========================================== */
+
+    loadReviews();
+
 
 </script>
 
